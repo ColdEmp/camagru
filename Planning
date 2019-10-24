@@ -1,0 +1,22 @@
+Boolean values in dbs (yes/no)
+
+User database{
+	User names
+	passwords(encrypted)
+	User emails
+	User notification preferences(boolean)
+}
+Image db {
+	Creation date
+	blob
+	image name
+	Owner ID
+	edited(boolean)
+}
+
+image
+
+sticker db{
+	blob
+	name
+}
