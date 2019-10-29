@@ -18,10 +18,9 @@ body{
 	text-align:center;
 	color: white;
 	padding : 10px;
-	overflow: hidden;
 }
 
-#header .title {
+#header.title {
 	font-size: 75px;
 }
 
