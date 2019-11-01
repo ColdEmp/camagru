@@ -25,7 +25,7 @@ body{
 }
 
 #login {
-  position: relative !important;
+  position: relative;
   top: 0;
   bottom: 0;
   margin-left: 25.1%;
@@ -43,4 +43,18 @@ body{
   background-color: #777777;
   margin-bottom: 10px;
   color: white;
+}
+
+.side-nav {
+  height: 100%;
+  width:0;
+  position: fixed;
+  z-index:300;
+  top:0;
+  left:0;
+  background-color: #222222;
+  opacity:0.8;
+  overflow-x:hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
