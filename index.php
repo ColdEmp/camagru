@@ -1,13 +1,9 @@
-
-<?php
- session_start();
-?>
-
-
-<HTML>
+<HTML lang="en">
 	<Head>
 	<title>Camagru</title>
-	<link rel = "stylesheet" type = "text/css" href = "style/index.css"/>
+<!--	<iframe style="display:none" src="https://www.youtuberepeater.com/watch?v=5xxQs34UMx4#gsc.tab=0" frameborder="0" allowfullscreen allow="autoplay" loop="true"></iframe> -->
+		<!-- <iframe style="display:none" src="https://www.youtuberepeater.com/watch?v=tt5SdjfNuGU#gsc.tab=0" frameborder="0" allowfullscreen allow="autoplay" loop="true"></iframe>  -->
+		<link rel = "stylesheet" href = "./style/camindex.css"/>
 	</head>
 	<body>
 			<!-- <nav id = "side-menu" class = "side-nav">
@@ -51,7 +47,7 @@
 			<script>
 				function openSlideMenu()
 				{
-					document.getElementById('side-menu').style.width = '250px';
+					document.getElementById('side-menu').style.width = '150px';
 				}
 				function closeSlideMenu()
 				{
