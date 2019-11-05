@@ -1,9 +1,19 @@
 <?php
 include_once "functions.php";
-$localhost = "localhost:3306";
-$connection = new mysqli($localhost,"server01","Password@php1");
+$host = 'localhost:3306';
+$user = 'server01';
+$password = 'Password@php1';
+$dbname = 'camgru_db';
+
+// Set DSN
+//$dsn = 'mysql:host=' . $host . ';dbname=' . $bdname;
+
+// Create a PDO instance
+// $pdo = new PDO($dsn, $user, $password);//connection
+
+$connection = new mysqli($host,$user,$password);
 mysqli_query($connection,"CREATE DATABASE IF NOT EXISTS camagru_db");
-//$db = mysqli_connect($localhost,"server01","Password@php1","camagru_db");//unnessasary I think, see *
+//$db = mysqli_connect($host,"server01","Password@php1","camagru_db");//unnessasary I think, see *
 mysqli_select_db($connection, 'camagru_db');//*
 
 //user table
