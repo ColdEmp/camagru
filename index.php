@@ -6,7 +6,7 @@
 		<link rel = "stylesheet" href = "./style/bulma.css"/>
 		<link rel = "stylesheet" href = "./style/index.css"/>
 	</head> -->
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
   <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title has-text-centered">
         Hello World
       </h1>
       <p class="subtitle">
