@@ -31,7 +31,7 @@ $surname = "surname TEXT(50)";
 $email = "email TEXT(50)";
 $user_password = "user_password TEXT(50000)";
 $notification_pref = "notifications BOOLEAN";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($username,$firstname,$surname,$user_password,$email,$notification_pref)");
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($username,$firstname,$surname,$email,$user_password,$notification_pref)");
 if($statement->execute())
 {
     echo "Success Users\n";
