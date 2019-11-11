@@ -1,22 +1,22 @@
-Boolean values in dbs (yes/no)
-
-User database{
-	User names
-	passwords(encrypted)
-	User emails
-	User notification preferences(boolean)
-}
-Image db {
-	Creation date
-	blob
-	image name
-	Owner ID
-	edited(boolean)
+TIMOTHY
+{
+	11:November
+	Set up a session start function which index.php can call to setup the guest user details
+	Set up a functions tht runs database.php and setup.php
+	Find a way to take inputs from text inputs
 }
 
-image
+CAMERON
+{
+	11:November
+	Create the delete, add and edit functions for the database
+	Create basic encryption and decryption functions
+	Create basic validation
+}
 
-sticker db{
-	blob
-	name
+HEINRICH:
+{
+	Create index.html with a login page
+	Create a sign-up page
+	Create a user profile page
 }
