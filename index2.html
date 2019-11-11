@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html style = "height:100%">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Camagru</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
-  <body class = "has-background-grey-light">
+  <body class = "has-background-grey-light" style = "height:100%">
 	<!-- Hero Banner-->
    		<div class="hero has-background-grey-dark has-text-centered">
      		<h1 class="title is-1 has-text-light">CAMAGRU</h1>
@@ -35,46 +34,43 @@
 							<li><a>View your gallery</a></li>
 						  	<li><a>View camagru gallery</a></li>
 						</ul>
-						<p class="menu-label">
-							Transactions
-						</p>
-						<ul class="menu-list">
-							<li><a>Payments</a></li>
-							<li><a>Transfers</a></li>
-							<li><a>Balance</a></li>
-						</ul>
 					</aside>
 			</div>
+			<!-- END OF SIDE MENU -->
 			<!-- LOGIN -->
 			<div class="column is-half">
-				<div class="box has-text-centered has-background-grey-dark">
+				<div class="box has-text-centered has-background-grey-dark" style = "margin:auto">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
 					<div class="field">
 							<div class="control">
-									<input class="input" type="text" placeholder="Username">
+									<input class="input is-large" type="text" placeholder="Username">
 							</div>
 					</div>
 					<div class="field">
 							<div class="control">
-									<input class="input" type="password" placeholder="Password">
+									<input class="input is-large" type="password" placeholder="Password">
 							</div>
 					</div>
+
 				</div>
 			</div>
+			<!-- END OF LOGIN -->
 			<div class="column"></div>
 		</div>
 		<!-- <div class="box has-background-grey">
 			<h1 class="title is-3">Login</h1>
 		</div> -->
 	</section>
-	<section clas = "section">
-		<footer class="footer has-background-grey">
-			<div class="content has-text-centered has-text-light">
-				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanvil</a>,
-				 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
-				 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
-			</div>
-		</footer>
-	</section>
+	<footer class="footer has-background-grey" style = "padding-top: 20px;
+    padding-bottom: 20px;
+    position:fixed;
+    bottom:0;
+    width:100%;">
+		<div class="content has-text-centered has-text-light">
+			<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
+			 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
+			 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
+		</div>
+	</footer>
   </body>
 </html>
