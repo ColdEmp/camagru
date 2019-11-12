@@ -5,11 +5,14 @@ $user = 'server01';
 $password = 'Password@php1';
 $dbname = 'camgru_db';
 
-try{
-$dsn = 'mysql:host=' . $host;
-// $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
-$connection = new PDO($dsn, $user, $password);
-}catch(PDOException $e){
+try
+{
+    $dsn = 'mysql:host=' . $host;
+    // $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
+    $connection = new PDO($dsn, $user, $password);
+}
+catch(PDOException $e)
+{
     die('Connection Error: ' . $e->getMessage() );
 }
 //$connection = new mysqli($host,$user,$password);
@@ -21,8 +24,8 @@ if($statement->execute())
 //mysqli_query($connection,"CREATE DATABASE IF NOT EXISTS camagru_db");
 //$db = mysqli_connect($host,"server01","Password@php1","camagru_db");
 // mysqli_select_db($connection, 'camagru_db');
-$dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
-$connection = new PDO($dsn, $user, $password);
+//$dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
+$connection = open_connection();//new PDO($dsn, $user, $password);
 
 //user table
 $username = "username TEXT(50)";
