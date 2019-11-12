@@ -32,7 +32,7 @@
 							Profile
 						</p>
 						<ul class="menu-list">
-							<li><a class = "is-inactive">View Profile</a></li>
+							<li><a>View Profile</a></li>
 							<li><a>Edit Profile</a></li>
 							<li><a>Logout</a></li>
 						</ul>

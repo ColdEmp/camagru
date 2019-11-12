@@ -8,3 +8,7 @@ html{
 	bottom:0;
 	width:100%;
   }
+  .hbutton{
+	position: fixed !important;
+	margin-left: -47.8%;
+ }
