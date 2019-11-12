@@ -26,12 +26,15 @@ function add_user($username, $firstname, $surname, $email, $raw_password)
         $column = "(username,firstname,surname,email,user_password,notification_pref)";
         $hashed_password = hasher($raw_password);
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO Users $column VALUES ('$username','$firstname','$surname','$email',$hashed_password,$notification_pref)");
-        $statement->execute();
+        $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$firstname','$surname','$email','$hashed_password','$notification_pref')");
+        if($statement->execute())
+        {
+            echo "Success add_user\n";
+        }
     }
     catch(PDOException $e)
     {
-    die('Failed to add user: ' . $e->getMessage() );
+        die('Failed to add user: ' . $e->getMessage() );
     }
 }
 
