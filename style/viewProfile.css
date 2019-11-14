@@ -20,12 +20,31 @@ html{
 
  .b_1 {
 	 border: 2px solid white !important;
-	 padding: 5px !important;
+	 padding: 1rem !important;
 	 text-align: left;
+ }
+ a.inactivelink{
+	color: currentColor;
+	cursor: not-allowed;
+	opacity: 0.5;
+	text-decoration: none;
+ }
+ a.inactivelink:hover{
+	background-color: unset;
  }
  #user_name{
 	float: right;
  }
  #user_email{
 	float: right;
+}
+#edt_name{
+	float:left;
+}
+#edt_email{
+	float:right;
+}
+#prof_box{
+	padding-bottom:3rem;
+	margin:auto;
 }

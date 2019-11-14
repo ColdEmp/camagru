@@ -15,7 +15,8 @@
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
-	</div>
+	</div>\
+	<!-- Main Content -->
 	<section class="section">
 		<div class="columns">
 			<div class="column">
@@ -24,7 +25,7 @@
 						Profile
 					</p>
 					<ul class="menu-list">
-						<li><a href = "#">View Profile</a></li>
+						<li><a class = "inactivelink">View Profile</a></li>
 						<li><a>Logout</a></li>
 					</ul>
 					<p class="menu-label">
@@ -32,19 +33,23 @@
 					</p>
 					<ul class="menu-list">
 						<li><a>Edit a photo</a></li>
-						<li><a>View camagru gallery</a></li>
+						<li><a>View gallery</a></li>
 					</ul>
 				</aside>
 			</div>
-			<div class="column">
-				<div class="box has-text-centered has-background-grey-dark">
+			<div class="column is-half">
+				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<h1 class="title is-3 has-text-light">PROFILE</h1>
-						<ul class="menu-list has-text-light b_1">
-							<li><p>UserName:<span id = "user_name">	NAME</span></p></li>
-						</ul>
-						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:<span id = "user_email">wet.email.co.za</span></p></li>
-						</ul>
+					<ul class="menu-list has-text-light b_1">
+						<li><p>UserName:<span id = "user_name">	NAME</span></p></li>
+					</ul>
+					<ul class="menu-list has-text-light b_1">
+						<li><p>Email Address:<span id = "user_email">wet.email.co.za</span></p></li>
+					</ul>
+					<div style = "padding:10px 0 10px 0">
+						<a class = "button" id = "edt_name" href = "#">Edit Username</a>
+						<a class = "button" id = "edt_email"href = "#">Change Email</a>
+				</div>
 				</div>
 			</div>
 			<div class="column">
