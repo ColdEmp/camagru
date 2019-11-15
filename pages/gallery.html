@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Camagru</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<link rel="stylesheet" href="../style/viewProfile.css">
+	<link rel="stylesheet" href="../style/gallery.css">
   </head>
   <body>
 	<!-- Hero Banner-->
@@ -15,7 +15,7 @@
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
-	</div>
+	</div>\
 	<!-- Main Content -->
 	<section class="section">
 		<div class="columns">
@@ -25,7 +25,7 @@
 						Profile
 					</p>
 					<ul class="menu-list">
-						<li><a class = "inactivelink">View Profile</a></li>
+						<li><a href = "./viewProfile.html">View Profile</a></li>
 						<li><a>Logout</a></li>
 					</ul>
 					<p class="menu-label">
@@ -33,24 +33,45 @@
 					</p>
 					<ul class="menu-list">
 						<li><a>Editor</a></li>
-						<li><a href = "./gallery.html">View gallery</a></li>
+						<li><a class = "inactivelink">View gallery</a></li>
 					</ul>
 				</aside>
 			</div>
 			<div class="column is-half">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
-					<h1 class="title is-3 has-text-light">PROFILE</h1>
-					<ul class="menu-list has-text-light b_1">
-						<li><p>UserName:<span id = "user_name">	NAME</span></p></li>
-					</ul>
-					<ul class="menu-list has-text-light b_1">
-						<li><p>Email Address:<span id = "user_email">wet.email.co.za</span></p></li>
-					</ul>
-					<div style = "padding:10px 0 10px 0">
-						<!-- Take to relevant edit page -->
-						<a class = "button" id = "edt_name" href = "#">Edit Username</a>
-						<a class = "button" id = "edt_email"href = "#">Change Email</a>
-				</div>
+					<img src="../images/illidan1.jpeg" alt="test" class="image">
+					<article class="media">
+							<figure class="media-left">
+							  <p class="image is-64x64">
+								<img src="https://versions.bulma.io/0.8.0/images/placeholders/128x128.png">
+							  </p>
+							</figure>
+							<div class="media-content">
+							  <div class="content">
+								<p>
+								  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+								  <br>
+								  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+								</p>
+							  </div>
+							  <nav class="level is-mobile">
+								<div class="level-left">
+								  <a class="level-item">
+									<span class="icon is-small"><i class="fas fa-reply"></i></span>
+								  </a>
+								  <a class="level-item">
+									<span class="icon is-small"><i class="fas fa-retweet"></i></span>
+								  </a>
+								  <a class="level-item">
+									<span class="icon is-small"><i class="fas fa-heart"></i></span>
+								  </a>
+								</div>
+							  </nav>
+							</div>
+							<div class="media-right">
+							  <button class="delete"></button>
+							</div>
+						  </article>
 				</div>
 			</div>
 			<div class="column">
