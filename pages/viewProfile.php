@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<HTML>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="stylesheet" href="../style/viewProfile.css">
+  <HEAD>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Camagru</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<link rel="stylesheet" href="../style/viewProfile.css">
-  </head>
-  <body>
+</HEAD>
+  <BODY>
 	<!-- Hero Banner-->
 	<div class="Level has-background-grey-dark has-text-centered">
 		<div style = "display: inline;">
@@ -50,7 +50,7 @@
 						<!-- Take to relevant edit page -->
 						<a class = "button" id = "edt_name" href = "#">Edit Username</a>
 						<a class = "button" id = "edt_email"href = "#">Change Email</a>
-				</div>
+					</div>
 				</div>
 			</div>
 			<div class="column">
@@ -58,12 +58,12 @@
 			</div>
 		</div>
 	</section>
-		<footer class="credits has-background-grey">
-				<div class="content has-text-centered has-text-light">
-					<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
-					 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
-					 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
-				</div>
-		</footer>
-  </body>
-</html>
+	<footer class="credits has-background-grey">
+			<div class="content has-text-centered has-text-light">
+				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
+				 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
+				 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
+			</div>
+	</footer>
+</BODY>
+</HTML>
