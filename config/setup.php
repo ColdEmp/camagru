@@ -28,13 +28,13 @@ if($statement->execute())
 $connection = open_connection();//new PDO($dsn, $user, $password);
 
 //user table
-$userId = "userId TEXT(50)";
+$userId = "userId INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
 $username = "username TEXT(50)";
 $email = "email TEXT(50)";
-$password = "password TEXT(50000)";
-$verification_token = "verification_token TEXT(1000)";
-$verified = "verified BOOLEAN";
-$notifications = "notifications BOOLEAN";
+$password = "password TEXT(255)";
+$verification_token = "verification_token TEXT(50)";
+$verified = "verified BOOLEAN DEFAULT FALSE";
+$notifications = "notifications BOOLEAN DEFAULT TRUE";
 $statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userId,$username,$email,$password,$verification_token,$verified,$notifications)");
 if($statement->execute())
 {
