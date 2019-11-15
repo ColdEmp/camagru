@@ -39,7 +39,8 @@
 						</div>
 					</div>
 					<div>
-						<!-- Take in input from inputs -->
+						<!-- Take in input from inputs 
+							 And parse it along to Cameron's functions-->
 						<input type="submit" class="button is-light">
 					</div>
 				</div>
