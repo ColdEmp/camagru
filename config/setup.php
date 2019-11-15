@@ -32,10 +32,10 @@ $userId = "userId TEXT(50)";
 $username = "username TEXT(50)";
 $email = "email TEXT(50)";
 $password = "password TEXT(50000)";
-$varification_token = "varification_token TEXT(1000)";
-$varified = "varified BOOLEAN";
+$verification_token = "verification_token TEXT(1000)";
+$verified = "verified BOOLEAN";
 $notifications = "notifications BOOLEAN";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userId,$username,$email,$password,$varification_token,$varified,$notifications)");
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userId,$username,$email,$password,$verification_token,$verified,$notifications)");
 if($statement->execute())
 {
     echo "Success Users<br />";
