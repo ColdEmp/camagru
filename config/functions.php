@@ -13,20 +13,26 @@ function open_connection()
     }
     catch(PDOException $e)
     {
-        die('Connection Error: ' . $e->getMessage() );
+        die('Connection Error: ' . $e->getMessage());
     }
     return $connection;
 }
 
-function add_user($username, $firstname, $surname, $email, $raw_password)
+function hasher($raw)
+{
+    $password = password_hash($raw,PASSWORD_DEFAULT);
+    return ($password);
+}
+
+function add_user($username,$email,$raw_password)
 {
     try
     {
-        $notification_pref = TRUE;
-        $column = "(username,firstname,surname,email,user_password,notification_pref)";
-        $hashed_password = hasher($raw_password);
+        $column = "(username,email,password,verification_token)";
+        $verification_token = random_int(1000000,9999999);
+        $password = hasher($raw_password);
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$firstname','$surname','$email','$hashed_password','$notification_pref')");
+        $statement = $connection->prepare("INSERT INTO users $column VALUES ($username,$email,$password,$verification_token)");
         if($statement->execute())
         {
             echo "Success add_user\n";
@@ -34,7 +40,7 @@ function add_user($username, $firstname, $surname, $email, $raw_password)
     }
     catch(PDOException $e)
     {
-        die('Failed to add user: ' . $e->getMessage() );
+        die('Failed to add user: ' . $e->getMessage());
     }
 }
 
