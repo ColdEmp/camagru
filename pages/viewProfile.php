@@ -11,7 +11,7 @@
 	<!-- Hero Banner-->
 	<div class="Level has-background-grey-dark has-text-centered">
 		<div style = "display: inline;">
-			<a href = "../index2.html" class = "button is-outlined hbutton">Home</a>
+			<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
@@ -33,7 +33,7 @@
 					</p>
 					<ul class="menu-list">
 						<li><a>Editor</a></li>
-						<li><a href = "./gallery.html">View gallery</a></li>
+						<li><a href = "./gallery.php">View gallery</a></li>
 					</ul>
 				</aside>
 			</div>

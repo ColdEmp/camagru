@@ -1,11 +1,3 @@
-<!-- <HTML lang="en">
-	<Head>
-	<title>Camagru</title>
-		<iframe style="display:none" src="https://www.youtuberepeater.com/watch?v=5xxQs34UMx4#gsc.tab=0" frameborder="0" allowfullscreen allow="autoplay" loop="true"></iframe>
-		<iframe style="display:none" src="https://www.youtuberepeater.com/watch?v=tt5SdjfNuGU#gsc.tab=0" frameborder="0" allowfullscreen allow="autoplay" loop="true"></iframe>
-		<link rel = "stylesheet" href = "./style/bulma.css"/>
-		<link rel = "stylesheet" href = "./style/index.css"/>
-	</head> -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,24 +17,21 @@
 	<!-- Main body -->
 		<div class="columns">
 			<!--Side Menu-->
-			<div class="column">
+			<div class="column" style = "width : 0% !important">
 					<aside class="menu">
-
 						<p class="menu-label">
 							Profile
 						</p>
 						<ul class="menu-list">
-							<li><a>View Profile</a></li>
-							<li><a>Edit Profile</a></li>
+							<li><a href = "pages/viewProfile.php">View Profile</a></li>
 							<li><a>Logout</a></li>
 						</ul>
 						<p class="menu-label">
 							Editing
 						</p>
 						<ul class="menu-list">
-							<li><a>Edit a photo</a></li>
-							<li><a>View your gallery</a></li>
-						  	<li><a>View camagru gallery</a></li>
+							<li><a>Editor</a></li>
+						  	<li><a href = "./pages/gallery.php">View gallery</a></li>
 						</ul>
 					</aside>
 			</div>
@@ -52,9 +41,9 @@
 				<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
 					<div class="field">
-							<div class="control">
-									<input class="input is-large" type="text" placeholder="Username">
-							</div>
+						<div class="control">
+								<input class="input is-large" type="text" placeholder="Username">
+						</div>
 					</div>
 					<div class="field">
 						<div class="control">
@@ -63,7 +52,7 @@
 					</div>
 					<div>
 						<button class="button" id = "loginbutton">Login</button>
-						<a href="./signup.html" class="button" id = "signupbutton">Sign up</a>
+						<a href="./pages/signup.php" class="button" id = "signupbutton">Sign up</a>
 					</div>
 				</div>
 			</div>
