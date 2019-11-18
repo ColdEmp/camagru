@@ -1,16 +1,9 @@
 <?php
- session_start();
+ include_once "./pages/header.php";
 ?>
-
-<!DOCTYPE html>
-<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Camagru</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 	<link rel="stylesheet" href="./style/gallery.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
 	<!-- Hero Banner-->
@@ -31,13 +24,7 @@
 					<ul class="menu-list">
 						<li><a href = "./pages/viewProfile.php">View Profile</a></li>
 						<li><a>Logout</a></li>
-					</ul>
-					<p class="menu-label">
-						Editing
-					</p>
-					<ul class="menu-list">
 						<li><a>Editor</a></li>
-						<li><a class = "inactivelink">View gallery</a></li>
 					</ul>
 				</aside>
 			</div>
