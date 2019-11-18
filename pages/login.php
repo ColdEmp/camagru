@@ -13,6 +13,7 @@
   <body>
 	<!-- Hero Banner-->
    	<div class="hero has-background-grey-dark has-text-centered">
+	   <a href = "../index.php" class = "button is-outlined hbutton">Home</a>
     	<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 	 	<p class="subtitle has-text-light">A social media app!</p>
 	</div>
@@ -26,7 +27,7 @@
 							Profile
 						</p>
 						<ul class="menu-list">
-							<li><a href = "pages/viewProfile.php">View Profile</a></li>
+							<li><a href = "./viewProfile.php">View Profile</a></li>
 							<li><a>Logout</a></li>
 						</ul>
 						<p class="menu-label">
@@ -34,7 +35,7 @@
 						</p>
 						<ul class="menu-list">
 							<li><a>Editor</a></li>
-						  	<li><a href = "./pages/gallery.php">View gallery</a></li>
+						  	<li><a href = "../index.php">View gallery</a></li>
 						</ul>
 					</aside>
 			</div>
