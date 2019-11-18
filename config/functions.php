@@ -41,4 +41,15 @@ function add_user()
     }
 }
 
+function change_password($username, $new_password)
+{
+    try
+    {
+        $column = "(password)";
+    }
+    catch(PDOException $e)
+    {
+        die('Failed to change password: ' . $e->getMessage());
+    }
+}
 ?>
