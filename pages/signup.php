@@ -24,6 +24,7 @@
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark">
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
+					<form method="post">
 					<div class="field">
 						<div class="control">
 							<input class="input is-large" type="text" name="username_signup" placeholder="Username" required>
@@ -44,6 +45,7 @@
 							 And parse it along to Cameron's functions-->
 						<input type="submit" class="button is-light" onclick="myFunction()">
 					</div>
+					</form>
 				</div>
 			</div>
 			<div class="column">
