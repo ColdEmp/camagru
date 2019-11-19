@@ -43,19 +43,22 @@
 					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
-						<input type="submit" class="button is-light" onclick="myFunction()">
+						<button type="submit" class="button is-light" name = "submit" value = "submit" onclick="">Sumbitch</button>
 					</div>
 					</form>
+					<!-- removed php bit -->
 				</div>
 			</div>
 			<div class="column">
 			<!-- Testing how to make event thingies -->
+
 				<div>
-					<input type="submit" class="button is-light" onclick="echo(Yo momma)">
+					<!-- <input type="submit" class="button is-light" onclick="echo(Yo momma)"> -->
 					<p>Some stuff is going in here</p>
 					<p id="demo"></p>
 
 					<button onclick="myFunction()">Click me</button>
+					
 
 					<p id="demo"></p>
 
@@ -64,7 +67,18 @@
 					<script>
 					function myFunction() {
 					  document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
-					  add_user("username_signup", "password_signup", "email_signup");
+					  <?php
+						if(isset($_POST['submit']))
+						{
+							$username = $_POST["username_signup"];
+							$email = $_POST["email_signup"];
+							$raw_password = $_POST["password_signup"];
+							add_user($username, $email, $raw_password);
+
+						}
+
+					?>
+					//   add_user("username_signup", "password_signup", "email_signup");
 					}
 					</script>
 

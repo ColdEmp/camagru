@@ -23,13 +23,12 @@ function button_test()
     echo ("Hello World");
 }
 
-function add_user()
+function add_user($username, $email, $raw_password)
 {
+    echo "REEEEEEEEEEEEEEEEEEEEEEEEEEEE2EEEEEEEEEEEEEEEEEEEEEEEEEEEE";
     try
     {
-        $username = document.getElementById("username_signup");
-        $email = document.getElementById("email_signup");
-        $raw_password = document.getElementById("password_signup");
+        echo "REEEEEEEEEEEEEEEEEEEEEEEEEE1EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
         $column = "(username,email,password,verification_token)";
         $verification_token = random_int(1000000,9999999);
         $password = hash("whirlpool", $raw_password);
@@ -42,6 +41,7 @@ function add_user()
     }
     catch(PDOException $e)
     {
+        echo "REEEEEEEEEEEEEEEEEEEEEEEE3EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
         die('Failed to add user: ' . $e->getMessage());
     }
 }
