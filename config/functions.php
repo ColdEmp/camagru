@@ -18,6 +18,11 @@ function open_connection()
     return $connection;
 }
 
+function button_test()
+{
+    echo ("Hello World");
+}
+
 function add_user()
 {
     try

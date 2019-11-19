@@ -41,12 +41,32 @@
 					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
-						<input type="submit" class="button is-light" onclick="add_user()">
+						<input type="submit" class="button is-light" onclick="myFunction()">
 					</div>
 				</div>
 			</div>
 			<div class="column">
+			<!-- Testing how to make event thingies -->
+				<div>
+					<input type="submit" class="button is-light" onclick="echo(Yo momma)">
+					<p>Some stuff is going in here</p>
+					<p id="demo"></p>
 
+					<button onclick="myFunction()">Click me</button>
+
+					<p id="demo"></p>
+
+					<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
+
+					<script>
+					function myFunction() {
+					  document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
+					  add_user("username_signup", "password_signup", "email_signup");
+					}
+					</script>
+
+				</div>
+			<!-- Thingie test ends here -->
 			</div>
 		</div>
 	</section>
