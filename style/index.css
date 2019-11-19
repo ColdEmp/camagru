@@ -1,29 +1,8 @@
-html{
-	background-color:hsl(0, 0%, 71%);
-}
-
-.credits{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	position:fixed;
-	bottom:0;
-	width:100%;
-}
-
 .hbutton{
 	position: fixed !important;
 	margin-left: -47.8%;
 }
 
-a.inactivelink{
-	color: currentColor;
-	cursor: not-allowed;
-	opacity: 0.5;
-	text-decoration: none;
- }
- a.inactivelink:hover{
-	background-color: unset;
- }
  #prof_box{
 	padding-bottom:3rem;
 	margin:auto;
