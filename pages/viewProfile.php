@@ -27,13 +27,7 @@
 						<ul class="menu-list">
 							<li><a class = "inactivelink">View Profile</a></li>
 							<li><a>Logout</a></li>
-						</ul>
-						<p class="menu-label">
-							Editing
-						</p>
-						<ul class="menu-list">
 							<li><a>Editor</a></li>
-							<li><a href = "./gallery.php">View gallery</a></li>
 						</ul>
 					</aside>
 				</div>

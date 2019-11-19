@@ -1,8 +1,5 @@
-<?php
-	session_start();
-?>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<link rel="stylesheet" href="./style/index.css">
+	<link rel="stylesheet" href="../style/index.css">
 <!DOCTYPE html>
 <html>
   <head>
@@ -55,7 +52,7 @@
 					</div>
 					<div>
 						<button class="button" id = "loginbutton">Login</button>
-						<a href="./pages/signup.php" class="button" id = "signupbutton">Sign up</a>
+						<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 					</div>
 				</div>
 			</div>
