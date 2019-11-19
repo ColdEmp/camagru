@@ -26,28 +26,48 @@
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
 					<div class="field">
 						<div class="control">
-							<input class="input is-large" type="text" placeholder="Username">
+							<input class="input is-large" type="text" name="username_signup" placeholder="Username" required>
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							<input class="input is-large" type="password" placeholder="Password">
+							<input class="input is-large" type="password" name="password_signup" placeholder="Password" required>
 						</div>
 					</div>
 					<div class="field">
 						<div class="control">
-							<input class="input is-large" type="email" placeholder="Email">
+							<input class="input is-large" type="email" name="email_signup" placeholder="Email" required>
 						</div>
 					</div>
 					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
-						<input type="submit" class="button is-light">
+						<input type="submit" class="button is-light" onclick="myFunction()">
 					</div>
 				</div>
 			</div>
 			<div class="column">
+			<!-- Testing how to make event thingies -->
+				<div>
+					<input type="submit" class="button is-light" onclick="echo(Yo momma)">
+					<p>Some stuff is going in here</p>
+					<p id="demo"></p>
 
+					<button onclick="myFunction()">Click me</button>
+
+					<p id="demo"></p>
+
+					<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
+
+					<script>
+					function myFunction() {
+					  document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
+					  add_user("username_signup", "password_signup", "email_signup");
+					}
+					</script>
+
+				</div>
+			<!-- Thingie test ends here -->
 			</div>
 		</div>
 	</section>
