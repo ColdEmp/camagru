@@ -25,7 +25,7 @@ function button_test()
 
 function add_user($username, $email, $raw_password)
 {
-    // echo "REEEEEEEEEEEEEEEEEEEEEEEEEEEE2EEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+    echo "REEEEEEEEEEEEEEEEEEEEEEEEEEEE2EEEEEEEEEEEEEEEEEEEEEEEEEEEE";
     try
     {
         // console.log("REEEEEEEEEEEEEEEEEEEEEEEEEE1EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"); this is a mistake, smh
