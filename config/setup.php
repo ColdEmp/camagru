@@ -28,14 +28,14 @@ if($statement->execute())
 $connection = open_connection();//new PDO($dsn, $user, $password);
 
 //user table
-$userId = "userId INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
+$userid = "userid INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
 $username = "username TEXT(50)";
 $email = "email TEXT(50)";
-$password = "password TEXT(255)";
-$verification_token = "verification_token TEXT(50)";
+$userpass = "userpass TEXT(255)";
+$verification_token = "verification_token INT";
 $verified = "verified BOOLEAN DEFAULT FALSE";
 $notifications = "notifications BOOLEAN DEFAULT TRUE";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userId,$username,$email,$password,$verification_token,$verified,$notifications)");
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userid,$username,$email,$userpass,$verification_token,$verified,$notifications)");
 if($statement->execute())
 {
     echo "Success Users<br />";
@@ -43,11 +43,11 @@ if($statement->execute())
 // mysqli_query($connection,"CREATE TABLE IF NOT EXISTS Users ($username,$firstname,$surname,$password,$email,$notification_pref)");
 
 //image table
-$imageId = "imageId TEXT(50)";
-$userId = "userId TEXT(50)";
+$imageid = "imageid INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
+$userid = "userid INT";
 $image_src = "image_src TEXT(5000)";
 $name = "name TEXT(50)";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Images ($imageId,$userId,$image_src,$name)");
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Images ($imageid,$userid,$image_src,$name)");
 if($statement->execute())
 {
     echo "Success Images<br />";
@@ -55,10 +55,11 @@ if($statement->execute())
 // mysqli_query($connection,"CREATE TABLE IF NOT EXISTS Images ($image,$imagename,$uploader,$date_created,$edited)");
 
 //comment table
-$commentId = "commentId TEXT(50)";
-$imageId = "imageId TEXT(50)";
+$commentid = "commentid INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
+$imageid = "imageid INT";
+$userid = "userid INT";
 $comment_text = "comment_text TEXT(5000)";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Comments ($commentId,$imageId,$comment_text)");
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Comments ($commentid,$imageid,$userid,$comment_text)");
 if($statement->execute())
 {
     echo "Success Comments<br />";

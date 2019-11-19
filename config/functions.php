@@ -13,7 +13,7 @@ function open_connection()
     }
     catch(PDOException $e)
     {
-        die('Connection Error: ' . $e->getMessage());
+        die("Connection Error: " . $e->getMessage());
     }
     return $connection;
 }
@@ -22,31 +22,54 @@ function add_user($username,$email,$raw_password)
 {
     try
     {
-        $column = "(username,email,password,verification_token)";
+        $column = "(username,email,userpass,verification_token)";
         $verification_token = random_int(1000000,9999999);
-        $password = hash("whirlpool", $raw_password);
+        $userpass = hash("whirlpool", $raw_password);
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$password','$verification_token')");
+        $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$userpass','$verification_token')");
         if($statement->execute())
         {
-            echo "Success add_user\n";
+            echo "Successfully added user";
         }
     }
     catch(PDOException $e)
     {
-        die('Failed to add user: ' . $e->getMessage());
+        die("Failed to add user: " . $e->getMessage());
     }
 }
 
-function change_password($username, $new_password)
+function change_password($username,$raw_password)
 {
     try
     {
-        $column = "(password)";
+        $userpass = hash("whirlpool", $raw_password);
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET userpass='$userpass' WHERE username='$username'");
+        if($statement->execute())
+        {
+            echo "Successfully changed password";
+        }
     }
     catch(PDOException $e)
     {
-        die('Failed to change password: ' . $e->getMessage());
+        die("Failed to change password: " . $e->getMessage());
+    }
+}
+
+function remove_item($table, $column, $item)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("DELETE FROM $table WHERE $column='$item'");
+        if($statement->execute())
+        {
+            echo "Successfully deleted $item";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to delete item: " . $e->getMessage());
     }
 }
 ?>
