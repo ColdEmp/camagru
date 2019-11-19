@@ -24,21 +24,21 @@
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark">
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
-					<form method="post">
+					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<div class="field">
-						<div class="control">
+						<!-- <div class="control"> -->
 							<input class="input is-large" type="text" name="username_signup" placeholder="Username" required>
-						</div>
+						<!-- </div> -->
 					</div>
 					<div class="field">
-						<div class="control">
+						<!-- <div class="control"> -->
 							<input class="input is-large" type="password" name="password_signup" placeholder="Password" required>
-						</div>
+						<!-- </div> -->
 					</div>
 					<div class="field">
-						<div class="control">
+						<!-- <div class="control"> -->
 							<input class="input is-large" type="email" name="email_signup" placeholder="Email" required>
-						</div>
+						<!-- </div> -->
 					</div>
 					<div>
 						<!-- Take in input from inputs 
@@ -46,7 +46,6 @@
 						<button type="submit" class="button is-light" name = "submit" value = "submit" onclick="myFunction()">Sumbitch</button>
 					</div>
 					</form>
-					<!-- removed php bit -->
 				</div>
 			</div>
 			<div class="column">
