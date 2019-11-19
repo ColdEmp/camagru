@@ -25,6 +25,7 @@
 				<div class="box has-text-centered has-background-grey-dark">
 					<?php
 					if(isset($_GET[submit])){
+						add_user($_GET["username_signup"],$_GET["password_signup"],$_GET["email_signup"]);
 					}
 					?>
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
@@ -54,39 +55,6 @@
 			</div>
 			<div class="column">
 			<!-- Testing how to make event thingies -->
-
-				<div>
-					<!-- <input type="submit" class="button is-light" onclick="echo(Yo momma)"> -->
-					<p>Some stuff is going in here</p>
-					<p id="demo"></p>
-
-					<button onclick="myFunction()">Click me</button>
-					
-
-					<p id="demo"></p>
-
-					<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
-
-					<script>
-					function myFunction() {
-					  	document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
-					 	
-						if(isset($_POST['submit']))
-						{
-							$username = $_POST["username_signup"];
-							$email = $_POST["email_signup"];
-							$raw_password = $_POST["password_signup"];
-							add_user($username, $email, $raw_password);
-
-						}
-
-						
-						console.log("ZA WARUDO");
-					//   add_user("username_signup", "password_signup", "email_signup");
-					}
-					</script>
-
-				</div>
 			<!-- Thingie test ends here -->
 			</div>
 		</div>
