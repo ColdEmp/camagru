@@ -1,15 +1,16 @@
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-	<link rel="stylesheet" href="../style/index.css">
+<?php
+	include_once './header.php';
+?>
+	<link rel="stylesheet" href="./style/index.css">
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Camagru</title>
   </head>
   <body>
 	<!-- Hero Banner-->
    	<div class="hero has-background-grey-dark has-text-centered">
+	   <a href = "../index.php" class = "button is-outlined hbutton">Home</a>
     	<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 	 	<p class="subtitle has-text-light">A social media app!</p>
 	</div>
@@ -23,15 +24,9 @@
 							Profile
 						</p>
 						<ul class="menu-list">
-							<li><a href = "pages/viewProfile.php">View Profile</a></li>
+							<li><a href = "./viewProfile.php">View Profile</a></li>
 							<li><a>Logout</a></li>
-						</ul>
-						<p class="menu-label">
-							Editing
-						</p>
-						<ul class="menu-list">
 							<li><a>Editor</a></li>
-						  	<li><a href = "./pages/gallery.php">View gallery</a></li>
 						</ul>
 					</aside>
 			</div>

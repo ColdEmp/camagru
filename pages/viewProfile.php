@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<?php
+	include_once "./header.php";
+?>
 <link rel="stylesheet" href="../style/viewProfile.css">
 	<head>
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title>Camagru</title>
 	</head>
 	<body>
