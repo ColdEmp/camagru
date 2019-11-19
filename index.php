@@ -3,7 +3,7 @@
 ?>
   <head>
     <title>Camagru</title>
-	<link rel="stylesheet" href="./style/gallery.css">
+	<link rel="stylesheet" href="./style/index.css">
   </head>
   <body>
 	<!-- Hero Banner-->
@@ -28,7 +28,7 @@
 					</ul>
 				</aside>
 			</div>
-			<div class="column is-half">
+			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<div class="block">
 						<img src="./images/illidan1.jpeg" alt="test" class="image">
