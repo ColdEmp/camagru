@@ -43,7 +43,7 @@
 					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
-						<button type="submit" class="button is-light" name = "submit" value = "submit" onclick="">Sumbitch</button>
+						<button type="submit" class="button is-light" name = "submit" value = "submit" onclick="myFunction">Sumbitch</button>
 					</div>
 					</form>
 					<!-- removed php bit -->
@@ -67,7 +67,7 @@
 					<script>
 					function myFunction() {
 					  document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
-					  <?php
+					 console.log( <?php
 						if(isset($_POST['submit']))
 						{
 							$username = $_POST["username_signup"];
@@ -77,7 +77,8 @@
 
 						}
 
-					?>
+						?>);
+						console.log("ZA WARUDO");
 					//   add_user("username_signup", "password_signup", "email_signup");
 					}
 					</script>
