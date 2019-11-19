@@ -53,6 +53,41 @@
 				</div>
 			</div>
 			<div class="column">
+			<!-- Testing how to make event thingies -->
+
+				<div>
+					<!-- <input type="submit" class="button is-light" onclick="echo(Yo momma)"> -->
+					<p>Some stuff is going in here</p>
+					<p id="demo"></p>
+
+					<button onclick="myFunction()">Click me</button>
+					
+
+					<p id="demo"></p>
+
+					<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
+
+					<script>
+					function myFunction() {
+					  	document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
+					 	
+						if(isset($_POST['submit']))
+						{
+							$username = $_POST["username_signup"];
+							$email = $_POST["email_signup"];
+							$raw_password = $_POST["password_signup"];
+							add_user($username, $email, $raw_password);
+
+						}
+
+						
+						console.log("ZA WARUDO");
+					//   add_user("username_signup", "password_signup", "email_signup");
+					}
+					</script>
+
+				</div>
+			<!-- Thingie test ends here -->
 			</div>
 		</div>
 	</section>

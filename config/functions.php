@@ -27,7 +27,6 @@ function add_user($username, $email, $raw_password)
 {
     try
     {
-
         $column = "(username,email,password,verification_token)";
         $verification_token = random_int(1000000,9999999);
         $password = hash("whirlpool", $raw_password);
