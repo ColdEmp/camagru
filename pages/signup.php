@@ -66,7 +66,7 @@
 					<script>
 					function myFunction() {
 					  	document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
-					 	
+						<?PHP
 						if(isset($_POST['submit']))
 						{
 							$username = $_POST["username_signup"];
@@ -75,8 +75,8 @@
 							add_user($username, $email, $raw_password);
 
 						}
-
 						
+						?>						
 						console.log("ZA WARUDO");
 					//   add_user("username_signup", "password_signup", "email_signup");
 					}
