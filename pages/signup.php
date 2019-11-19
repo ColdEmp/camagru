@@ -1,5 +1,6 @@
 <?php
 	include_once './header.php';
+	include_once 'function.php';
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
 					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
-						<input type="submit" class="button is-light" onclick="myFunction()">
+						<input type="submit" class="button is-light" onclick="add_user()">
 					</div>
 				</div>
 			</div>
