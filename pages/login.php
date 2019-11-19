@@ -1,7 +1,7 @@
 <?php
 	include_once './header.php';
 ?>
-	<link rel="stylesheet" href="./style/login.css">
+	<link rel="stylesheet" href="../style/login.css">
   <head>
     <title>Camagru</title>
   </head>
