@@ -1,3 +1,4 @@
+
 html{
 	background-color:hsl(0, 0%, 71%);
 }
@@ -9,12 +10,6 @@ html{
 	bottom:0;
 	width:100%;
 }
-
-.hbutton{
-	position: fixed !important;
-	margin-left: -47.8%;
-}
-
 a.inactivelink{
 	color: currentColor;
 	cursor: not-allowed;
@@ -24,7 +19,19 @@ a.inactivelink{
  a.inactivelink:hover{
 	background-color: unset;
  }
- #prof_box{
-	padding-bottom:3rem;
-	margin:auto;
+   
+.hbutton{
+	position: fixed !important;
+	margin-left: -47.8%;
+}
+
+#loginbox{
+  padding-bottom:3rem;
+  margin:auto;
+}
+#loginbutton{
+  float:left;
+}
+#signupbutton{
+  float:right;
 }

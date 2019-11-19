@@ -18,7 +18,12 @@ function open_connection()
     return $connection;
 }
 
-function add_user($username,$email,$raw_password)
+function button_test()
+{
+    echo ("Hello World");
+}
+
+function add_user($username, $email, $raw_password)
 {
     try
     {

@@ -1,17 +1,30 @@
+ 
 html{
 	background-color:hsl(0, 0%, 71%);
-  }
+}
+
 .credits{
 	padding-top: 20px;
 	padding-bottom: 20px;
 	position:fixed;
 	bottom:0;
 	width:100%;
-  }
-  .hbutton{
+}
+a.inactivelink{
+	color: currentColor;
+	cursor: not-allowed;
+	opacity: 0.5;
+	text-decoration: none;
+ }
+ a.inactivelink:hover{
+	background-color: unset;
+ }
+   
+.hbutton{
 	position: fixed !important;
 	margin-left: -47.8%;
- }
+}
+
  #details{
 	border-style: solid;
 	border-width: 5px;
@@ -23,15 +36,7 @@ html{
 	 padding: 1rem !important;
 	 text-align: left;
  }
- a.inactivelink{
-	color: currentColor;
-	cursor: not-allowed;
-	opacity: 0.5;
-	text-decoration: none;
- }
- a.inactivelink:hover{
-	background-color: unset;
- }
+
  #user_name{
 	float: right;
  }
