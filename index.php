@@ -3,7 +3,7 @@
 ?>
   <head>
     <title>Camagru</title>
-	<link rel="stylesheet" href="./style/gallery.css">
+	<link rel="stylesheet" href="./style/index.css">
   </head>
   <body>
 	<!-- Hero Banner-->
@@ -28,17 +28,16 @@
 					</ul>
 				</aside>
 			</div>
-			<div class="column is-half">
+			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<div class="block">
-						<img src="../images/illidan1.jpeg" alt="test" class="image">
+						<img src="./images/illidan1.jpeg" alt="test" class="image">
 						<article class="media">
 							<figure class="media-left">
 								<p class="image is-64x64">
-								<img src="https://versions.bulma.io/0.8.0/images/placeholders/128x128.png">
 							</p>
-						</figure>
-						<div class="media-content">
+							</figure>
+							<div class = "media-content">
 							<div class="content has-text-light">
 								<p>
 									<strong class="has-text-light is-4">USERNAME</strong>
@@ -51,12 +50,12 @@
 									<a class="level-item">
 										<span class="icon is-small"><i class="fa fa-comment"></i></span>
 									</a>
-								  	<a class="level-item">
+								 	<a class="level-item">
 										<span class="icon is-small"><i class="fa fa-heart"></i></span>
 									</a>
 								</div>
-							  </nav>
-							</div>
+							</nav>
+						</div>		
 							<div class="media-right">
 							  <button class="delete"></button>
 							</div>

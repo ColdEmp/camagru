@@ -1,9 +1,7 @@
 <?php
 	include_once './header.php';
 ?>
-	<link rel="stylesheet" href="./style/index.css">
-<!DOCTYPE html>
-<html>
+	<link rel="stylesheet" href="./style/login.css">
   <head>
     <title>Camagru</title>
   </head>
@@ -47,7 +45,7 @@
 					</div>
 					<div>
 						<button class="button" id = "loginbutton">Login</button>
-						<a href="./pages/signup.php" class="button" id = "signupbutton">Sign up</a>
+						<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 					</div>
 				</div>
 			</div>
