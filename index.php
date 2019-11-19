@@ -10,6 +10,15 @@
 	<div class="Level has-background-grey-dark has-text-centered">
 		<div style = "display: inline;">
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
+		<?php
+		if (isset($_Session["user"])){
+			echo '<a href = "./login.php" class = "button is-outlined hbutton">Home</a>';
+		}
+		else
+		{
+			echo '<a href = "./pages/login.php" class = "button is-outlined logbutton">Home</a>';
+		}
+		?>
 		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
 	</div>
