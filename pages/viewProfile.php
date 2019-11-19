@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<?php
+	include_once "./header.php";
+?>
 <link rel="stylesheet" href="../style/viewProfile.css">
 	<head>
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title>Camagru</title>
 	</head>
 	<body>
@@ -27,13 +25,7 @@
 						<ul class="menu-list">
 							<li><a class = "inactivelink">View Profile</a></li>
 							<li><a>Logout</a></li>
-						</ul>
-						<p class="menu-label">
-							Editing
-						</p>
-						<ul class="menu-list">
 							<li><a>Editor</a></li>
-							<li><a href = "./gallery.php">View gallery</a></li>
 						</ul>
 					</aside>
 				</div>
