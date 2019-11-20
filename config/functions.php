@@ -43,6 +43,26 @@ function add_user($username, $email, $raw_password)
     }
 }
 
+function add_image($username, $email, $raw_password)
+{
+    try
+    {
+        // $column = "(username,email,userpass,verification_token)";
+        // $verification_token = random_int(1000000,9999999);
+        // $userpass = hash("whirlpool", $raw_password);
+        // $connection = open_connection();
+        // $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$userpass','$verification_token')");
+        // if($statement->execute())
+        // {
+        //     echo "Successfully added user";
+        // }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to add image: " . $e->getMessage());
+    }
+}
+
 function change_password($username,$raw_password)
 {
     try
