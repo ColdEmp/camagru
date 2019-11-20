@@ -1,9 +1,6 @@
 <?php
 	include_once './header.php';
 ?>
-
-<!DOCTYPE html>
-<html>
   <head>
     <title>Camagru</title>
 	<link rel="stylesheet" href="../style/signup.css">
@@ -23,17 +20,13 @@
 			</div>
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark">
-					<?php
-					if(isset($_GET[submit])){
-					}
-					?>
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
-					<form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<div class="field">
 						<!-- <div class="control"> -->
 							<input class="input is-large" type="text" name="username_signup" placeholder="Username" required>
-						</div>
-					<!-- </div> -->
+						<!-- </div> -->
+					</div>
 					<div class="field">
 						<!-- <div class="control"> -->
 							<input class="input is-large" type="password" name="password_signup" placeholder="Password" required>
@@ -44,49 +37,23 @@
 							<input class="input is-large" type="email" name="email_signup" placeholder="Email" required>
 						<!-- </div> -->
 					</div>
-					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
 						<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
-					</div>
 					</form>
 				</div>
+				<?php
+					if (isset($_POST["submit"]))
+					{
+						$username = $_POST["username_signup"];
+						$rawpass = $_POST["password_signup"];
+						$email = $_POST["email_signup"];
+						add_user($username, $email, $rawpass);
+					}
+				?>
 			</div>
 			<div class="column">
 			<!-- Testing how to make event thingies -->
-
-				<div>
-					<!-- <input type="submit" class="button is-light" onclick="echo(Yo momma)"> -->
-					<p>Some stuff is going in here</p>
-					<p id="demo"></p>
-
-					<button onclick="myFunction()">Click me</button>
-					
-
-					<p id="demo"></p>
-
-					<p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p>
-
-					<script>
-					function myFunction() {
-					  	document.getElementById("demo").innerHTML = "Heinrich you suck at stuff";
-						<?PHP
-						if(isset($_POST['submit']))
-						{
-							$username = $_POST["username_signup"];
-							$email = $_POST["email_signup"];
-							$raw_password = $_POST["password_signup"];
-							add_user($username, $email, $raw_password);
-
-						}
-						
-						?>						
-						console.log("ZA WARUDO");
-					//   add_user("username_signup", "password_signup", "email_signup");
-					}
-					</script>
-
-				</div>
 			<!-- Thingie test ends here -->
 			</div>
 		</div>

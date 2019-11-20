@@ -25,6 +25,10 @@ a.inactivelink{
 	margin-left: -47.8%;
 }
 
+.logbutton{
+	position: fixed !important;
+	margin-left: 42%;
+}
 #prof_box{
 	padding-bottom:3rem;
 	margin:auto;
