@@ -1,9 +1,6 @@
 <?php
 	include_once './header.php';
 ?>
-
-<!DOCTYPE html>
-<html>
   <head>
     <title>Camagru</title>
 	<link rel="stylesheet" href="../style/signup.css">
@@ -23,18 +20,13 @@
 			</div>
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark">
-					<?php
-					if(isset($_GET[submit])){
-						add_user($_GET["username_signup"],$_GET["password_signup"],$_GET["email_signup"]);
-					}
-					?>
 					<h1 class="title is-3 has-text-light">SIGN UP</h1>
-					<form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<div class="field">
 						<!-- <div class="control"> -->
 							<input class="input is-large" type="text" name="username_signup" placeholder="Username" required>
-						</div>
-					<!-- </div> -->
+						<!-- </div> -->
+					</div>
 					<div class="field">
 						<!-- <div class="control"> -->
 							<input class="input is-large" type="password" name="password_signup" placeholder="Password" required>
@@ -45,13 +37,20 @@
 							<input class="input is-large" type="email" name="email_signup" placeholder="Email" required>
 						<!-- </div> -->
 					</div>
-					<div>
 						<!-- Take in input from inputs 
 							 And parse it along to Cameron's functions-->
 						<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
-					</div>
 					</form>
 				</div>
+				<?php
+					if (isset($_POST["submit"]))
+					{
+						$username = $_POST["username_signup"];
+						$rawpass = $_POST["password_signup"];
+						$email = $_POST["email_signup"];
+						add_user($username, $email, $rawpass);
+					}
+				?>
 			</div>
 			<div class="column">
 			<!-- Testing how to make event thingies -->
