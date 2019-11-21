@@ -49,7 +49,17 @@
 						$username = $_POST["username_signup"];
 						$rawpass = $_POST["password_signup"];
 						$email = $_POST["email_signup"];
-						add_user($username, $email, $rawpass);
+						if (valid_username($username))
+						{
+							if (valid_password($rawpass))
+							{
+								if (valid_email($email))
+								{
+									add_user($username, $email, $rawpass);
+								}
+							}
+						}
+						
 					}
 				?>
 			</div>
