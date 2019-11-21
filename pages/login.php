@@ -1,5 +1,6 @@
 <?php
 	include_once './header.php';
+	user_logged_redirect();
 ?>
 	<link rel="stylesheet" href="../style/login.css">
   <head>
@@ -8,7 +9,7 @@
   <body>
 	<!-- Hero Banner-->
    	<div class="hero has-background-grey-dark has-text-centered">
-	   <a href = "../index.php" class = "button is-outlined hbutton">Home</a>
+		<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
     	<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 	 	<p class="subtitle has-text-light">A social media app!</p>
 	</div>
@@ -17,37 +18,37 @@
 		<div class="columns">
 			<!--Side Menu-->
 			<div class="column" style = "width : 0% !important">
-					<aside class="menu">
-						<p class="menu-label">
-							Profile
-						</p>
-						<ul class="menu-list">
-							<li><a href = "./viewProfile.php">View Profile</a></li>
-							<li><a>Logout</a></li>
-							<li><a>Editor</a></li>
-						</ul>
-					</aside>
 			</div>
 			<!-- END OF SIDE MENU -->
 			<!-- LOGIN -->
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
-					<div class="field">
-						<div class="control">
-								<input class="input is-large" type="text" placeholder="Username">
+					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						<!-- <div class="field"> -->
+							<div class="control">
+									<input class="input is-large" type="text" name = "log_name" placeholder="Username">
+							</div>
+						<!-- </div> -->
+						<!-- <div class="field"> -->
+							<div class="control">
+								<input class="input is-large" type="password" name = "log_pass"placeholder="Password">
+							</div>
+						<!-- </div> -->
+						<div>
+							<button class="button" id = "loginbutton" name = "login" value = "login">Login</button>
+							<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 						</div>
-					</div>
-					<div class="field">
-						<div class="control">
-							<input class="input is-large" type="password" placeholder="Password">
-						</div>
-					</div>
-					<div>
-						<button class="button" id = "loginbutton">Login</button>
-						<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
-					</div>
+					</form>
 				</div>
+				<?php
+					if (isset($_POST["login"]))
+					{
+						$_SESSION["username"] = $_POST["log_name"];
+						$rawpass = $_POST["log_pass"];
+						header("Location: ../index.php");
+					}
+				?>
 			</div>
 			<!-- END OF LOGIN -->
 			<div class="column"></div>

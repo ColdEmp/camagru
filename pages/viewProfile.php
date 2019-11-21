@@ -1,5 +1,6 @@
 <?php
 	include_once "./header.php";
+	user_nlogged_redirect();
 ?>
 <link rel="stylesheet" href="../style/viewProfile.css">
 	<head>
@@ -24,8 +25,8 @@
 						</p>
 						<ul class="menu-list">
 							<li><a class = "inactivelink">View Profile</a></li>
-							<li><a>Logout</a></li>
 							<li><a>Editor</a></li>
+							<li><a href = "../log/logout.php">Logout</a></li>
 						</ul>
 					</aside>
 				</div>
@@ -33,12 +34,12 @@
 					<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 						<h1 class="title is-3 has-text-light">PROFILE</h1>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>UserName:<span id = "user_name">	NAME</span></p></li>
+							<li><p>UserName:<span id = "user_name"><?php echo $_SESSION["username"];?></span></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:<span id = "user_email">wet.email.co.za</span></p></li>
+							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
 						</ul>
-						<div style = "padding:10px 0 10px 0">
+						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
 							<a class = "button" id = "edt_name" href = "#">Edit Username</a>
 							<a class = "button" id = "edt_email"href = "#">Change Email</a>
