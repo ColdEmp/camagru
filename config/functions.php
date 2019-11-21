@@ -43,15 +43,39 @@ function add_user($username, $email, $raw_password)
     }
 }
 
-function add_image($username, $email, $raw_password)
+function valid_login($login_u, $login_p)
 {
     try
     {
-        // $column = "(username,email,userpass,verification_token)";
-        // $verification_token = random_int(1000000,9999999);
-        // $userpass = hash("whirlpool", $raw_password);
-        // $connection = open_connection();
-        // $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$userpass','$verification_token')");
+
+        $userpass = hash("whirlpool", $login_p);
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$login_u' AND userpass = '$userpass' AND verified = '1'");
+        if($statement->execute())
+        {
+            echo "Successfully validated login <br />";
+            //print_r($statement->fetchAll());
+            $temp = $statement->fetchAll();
+            echo $temp[0][0];
+            return ($temp[0][0]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to validate login: " . $e->getMessage());
+    }
+}
+
+function add_image($username, $image_src, $name)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
+        $statement->execute();
+        $temp = $statement->fetchAll();
+        $userid = $temp[0][0];
+
         // if($statement->execute())
         // {
         //     echo "Successfully added user";
