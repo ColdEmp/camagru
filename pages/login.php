@@ -18,16 +18,6 @@
 		<div class="columns">
 			<!--Side Menu-->
 			<div class="column" style = "width : 0% !important">
-					<aside class="menu">
-						<p class="menu-label">
-							Profile
-						</p>
-						<ul class="menu-list">
-							<li><a href = "./viewProfile.php">View Profile</a></li>
-							<li><a>Logout</a></li>
-							<li><a>Editor</a></li>
-						</ul>
-					</aside>
 			</div>
 			<!-- END OF SIDE MENU -->
 			<!-- LOGIN -->
@@ -35,22 +25,30 @@
 				<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
 					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<div class="field">
+						<!-- <div class="field"> -->
 							<div class="control">
-									<input class="input is-large" type="text" placeholder="Username">
+									<input class="input is-large" type="text" name = "log_name" placeholder="Username">
 							</div>
-						</div>
-						<div class="field">
+						<!-- </div> -->
+						<!-- <div class="field"> -->
 							<div class="control">
-								<input class="input is-large" type="password" placeholder="Password">
+								<input class="input is-large" type="password" name = "log_pass"placeholder="Password">
 							</div>
-						</div>
+						<!-- </div> -->
 						<div>
-							<button class="button" id = "loginbutton">Login</button>
+							<button class="button" id = "loginbutton" name = "login" value = "login">Login</button>
 							<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 						</div>
 					</form>
 				</div>
+				<?php
+					if (isset($_POST["login"]))
+					{
+						$_SESSION["username"] = $_POST["log_name"];
+						$rawpass = $_POST["log_pass"];
+						header("Location: ../index.php");
+					}
+				?>
 			</div>
 			<!-- END OF LOGIN -->
 			<div class="column"></div>

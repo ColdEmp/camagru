@@ -37,6 +37,10 @@ a.inactivelink{
 	 text-align: left;
  }
 
+.button_padding{
+	padding: 10px 0 10px 0;
+}
+
  #user_name{
 	float: right;
  }
