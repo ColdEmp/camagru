@@ -26,7 +26,7 @@
 						<ul class="menu-list">
 							<li><a class = "inactivelink">View Profile</a></li>
 							<li><a>Editor</a></li>
-							<li><a>Logout</a></li>
+							<li><a href = "../log/logout.php">Logout</a></li>
 						</ul>
 					</aside>
 				</div>
