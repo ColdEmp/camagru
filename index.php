@@ -31,8 +31,12 @@
 						Profile
 					</p>
 					<ul class="menu-list">
-						<li><a href = "./pages/viewProfile.php" <?php if(!isset($_SESSION["username"])){echo "class = 'inactivelink'";}?>>View Profile</a></li>
-						<li><a>Editor</a></li>
+						<li><a
+						 <?php if(!isset($_SESSION["username"])){echo "href '#' class = 'inactivelink'";}
+						 else {echo "href = './pages/viewProfile.php'";}
+						 ?>
+						 >View Profile</a></li>
+						<li><a href = "#" <?php if(!isset($_SESSION["username"])){echo "class = 'inactivelink'";}?>>Editor</a></li>
 						<li><a href = "./log/logout.php">Logout</a></li>
 					</ul>
 				</aside>
