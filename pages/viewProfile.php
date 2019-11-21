@@ -1,5 +1,6 @@
 <?php
 	include_once "./header.php";
+	user_nlogged_redirect();
 ?>
 <link rel="stylesheet" href="../style/viewProfile.css">
 	<head>

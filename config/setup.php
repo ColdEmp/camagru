@@ -64,5 +64,5 @@ if($statement->execute())
 {
     echo "Success Comments<br />";
 }
-
+header("Location: ../index.php");
 ?>
