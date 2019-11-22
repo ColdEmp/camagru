@@ -42,7 +42,14 @@ function valid_email($email)
 {
     try
     {
-        return (FILTER_VALIDATE_EMAIL($email));
+        if(FILTER_VALIDATE_EMAIL($email))
+        {
+            return (1);
+        }
+        else
+        {
+            return (0);
+        }
     }
     catch(PDOException $e)
     {
