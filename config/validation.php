@@ -4,7 +4,14 @@ function valid_username($username)
 {
     try
     {
-
+        if(ctype_alnum($username))
+        {
+            return (TRUE);
+        }
+        else
+        {
+            return (FALSE);
+        }
     }
     catch(PDOException $e)
     {
@@ -16,7 +23,14 @@ function valid_password($rawpass)
 {
     try
     {
-
+        if(ctype_lower($rawpass))
+        {
+            return (0);
+        }
+        else
+        {
+            return (1);
+        }
     }
     catch(PDOException $e)
     {
