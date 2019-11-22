@@ -60,7 +60,6 @@ function valid_login($login_u, $login_p)
             {
                 return (FALSE);
             }
-            
         }
     }
     catch(PDOException $e)
@@ -69,60 +68,118 @@ function valid_login($login_u, $login_p)
     }
 }
 
-function find_userid($username)
+function find_specified($specified, $table, $column, $item)
 {
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
+        $statement = $connection->prepare("SELECT $specified FROM $table WHERE $column = '$item'");
         if($statement->execute())
         {
-            echo "Successfully looked for userid <br />";
+            echo "Successfully looked for $specified <br />";
             $temp = $statement->fetchAll();
             return ($temp[0][0]);
         }
     }
     catch(PDOException $e)
     {
-        die("Failed to find userid: " . $e->getMessage());
+        die("Failed to look for $specified: " . $e->getMessage());
     }
 }
 
-function find_email($username)
-{
-    try
-    {
-        $connection = open_connection();
-        $statement = $connection->prepare("SELECT email FROM users WHERE username = '$username'");
-        if($statement->execute())
-        {
-            echo "Successfully looked for email <br />";
-            $temp = $statement->fetchAll();
-            return ($temp[0][0]);
-        }
-    }
-    catch(PDOException $e)
-    {
-        die("Failed to find email: " . $e->getMessage());
-    }
-}
+// function find_userid($username)
+// {
+//     try
+//     {
+//         $connection = open_connection();
+//         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
+//         if($statement->execute())
+//         {
+//             echo "Successfully looked for userid <br />";
+//             $temp = $statement->fetchAll();
+//             return ($temp[0][0]);
+//         }
+//     }
+//     catch(PDOException $e)
+//     {
+//         die("Failed to look for userid: " . $e->getMessage());
+//     }
+// }
+
+// function find_imageid($name)
+// {
+//     try
+//     {
+//         $connection = open_connection();
+//         $statement = $connection->prepare("SELECT imageid FROM images WHERE 'name' = '$name'");
+//         if($statement->execute())
+//         {
+//             echo "Successfully looked for imageid <br />";
+//             $temp = $statement->fetchAll();
+//             return ($temp[0][0]);
+//         }
+//     }
+//     catch(PDOException $e)
+//     {
+//         die("Failed to look for iamgeid: " . $e->getMessage());
+//     }
+// }
+
+// function find_email($username)
+// {
+//     try
+//     {
+//         $connection = open_connection();
+//         $statement = $connection->prepare("SELECT email FROM users WHERE username = '$username'");
+//         if($statement->execute())
+//         {
+//             echo "Successfully looked for email <br />";
+//             $temp = $statement->fetchAll();
+//             return ($temp[0][0]);
+//         }
+//     }
+//     catch(PDOException $e)
+//     {
+//         die("Failed to find email: " . $e->getMessage());
+//     }
+// }
 
 function add_image($username, $image_src, $name)
 {
     try
     {
-        $userid = find_userid($username);
+        $userid = find_specified("userid", "users", "username", $username);
         $column = "(userid,iamge_src,name)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote($image_src) . ','$name')");
         if($statement->execute())
         {
-            echo "Successfully done something";
+            echo "Successfully tried to add an image";
         }
     }
     catch(PDOException $e)
     {
         die("Failed to add image: " . $e->getMessage());
+    }
+}
+
+function add_commnet($name, $username, $comment_text)
+{
+    try
+    {
+        $imageid = find_specified("imageid", "images", "name", $name);
+        $userid = find_specified("userid", "users", "username", $username);
+        $column = "(imageid,userid,comment_text)";
+        $connection = open_connection();
+        $statement = $connection->prepare("INSERT INTO comments $column VALUES ('$imageid','$userid','$comment_text')");
+        if($statement->execute())
+        {
+            echo "Successfully tried to add a comment";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to add comment: " . $e->getMessage());
     }
 }
 
