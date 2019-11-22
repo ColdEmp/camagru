@@ -53,7 +53,7 @@
 						{
 							if (valid_password($rawpass))
 							{
-								if (valid_email($email))
+								if (valid_email($email) == 1)
 								{
 									add_user($username, $email, $rawpass);
 									notify("Succesful signup! Check your email for confirmation.");
@@ -62,13 +62,12 @@
 									notify("Invalid email");
 								}
 							}
-							else
-							{
+							else{
 								notify("Please ensure your password is not only lowercase letters");
 							}
 						}
 						else{
-							notify("Succesful signup! Check your email for confirmation.");
+							notify("Only alphanumeric characters may be used for the username.");
 						}
 						
 					}

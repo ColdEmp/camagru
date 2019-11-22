@@ -27,10 +27,8 @@ function add_user($username, $email, $raw_password)
         $userpass = hash("whirlpool", $raw_password);
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$userpass','$verification_token')");
-        if($statement->execute())
-        {
-            echo "Successfully added user";
-        }
+        $statement->execute();
+
     }
     catch(PDOException $e)
     {
@@ -48,7 +46,6 @@ function valid_login($login_u, $login_p)
         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$login_u' AND userpass = '$userpass' AND verified = '1'");
         if($statement->execute())
         {
-            echo "Successfully validated login <br />";
             //print_r($statement->fetchAll());
             $temp = $statement->fetchAll();
             //echo $temp[0][0];
