@@ -1,14 +1,14 @@
 <?php
 include_once "functions.php";
-$username = "Test";
+$username = "test";
 $email = "john.smith@email.com";
 $password = "testpass";
 $table = "users";
 $column = "username";
 $item = "test";
 
-//add_user($username,$email,$password);
+//add_user("test2","test2@email.com","password2");
 //change_password("test","unique");
-remove_item($table,$column,$item);
-
+//remove_item($table,$column,$item);
+//valid_login("test","testpass");
 ?>
