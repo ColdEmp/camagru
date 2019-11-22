@@ -42,7 +42,7 @@ function valid_email($email)
 {
     try
     {
-        if(FILTER_VALIDATE_EMAIL($email))
+        if(filter_var($email, FILTER_VALIDATE_EMAIL))
         {
             return (1);
         }
