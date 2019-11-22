@@ -51,7 +51,7 @@ function valid_login($login_u, $login_p)
             echo "Successfully validated login <br />";
             //print_r($statement->fetchAll());
             $temp = $statement->fetchAll();
-            echo $temp[0][0];
+            //echo $temp[0][0];
             if ($temp != NULL)
             {
                 return (TRUE);
@@ -77,7 +77,7 @@ function find_userid($username)
         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
         if($statement->execute())
         {
-            echo "Successfully found userid <br />";
+            echo "Successfully looked for userid <br />";
             $temp = $statement->fetchAll();
             return ($temp[0][0]);
         }
@@ -96,7 +96,7 @@ function find_email($username)
         $statement = $connection->prepare("SELECT email FROM users WHERE username = '$username'");
         if($statement->execute())
         {
-            echo "Successfully found email <br />";
+            echo "Successfully looked for email <br />";
             $temp = $statement->fetchAll();
             return ($temp[0][0]);
         }
@@ -112,10 +112,13 @@ function add_image($username, $image_src, $name)
     try
     {
         $userid = find_userid($username);
-        // if($statement->execute())
-        // {
-        //     echo "Successfully done something";
-        // }
+        $column = "(userid,iamge_src,name)";
+        $connection = open_connection();
+        $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote($image_src) . ','$name')");
+        if($statement->execute())
+        {
+            echo "Successfully done something";
+        }
     }
     catch(PDOException $e)
     {
