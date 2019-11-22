@@ -38,7 +38,7 @@
 							<input class="input is-large" type="email" name="email_signup" placeholder="Email" required>
 						<!-- </div> -->
 					</div>
-						<!-- Take in input from inputs 
+						<!-- Take in input from inputs
 							 And parse it along to Cameron's functions-->
 						<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
 					</form>

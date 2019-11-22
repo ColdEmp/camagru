@@ -22,25 +22,27 @@
 			<!-- END OF SIDE MENU -->
 			<!-- LOGIN -->
 			<div class="column">
+				<div style = "padding : 0px 0px 20px 0px">
 				<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
 					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<!-- <div class="field"> -->
+						<div class="field">‰
 							<div class="control">
 									<input class="input is-large" type="text" name = "log_name" placeholder="Username">
 							</div>
-						<!-- </div> -->
-						<!-- <div class="field"> -->
+						</div>
+						<div class="field">
 							<div class="control">
 								<input class="input is-large" type="password" name = "log_pass"placeholder="Password">
 							</div>
-						<!-- </div> -->
+						</div>
 						<div>
 							<button class="button" id = "loginbutton" name = "login" value = "login">Login</button>
 							<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 						</div>
 					</form>
 				</div>
+</div>
 				<?php
 					if (isset($_POST["login"]))
 					{
@@ -48,6 +50,11 @@
 						$_SESSION["username"] = $_POST["log_name"];
 						$rawpass = $_POST["log_pass"];
 						header("Location: ../index.php");
+						}
+						else
+						{
+							echo "";
+							notify('Invalid username password combination');
 						}
 					}
 				?>

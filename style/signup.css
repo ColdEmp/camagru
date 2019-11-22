@@ -24,3 +24,7 @@ a.inactivelink{
 	position: fixed !important;
 	margin-left: -47.8%;
 }
+#signup_box{
+	padding-bottom:3rem;
+	margin:auto;
+}

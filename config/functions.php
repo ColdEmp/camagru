@@ -74,7 +74,7 @@ function find_userid($username)
         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
         if($statement->execute())
         {
-            echo "Successfully looked for userid <br />";
+            // echo "Successfully looked for userid <br />";
             $temp = $statement->fetchAll();
             return ($temp[0][0]);
         }
