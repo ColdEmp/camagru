@@ -52,12 +52,38 @@ function valid_login($login_u, $login_p)
             //print_r($statement->fetchAll());
             $temp = $statement->fetchAll();
             echo $temp[0][0];
-            return ($temp[0][0]);
+            if ($temp != NULL)
+            {
+                return (TRUE);
+            }
+            else
+            {
+                return (FALSE);
+            }
         }
     }
     catch(PDOException $e)
     {
         die("Failed to validate login: " . $e->getMessage());
+    }
+}
+
+function find_userid($username)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
+        if($statement->execute())
+        {
+            echo "Successfully found userid <br />";
+            $temp = $statement->fetchAll();
+            return ($temp[0][0]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to find userid: " . $e->getMessage());
     }
 }
 
@@ -67,10 +93,12 @@ function add_image($username, $image_src, $name)
     {
         $connection = open_connection();
         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
-        $statement->execute();
-        $temp = $statement->fetchAll();
-        $userid = $temp[0][0];
-
+        if($statement->execute())
+        {
+            echo "Successfully validated login <br />";
+            $temp = $statement->fetchAll();
+            $userid = $temp[0][0];
+        }
         // if($statement->execute())
         // {
         //     echo "Successfully added user";
