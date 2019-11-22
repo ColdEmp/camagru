@@ -44,9 +44,11 @@
 				<?php
 					if (isset($_POST["login"]))
 					{
+						if(valid_login($_POST['log_name'], $_POST['log_pass'])){
 						$_SESSION["username"] = $_POST["log_name"];
 						$rawpass = $_POST["log_pass"];
 						header("Location: ../index.php");
+						}
 					}
 				?>
 			</div>
