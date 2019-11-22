@@ -32,10 +32,10 @@
 					</p>
 					<ul class="menu-list">
 						<li><a
-						 <?php if(!isset($_SESSION["username"])){echo "href '#' class = 'inactivelink'";}
+						 <?php if(!isset($_SESSION["username"])){echo "href = '#' class = 'inactivelink'";}
 						 else {echo "href = './pages/viewProfile.php'";}
 						 ?>
-						 >View Profile</a></li>
+						 >Profile</a></li>
 						<li><a href = "#" <?php if(!isset($_SESSION["username"])){echo "class = 'inactivelink'";}?>>Editor</a></li>
 						<li><a href = "./log/logout.php">Logout</a></li>
 					</ul>
