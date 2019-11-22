@@ -51,14 +51,14 @@
 						$email = $_POST["email_signup"];
 						// if (valid_username($username))
 						// {
-							// if (valid_password($rawpass))
-							// {
-								// if (valid_email($email))
-								// {
+							if (valid_password($rawpass))
+							{
+								if (valid_email($email))
+								{
 									add_user($username, $email, $rawpass);
 									notify("Succesful signup! Check your email for confirmation.");
-								// }
-							// }
+								}
+							}
 						// }
 						
 					}
