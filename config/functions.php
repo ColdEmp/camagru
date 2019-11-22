@@ -60,6 +60,7 @@ function valid_login($login_u, $login_p)
             {
                 return (FALSE);
             }
+            
         }
     }
     catch(PDOException $e)
@@ -87,21 +88,33 @@ function find_userid($username)
     }
 }
 
-function add_image($username, $image_src, $name)
+function find_email($username)
 {
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
+        $statement = $connection->prepare("SELECT email FROM users WHERE username = '$username'");
         if($statement->execute())
         {
-            echo "Successfully validated login <br />";
+            echo "Successfully found email <br />";
             $temp = $statement->fetchAll();
-            $userid = $temp[0][0];
+            return ($temp[0][0]);
         }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to find email: " . $e->getMessage());
+    }
+}
+
+function add_image($username, $image_src, $name)
+{
+    try
+    {
+        $userid = find_userid($username);
         // if($statement->execute())
         // {
-        //     echo "Successfully added user";
+        //     echo "Successfully done something";
         // }
     }
     catch(PDOException $e)
