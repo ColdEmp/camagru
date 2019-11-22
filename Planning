@@ -1,20 +1,19 @@
 TIMOTHY
 {
-	11:November
-	Set up a session start function which index.php can call to setup the guest user details
-	Set up a functions tht runs database.php and setup.php
-	Find a way to take inputs from text inputs
+	Valid username{Alphanumeric only}
+	valid Password{alphanumeric, Must not only be lowercase}
+	Valid email{{*@*.*} no .'s before the @}
+	Send confirmation email
 }
 
 CAMERON
 {
-	11:November
-	Create the delete, add and edit functions for the database
-	Create basic encryption and decryption functions
-	Create basic validation
+	add image
+	add comment
 }
 
 HEINRICH:
 {
-	Create a user profile page
+	Setup editor page
+	integrate Valid login
 }
