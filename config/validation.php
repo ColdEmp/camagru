@@ -44,12 +44,10 @@ function valid_email($email)
     {
         if(filter_var($email, FILTER_VALIDATE_EMAIL))
         {
-            echo("$email is a valid address.");
             return (1);
         }
         else
         {
-            echo("$email is NOT a valid address... Numpty");
             return (0);
         }
     }
