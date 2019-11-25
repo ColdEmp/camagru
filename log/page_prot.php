@@ -1,4 +1,11 @@
 <?php
+	function safe_input($input)
+	{
+		$input = htmlspecialchars($input);
+		$input = trim($input);
+		$input = stripslashes($input);
+		return($input);
+	}
 	function user_logged_redirect()
 	{
 		if (isset($_SESSION["username"])){
