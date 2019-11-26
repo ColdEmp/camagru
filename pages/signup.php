@@ -51,7 +51,8 @@
 						$email = htmlspecialchars($_POST["email_signup"]);
 						if (valid_username($username))
 						{
-							if(find_specified("username", "users", "username", $username) != NULL){
+							if(find_specified("username", "users", "username", $username) == NULL)
+							{
 								if (valid_password($rawpass))
 								{
 									if (valid_email($email) == 1)
