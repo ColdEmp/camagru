@@ -2,7 +2,7 @@
 	include_once "./header.php";
 	//user_nlogged_redirect();
 ?>
-<link rel="stylesheet" href="../style/changepass.css">
+<link rel="stylesheet" href="../style/change.css">
 	<head>
     	<title>Camagru</title>
 	</head>
@@ -20,7 +20,7 @@
 				<div class="column"></div>
 					<div class="column">
 						<div style = "padding : 0px 0px 20px 0px">
-							<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
+							<div class="box has-text-centered has-background-grey-dark">
 							<h1 class="title is-3 has-text-light">New username</h1>
 							<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 								<div class="field">
@@ -36,7 +36,10 @@
 						<?php
 					if (isset($_POST["change"]))
 					{
-						if(valid_username($_POST["change_name"])){
+						
+						if(valid_username($_POST["change_name"]))
+						{
+						change_username($_SESSION["username"],$_POST["change_name"]);
 						$_SESSION["username"] = $_POST["change_name"];
 						header("Location: ./viewProfile.php");
 						}
