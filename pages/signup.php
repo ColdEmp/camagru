@@ -58,15 +58,18 @@
 									add_user($username, $email, $rawpass);
 									notify("Succesful signup! Check your email for confirmation.");
 								}
-								else{
+								else
+								{
 									notify("Invalid email");
 								}
 							}
-							else{
+							else
+							{
 								notify("Please ensure your password is not only lowercase letters");
 							}
 						}
-						else{
+						else
+						{
 							notify("Only alphanumeric characters may be used for the username.");
 						}
 						
