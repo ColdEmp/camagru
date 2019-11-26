@@ -51,25 +51,29 @@
 						$email = htmlspecialchars($_POST["email_signup"]);
 						if (valid_username($username))
 						{
-							if (valid_password($rawpass))
-							{
-								if (valid_email($email) == 1)
+							if(find_specified("username", "users", "username", $username) != NULL){
+								if (valid_password($rawpass))
 								{
-									add_user($username, $email, $rawpass);
-									notify("Succesful signup! Check your email for confirmation.");
+									if (valid_email($email) == 1)
+									{
+										add_user($username, $email, $rawpass);
+										notify("Succesful signup! Check your email for confirmation.");
+									}
+									else{
+										notify("Invalid email");
+									}
 								}
 								else{
-									notify("Invalid email");
+									notify("Please ensure your password is not only lowercase letters");
 								}
 							}
 							else{
-								notify("Please ensure your password is not only lowercase letters");
+								notify("Username is already in use");
 							}
 						}
 						else{
 							notify("Only alphanumeric characters may be used for the username.");
 						}
-						
 					}
 				?>
 			</div>

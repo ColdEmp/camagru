@@ -48,7 +48,7 @@
 					{
 						if(valid_login($_POST['log_name'], $_POST['log_pass'])){
 						$_SESSION["username"] = $_POST["log_name"];
-						$rawpass = $_POST["log_pass"];
+						$_SESSION["email"] = find_specified("email", "users", "username", $_SESSION["username"]);
 						header("Location: ../index.php");
 						}
 						else
