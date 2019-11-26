@@ -71,7 +71,8 @@
 								notify("Username is already in use");
 							}
 						}
-						else{
+						else
+						{
 							notify("Only alphanumeric characters may be used for the username.");
 						}
 					}
