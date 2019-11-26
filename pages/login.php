@@ -42,7 +42,7 @@
 						</div>
 					</form>
 				</div>
-</div>
+			</div>
 				<?php
 					if (isset($_POST["login"]))
 					{
