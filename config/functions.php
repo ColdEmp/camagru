@@ -65,6 +65,10 @@ function valid_login($login_u, $login_p)
     }
 }
 
+//$specified is the name of column you want info from
+//table is the table you want to look in
+//column is the column where item is
+//$item is the info you have
 function find_specified($specified, $table, $column, $item)
 {
     try
@@ -83,63 +87,6 @@ function find_specified($specified, $table, $column, $item)
         die("Failed to look for $specified: " . $e->getMessage());
     }
 }
-
-// function find_userid($username)
-// {
-//     try
-//     {
-//         $connection = open_connection();
-//         $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$username'");
-//         if($statement->execute())
-//         {
-//             echo "Successfully looked for userid <br />";
-//             $temp = $statement->fetchAll();
-//             return ($temp[0][0]);
-//         }
-//     }
-//     catch(PDOException $e)
-//     {
-//         die("Failed to look for userid: " . $e->getMessage());
-//     }
-// }
-
-// function find_imageid($name)
-// {
-//     try
-//     {
-//         $connection = open_connection();
-//         $statement = $connection->prepare("SELECT imageid FROM images WHERE 'name' = '$name'");
-//         if($statement->execute())
-//         {
-//             echo "Successfully looked for imageid <br />";
-//             $temp = $statement->fetchAll();
-//             return ($temp[0][0]);
-//         }
-//     }
-//     catch(PDOException $e)
-//     {
-//         die("Failed to look for iamgeid: " . $e->getMessage());
-//     }
-// }
-
-// function find_email($username)
-// {
-//     try
-//     {
-//         $connection = open_connection();
-//         $statement = $connection->prepare("SELECT email FROM users WHERE username = '$username'");
-//         if($statement->execute())
-//         {
-//             echo "Successfully looked for email <br />";
-//             $temp = $statement->fetchAll();
-//             return ($temp[0][0]);
-//         }
-//     }
-//     catch(PDOException $e)
-//     {
-//         die("Failed to find email: " . $e->getMessage());
-//     }
-// }
 
 function add_image($username, $image_src, $name)
 {
@@ -160,7 +107,7 @@ function add_image($username, $image_src, $name)
     }
 }
 
-function add_commnet($name, $username, $comment_text)
+function add_comment($name, $username, $comment_text)
 {
     try
     {
@@ -195,6 +142,23 @@ function change_password($username,$raw_password)
     catch(PDOException $e)
     {
         die("Failed to change password: " . $e->getMessage());
+    }
+}
+
+function change_username($username,$new_username)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET username='$new_username' WHERE username='$username'");
+        if($statement->execute())
+        {
+            echo "Successfully changed username";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to change username: " . $e->getMessage());
     }
 }
 

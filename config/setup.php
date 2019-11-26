@@ -64,5 +64,16 @@ if($statement->execute())
 {
     echo "Success Comments<br />";
 }
+
+//like table
+$likeid = "likeid INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
+$imageid = "imageid INT";
+$userid = "userid INT";
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Likes ($likeid,$imageid,$userid)");
+if($statement->execute())
+{
+    echo "Success Likes<br />";
+}
 header("Location: ../index.php");
+
 ?>
