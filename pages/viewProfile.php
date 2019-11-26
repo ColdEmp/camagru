@@ -41,7 +41,7 @@
 						</ul>
 						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
-							<a class = "button" id = "edt_name" href = "#">Edit Username</a>
+							<a class = "button" id = "edt_name" href = "./changepass.php">Edit Username</a>
 							<a class = "button" id = "edt_email"href = "#">Change Email</a>
 						</div>
 					</div>
