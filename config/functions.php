@@ -26,8 +26,8 @@ function add_user($username, $email, $raw_password)
         $verification_token = random_int(1000000,9999999);
         $userpass = hash("whirlpool", $raw_password);
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO users $column VALUES ('$username','$email','$userpass','$verification_token')");
-        $statement->execute();
+        $statement = $connection->prepare("INSERT INTO users $column VALUES (:user,:email,'$userpass','$verification_token')");
+        $statement->execute(array('user' => $username, 'email' => $email));
 
     }
     catch(PDOException $e)
@@ -36,15 +36,27 @@ function add_user($username, $email, $raw_password)
     }
 }
 
+function verification_email($username,$email,$verification_token)
+{
+    try
+    {
+        $message = "";
+        mail($email, "camgru user: $username", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send verification email: " . $e->getMessage());
+    }
+}
+
 function valid_login($login_u, $login_p)
 {
     try
     {
-
         $userpass = hash("whirlpool", $login_p);
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT userid FROM users WHERE username = '$login_u' AND userpass = '$userpass' AND verified = '1'");
-        if($statement->execute())
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = :user AND userpass = '$userpass' AND verified = '1'");
+        if($statement->execute(array('user' => $login_u)))
         {
             //print_r($statement->fetchAll());
             $temp = $statement->fetchAll();
@@ -74,10 +86,10 @@ function find_specified($specified, $table, $column, $item)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT $specified FROM $table WHERE $column = '$item'");
-        if($statement->execute())
+        $statement = $connection->prepare("SELECT :specified FROM :'table' WHERE :column = :item");
+        if($statement->execute(array('specified' => $specified, 'table' => $table, 'column' => $column, 'item' => $item)))
         {
-            echo "Successfully looked for $specified <br />";
+            //echo "Successfully looked for $specified <br />";
             $temp = $statement->fetchAll();
             return ($temp[0][0]);
         }
@@ -127,6 +139,45 @@ function add_comment($name, $username, $comment_text)
     }
 }
 
+function add_like($username, $name)
+{
+    try
+    {
+        $imageid = find_specified("imageid", "images", "name", $name);
+        $userid = find_specified("userid", "users", "username", $username);
+        $column = "(imageid,userid)";
+        $connection = open_connection();
+        $statement = $connection->prepare("INSERT INTO likes $column VALUES ('$imageid','$userid')");
+        if($statement->execute())
+        {
+            echo "Successfully tried to add a like";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to add like: " . $e->getMessage());
+    }
+}
+
+function remove_like($username, $name)
+{
+    try
+    {
+        $imageid = find_specified("imageid", "images", "name", $name);
+        $userid = find_specified("userid", "users", "username", $username);
+        $connection = open_connection();
+        $statement = $connection->prepare("DELETE FROM likes WHERE imageid='$imageid' AND userid='$userid'");
+        if($statement->execute())
+        {
+            echo "Successfully tried to remove a like";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to remove like: " . $e->getMessage());
+    }
+}
+
 function change_password($username,$raw_password)
 {
     try
@@ -170,7 +221,7 @@ function remove_item($table, $column, $item)
         $statement = $connection->prepare("DELETE FROM $table WHERE $column='$item'");
         if($statement->execute())
         {
-            echo "Successfully deleted $item";
+            //echo "Successfully deleted $item";
         }
     }
     catch(PDOException $e)
