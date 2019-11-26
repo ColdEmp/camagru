@@ -6,7 +6,7 @@ function valid_username($username)
     {
         if(ctype_alnum($username))
         {
-            if(find_specified($username, $users, $username, $username) == NULL)
+            if(find_specified($username, "users", "username", $username) == NULL)
             {
                 return (TRUE);
             }
