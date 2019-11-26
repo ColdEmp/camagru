@@ -39,6 +39,9 @@
 						<ul class="menu-list has-text-light b_1">
 							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
 						</ul>
+						<ul class="menu-list has-text-light b_1">
+							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
+						</ul>
 						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
 							<a class = "button" id = "edt_name" href = "./changeName.php">Change Username</a>

@@ -36,7 +36,6 @@
 						<?php
 					if (isset($_POST["change"]))
 					{
-						
 						if(valid_username($_POST["change_name"]))
 						{
 						change_username($_SESSION["username"],$_POST["change_name"]);

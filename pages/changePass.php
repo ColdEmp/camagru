@@ -54,7 +54,7 @@
 									header("Location: ./viewProfile.php");
 								}
 								else{
-									notify("New password and repeat password");
+									notify("New password and repeat password don't match");
 								}
 							}
 							else{

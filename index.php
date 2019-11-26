@@ -11,7 +11,7 @@
 		<div style = "display: inline;">
 		<?php
 		if (isset($_SESSION["username"])){
-			echo '<a href = "./pages/viewprofile.php" class = "button is-outlined logbutton">' . $_SESSION["username"] + '</a>';
+			echo '<a href = "./pages/viewprofile.php" class = "button is-outlined logbutton">' . $_SESSION["username"] . '</a>';
 		}
 		else
 		{
