@@ -11,4 +11,7 @@ $item = "test";
 //change_password("test","unique");
 //remove_item($table,$column,$item);
 //valid_login("test","testpass");
+//echo "stage 8<br />";
+//$temp = find_specified("email" ,"users","username","test");
+//echo($temp);
 ?>

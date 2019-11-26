@@ -10,10 +10,12 @@ function open_connection()
     {
         $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
         $connection = new PDO($dsn, $user, $password);
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(PDOException $e)
     {
-        die("Connection Error: " . $e->getMessage());
+        print("Connection Error: " . $e->getMessage());
+        die();
     }
     return $connection;
 }
@@ -86,17 +88,20 @@ function find_specified($specified, $table, $column, $item)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT :specified FROM :'table' WHERE :column = :item");
-        if($statement->execute(array('specified' => $specified, 'table' => $table, 'column' => $column, 'item' => $item)))
+        $statement = $connection->prepare("SELECT $specified FROM $table WHERE $column = :item");
+        if($statement->execute(array('item' => $item)))
         {
             //echo "Successfully looked for $specified <br />";
             $temp = $statement->fetchAll();
+            //print_r($temp);
             return ($temp[0][0]);
         }
     }
     catch(PDOException $e)
     {
-        die("Failed to look for $specified: " . $e->getMessage());
+        print("Failed to look for $specified: " . $e->getMessage() . "<br />");
+        $statement->debugDumpParams();
+        die();
     }
 }
 
@@ -107,8 +112,8 @@ function add_image($username, $image_src, $name)
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(userid,iamge_src,name)";
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote($image_src) . ','$name')");
-        if($statement->execute())
+        $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote(:image_src) . ',:'name')");
+        if($statement->execute(array('iamge_src' => $image_src, 'name' => $name)))
         {
             echo "Successfully tried to add an image";
         }
@@ -127,8 +132,8 @@ function add_comment($name, $username, $comment_text)
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(imageid,userid,comment_text)";
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO comments $column VALUES ('$imageid','$userid','$comment_text')");
-        if($statement->execute())
+        $statement = $connection->prepare("INSERT INTO comments $column VALUES ('$imageid','$userid',:comment_text)");
+        if($statement->execute(array('comment_text' => $comment_text)))
         {
             echo "Successfully tried to add a comment";
         }
@@ -184,8 +189,8 @@ function change_password($username,$raw_password)
     {
         $userpass = hash("whirlpool", $raw_password);
         $connection = open_connection();
-        $statement = $connection->prepare("UPDATE users SET userpass='$userpass' WHERE username='$username'");
-        if($statement->execute())
+        $statement = $connection->prepare("UPDATE users SET userpass='$userpass' WHERE username=:username");
+        if($statement->execute(array('username' => $username)))
         {
             echo "Successfully changed password";
         }
@@ -201,8 +206,8 @@ function change_username($username,$new_username)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("UPDATE users SET username='$new_username' WHERE username='$username'");
-        if($statement->execute())
+        $statement = $connection->prepare("UPDATE users SET username=:new_username WHERE username=:username");
+        if($statement->execute(array('new_username' => $new_username, 'username' => $username)))
         {
             echo "Successfully changed username";
         }
@@ -218,8 +223,8 @@ function remove_item($table, $column, $item)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("DELETE FROM $table WHERE $column='$item'");
-        if($statement->execute())
+        $statement = $connection->prepare("DELETE FROM $table WHERE $column=:item");
+        if($statement->execute(array('item' => $item)))
         {
             //echo "Successfully deleted $item";
         }
