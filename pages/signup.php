@@ -55,13 +55,19 @@
 							{
 								if (valid_password($rawpass))
 								{
-									if (valid_email($email) == 1)
-									{
-										add_user($username, $email, $rawpass);
-										notify("Succesful signup! Check your email for confirmation.");
+									if(find_specified("email", "users", "email", $email) == NULL)
+									{	
+										if (valid_email($email) == 1)
+										{
+											add_user($username, $email, $rawpass);
+											notify("Succesful signup! Check your email for confirmation.");
+										}
+										else{
+											notify("Invalid email");
+										}
 									}
 									else{
-										notify("Invalid email");
+										notify("That email is already in use");
 									}
 								}
 								else{
