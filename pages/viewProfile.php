@@ -10,7 +10,30 @@
 		<!-- Hero Banner-->
 		<div class="Level has-background-grey-dark has-text-centered">
 			<div style = "display: inline;">
-				<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
+				<div class="dropdown is-hoverable hbutton">
+					<div class="dropdown-trigger">
+						<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+							<span>Hover me</span>
+							<span class="icon is-small">
+								<i class="fa fa-angle-down" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+					<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<aside class="menu">
+									<ul class="menu-list">
+										<li><a class = "inactivelink">Profile</a></li>
+										<li><a href = "./editor.php">Editor</a></li>
+										<li><a href = "../log/logout.php">Logout</a></li>
+									</ul>
+								</aside>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <a href = "../index.php" class = "button is-outlined hbutton">Home</a> -->
 				<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 			</div>
 			<p class="subtitle has-text-light">A social media app!</p>
@@ -19,16 +42,7 @@
 		<section class="section">
 			<div class="columns">
 				<div class="column">
-					<aside class="menu">
-						<p class="menu-label">
-							Profile
-						</p>
-						<ul class="menu-list">
-							<li><a class = "inactivelink">Profile</a></li>
-							<li><a>Editor</a></li>
-							<li><a href = "../log/logout.php">Logout</a></li>
-						</ul>
-					</aside>
+					
 				</div>
 				<div class="column is-half">
 					<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
@@ -51,7 +65,6 @@
 					</div>
 				</div>
 				<div class="column">
-
 				</div>
 			</div>
 		</section>
