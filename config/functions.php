@@ -68,6 +68,24 @@ function verfiy_email($username, $verification_token)
     }
 }
 
+//pass 1 for true and 0 for false
+function change_notification($username, $notification_setting)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET notifications='$notification_setting' WHERE username=:username");
+        if($statement->execute(array('username' => $username)))
+        {
+            echo "Successfully tried to change notification setting";
+        }
+    }
+    catch(Exception $e)
+    {
+        die("Failed to change notification setting: " . $e->getMessage());
+    }
+}
+
 function valid_login($login_u, $login_p)
 {
     try

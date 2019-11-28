@@ -15,4 +15,5 @@ $item = "test";
 //$temp = find_specified("email" ,"users","username","test");
 //echo($temp);
 //verfiy_email("new_account","9854000");
+//change_notification("new_account", 1);
 ?>
