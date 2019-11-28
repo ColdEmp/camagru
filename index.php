@@ -24,7 +24,7 @@
 								<aside class="menu">
 									<ul class="menu-list">
 										<li><a class = "inactivelink">Profile</a></li>
-										<li><a href = "./pages/editor.php">Editor</a></li>
+										<li><a href = "../pages/editor.php">Editor</a></li>
 										<li><a href = "../log/logout.php">Logout</a></li>
 									</ul>
 								</aside>
