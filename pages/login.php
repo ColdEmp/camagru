@@ -43,12 +43,13 @@
 					</form>
 				</div>
 			</div>
-				<?php
+				<?php 
 					if (isset($_POST["login"]))
 					{
 						if(valid_login($_POST['log_name'], $_POST['log_pass'])){
 						$_SESSION["username"] = $_POST["log_name"];
 						$_SESSION["user_email"] = find_specified("email", "users", "username", $_SESSION["username"]);
+						$_SESSION["notifications"] = find_specified("notifications", "users", "username", $_SESSION["username"]);
 						header("Location: ../index.php");
 						}
 						else
