@@ -28,3 +28,7 @@ a.inactivelink{
 #myCanvas{
 	border:1px solid #000000;
 }
+
+#dropdown-menu3{
+	display: block !important;
+}
