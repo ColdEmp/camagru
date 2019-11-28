@@ -51,6 +51,23 @@ function verification_email($username,$email,$verification_token)
     }
 }
 
+function verfiy_email($username, $verification_token)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET verified=TRUE WHERE username=:username AND verification_token=:verification_token");
+        if($statement->execute(array('username' => $username,'verification_token' => $verification_token)))
+        {
+            echo "Successfully tried to verify email";
+        }
+    }
+    catch(Exception $e)
+    {
+        die("Failed to verify email: " . $e->getMessage());
+    }
+}
+
 function valid_login($login_u, $login_p)
 {
     try
