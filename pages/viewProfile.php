@@ -13,7 +13,7 @@
 				<div class="dropdown is-hoverable hbutton">
 					<div class="dropdown-trigger">
 						<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-							<span>Hover me</span>
+							<span><?php echo $_SESSION["username"]?></span>
 							<span class="icon is-small">
 								<i class="fa fa-angle-down" aria-hidden="true"></i>
 							</span>
@@ -24,7 +24,7 @@
 							<div class="dropdown-item">
 								<aside class="menu">
 									<ul class="menu-list">
-										<li><a class = "inactivelink">Profile</a></li>
+										<li><a href = "../index.php">Home</a></li>
 										<li><a href = "./editor.php">Editor</a></li>
 										<li><a href = "../log/logout.php">Logout</a></li>
 									</ul>
@@ -54,7 +54,7 @@
 							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
+							<li><p>Notifcations:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
 						</ul>
 						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
