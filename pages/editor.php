@@ -2,7 +2,7 @@
 	include_once "./header.php";
 	user_nlogged_redirect();
 ?>
-<link rel="stylesheet" href="../style/change.css">
+<link rel="stylesheet" href="../style/editor.css">
 	<head>
     	<title>Camagru</title>
 	</head>
@@ -10,10 +10,10 @@
 		<!-- Hero Banner-->
 		<div class="Level has-background-grey-dark has-text-centered">
 			<div style = "display: inline;">
-				<div class="dropdown hbutton">
+				<div class="dropdown is-hoverable hbutton">
 					<div class="dropdown-trigger">
 						<button class="button" onclick = "myFunction()">
-							<span>Click me</span>
+							<span><?php echo $_SESSION["username"]?></span>
 							<span class="icon is-small">
 								<i class="fa fa-angle-down" ></i>
 							</span>
@@ -41,6 +41,9 @@
 			<div class="columns">
 				<div class="column"></div>
 				<div class="column">
+					<div class="webcam">
+						<video id = "video" playsinline autoplay></video>
+					</div>
 					<div style = "padding : 0px 0px 20px 0px">
 					<canvas id="myCanvas" width="200" height="200"></canvas>
 					</div>
@@ -48,6 +51,11 @@
 				<div class="column"></div>
 			</div>
 		</section>
+		<script>
+			const video = document.getElementById('video');
+
+			video.srcObject = stream;
+		</script>
 		<footer class="credits has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
@@ -55,33 +63,5 @@
 				<a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 		</footer>
-		<script>
-		function myFunction() {
-		var x = document.getElementById("dropdown-menu3");
-		if (x.style.display == "none") {
-			x.style.display = "block";
-		} else {
-			x.style.display = "none";
-		}
-		}
-		</script>
-		<!-- <script>
-			function toggle() {
-				var rip = document.getElementByID("lil");
-				rip.style.visibility = "hidden";
-				// if ( !(rip.classList.contains("is-active")))
-				// 	rip.classList.remove("is-active");
-				// } else {
-				// 	rip.classList.add("is-active");
-				// }
-
-				var disp = document.getElementByID("dropdown-menu3");
-				if ( !(document.getElementById("MyElement").classList.contains("is-active")))
-					disp.classList.remove("is-active");
-				} else {
-					disp.classList.add("is-active");
-				}
-			}
-		</script> -->
 	</body>
 </html>

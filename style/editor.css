@@ -29,6 +29,8 @@ a.inactivelink{
 	border:1px solid #000000;
 }
 
-#dropdown-menu3{
-	display: block !important;
-}
+.webcam {
+    transform: scaleX(-1);
+    text-align: center !important;
+    display: block;
+  }
