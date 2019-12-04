@@ -98,11 +98,11 @@ $imgamm = 5;
 		<div class="container">
 			<div class="pagination is-centered" role="navigation" aria-label="pagination"><a class="pagination-previous">Previous</a><a class="pagination-next">Next page</a>
 				<ul class="pagination-list">
-					<li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+					<li><a class="pagination-link" aria-label="Goto page 1" onclick="page_p()">Prev</a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
-					<li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+					<li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page"><?PHP echo $_GET['page']?></a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
-					<li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+					<li><a class="pagination-link" aria-label="Goto page 86" onclick="page_n()">Next</a></li>
 				</ul>
 			</div>
 		</div>
