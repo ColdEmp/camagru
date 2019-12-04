@@ -1,5 +1,10 @@
 <?php
  include_once "./pages/header.php";
+
+ if(!isset($_GET['page']))
+	header("Location: ./index.php?page=1");
+
+$imgamm = 5;
 ?>
   <head>
     <title>Camagru</title>
