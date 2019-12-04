@@ -42,7 +42,7 @@ function verification_email($username,$email,$verification_token)
 {
     try
     {
-        $message = "";
+        $message = "http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
         mail($email, "camgru user: $username", $message);
     }
     catch(Exception $e)
