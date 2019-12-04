@@ -115,5 +115,19 @@ $imgamm = 5;
 				 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 	</footer>
+	<script>
+
+		<?PHP java_comment($imgamm, $_GET['page']);?>
+		function page_p()
+		{
+			window.location.href = "<?PHP pager(-1, $imgamm);?>";
+		}
+
+		function page_n()
+		{
+			window.location.href = "<?PHP pager(1, $imgamm);?>";
+		}
+
+	</script>
   </body>
 </html>
