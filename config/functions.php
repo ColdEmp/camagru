@@ -42,8 +42,18 @@ function verification_email($username,$email,$verification_token)
 {
     try
     {
-        $message = "http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
-        mail($email, "camgru user: $username", $message);
+        $message = "
+Hello $username
+
+Thank you for signing up!
+Your account has been created, you can login to Camaguru after you have activated your account by pressing the url below.
+
+http://127.0.0.1:8080/camagru/log/email_verification.php?username=$username&verification_token=$verification_token
+
+Camaguru team
+";
+        //"http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
+        mail($email, "camagru user: $username", $message);
     }
     catch(Exception $e)
     {
@@ -147,7 +157,7 @@ function add_image($username, $image_src, $name)
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(userid,iamge_src,name)";
         $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote(:image_src) . ',:'name')");
+        $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote(:image_src) . ', :'name')");
         if($statement->execute(array('iamge_src' => $image_src, 'name' => $name)))
         {
             echo "Successfully tried to add an image";
