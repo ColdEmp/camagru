@@ -29,6 +29,17 @@ a.inactivelink{
 	border:1px solid #000000;
 }
 
+#canvas{
+	/* transform: scaleX(-1); */
+	text-align: center !important;
+	display: block;
+}
+
+.canvas_photo{
+	text-align: center !important;
+	display: block;
+} 
+
 .webcam {
     transform: scaleX(-1);
     text-align: center !important;

@@ -33,7 +33,7 @@
 						</div>
 					</div>
 				</div>
-				<h1 id = "lil" class="title is-1 has-text-light">CAMAGRU</h1>
+				<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 			</div>
 			<p class="subtitle has-text-light">A social media app!</p>
 		</div>
@@ -63,12 +63,6 @@
 		</footer>
 	</body>
 	<script>
-	function openSlideMenu() {
-			document.getElementById('side-menu').style.width = '250px';
-		}
-		function closeSlideMenu() {
-			document.getElementById('side-menu').style.width = '0';
-		}
 		'user strict';
 		const video = document.getElementById('video');
 		const canvas = document.getElementById('canvas');
@@ -78,38 +72,29 @@
 		const errorMsgElement = document.getElementById('span#ErrorMsg');
 		var capture = 0;
 		const constraints = {
-			// audio: true,
 			video: {
 				width: 640, height: 480
 			}
 		};
-		// Access webcam
-		async function init() {
+
+		async function setup() {
 			try {
 				const stream = await navigator.mediaDevices.getUserMedia(constraints);
-				handleSuccess(stream);
+				window.stream = stream;
+				video.srcObject = stream;
 			}
 			catch(e){
 				errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
 				alert('Something is wrong');
 			}
 		}
-		// Success
-		function handleSuccess(stream){
-			window.stream = stream;
-			video.srcObject = stream;
-		}
-		// Load init
-		init();
-		// Draw image
+		setup();
 		var context = canvas.getContext('2d');
-			width = 640;
-			height = 480;
 		var img = new Image;
 		var	s_canvas;
 		snap.addEventListener("click",function(){
 			capture = 1;
-			context.drawImage(video, 0, 0, width, height);
+			context.drawImage(video, 0, 0, 640, 480);
 		});
 
 		btnDisplay.addEventListener("click", function () {

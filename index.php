@@ -31,7 +31,7 @@ $imgamm = 5;
 						<div class="dropdown-item">
 							<aside class="menu">
 								<ul class="menu-list">
-									<li><a class = "inactivelink">Profile</a></li>
+									<li><a href = "./pages/viewProfile.php">Profile</a></li>
 									<li><a href = "./pages/editor.php">Editor</a></li>
 									<li><a href = "./log/logout.php">Logout</a></li>
 								</ul>
@@ -57,6 +57,7 @@ $imgamm = 5;
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<div class="block">
+					<h1 class = "title is-3">What a wanker</h1>
 						<img src="./images/illidan1.jpeg" alt="test" class="image">
 						<article class="media">
 							<figure class="media-left">
