@@ -16,4 +16,5 @@ $item = "test";
 //echo($temp);
 //verfiy_email("new_account","9854000");
 //change_notification("new_account", 1);
+verification_email("new_account","cdglanville@gmail.com","9854000");
 ?>
