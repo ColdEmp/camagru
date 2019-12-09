@@ -19,17 +19,17 @@
 							</span>
 						</button>
 					</div>
-					<div class="dropdown-menu" id="dropdown-menu3" role="menu">
+					<div class="dropdown-menu" id="dropdown-menu4" role="menu">
 						<div class="dropdown-content">
-							<a href="../index.php" class="dropdown-item">
-								Home
-							</a>
-							<a href="./viewProfile.php" class="dropdown-item">
-								Profile
-							</a>
-							<a href="../log/logout.php" class="dropdown-item">
-								Logout
-							</a>
+							<div class="dropdown-item">
+								<aside class="menu">
+									<ul class="menu-list">
+										<li><a href = "../index.php">Home</a></li>
+										<li><a href = "./viewProfile.php">Profile</a></li>
+										<li><a href = "../log/logout.php">Logout</a></li>
+									</ul>
+								</aside>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -41,8 +41,8 @@
 			<div class="columns">
 				<div class="column"></div>
 				<div class="column">
-				<div class="webcam">
-						<video id = "video" playsinline autoplay></video>
+					<div class="webcam">
+						<video id = "video" playsinline autoplay>Video unsupported</video>
 					</div>
 					<br />
 					<div class="canvas_photo">
@@ -63,7 +63,6 @@
 		</footer>
 	</body>
 	<script>
-		'user strict';
 		const video = document.getElementById('video');
 		const canvas = document.getElementById('canvas');
 		const snap = document.getElementById('snap');
@@ -101,31 +100,5 @@
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 			console.log(dataURI);
 		});
-		// navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-		// 	if(navigator.getUserMedia){
-		// 		navigator.getUserMedia({video:true},handleVideo,videoError);
-		// 	}
-
-		// 	function handleVideo(stream){
-		// 	document.querySelector('#video').src = window.URL.createObjectURL(stream);
-		// 	}
-
-		// 	function videoError(e){
-		// 		alert('Something is wrong');
-		// 	}
-			// const camvideo = document.getElementById('camvideo');
-			// const constraints = 
-			// {
-			// 	video:
-			// 	{
-			// 		minAspectRatio: 1.333,
-			// 		minFrameRate: 60,
-			// 		width: 640,
-			// 		heigth: 480
-			// 	}
-			// };
-			// const stream = await navigator.mediaDevices.getUserMedia(constraints);	
-			// window.stream = stream;
-			// camvideo.srcObject = stream;
 		</script>
 </html>

@@ -42,9 +42,18 @@
 		<section class="section">
 			<div class="columns">
 				<div class="column">
-					
+					<aside class="menu">
+						<ul class="menu-list">
+						<p class="menu-label">
+							Edit Details
+						</p>
+							<li><a class = "button"  href = "./changeName.php">Change Username</a></a></li>
+							<li><a class = "button"  href = "./changePass.php">Change Password</a></li>
+							<li><a class = "button"  href = "./changeEmail.php">Change Email</a></li>
+						</ul>
+					</aside>
 				</div>
-				<div class="column is-half">
+				<div class="column">
 					<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 						<h1 class="title is-3 has-text-light">PROFILE</h1>
 						<ul class="menu-list has-text-light b_1">
@@ -58,9 +67,9 @@
 						</ul>
 						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
-							<a class = "button" id = "edt_name" href = "./changeName.php">Change Username</a>
-							<a class = "button" style = "margin:auto" href = "./changePass.php">Change Password</a>
-							<a class = "button" id = "edt_email"href = "./changeEmail.php">Change Email</a>
+							<!-- <a class = "button" id = "edt_name" href = "./changeName.php">Change Username</a> -->
+							<!-- <a class = "button" style = "margin:auto" href = "./changePass.php">Change Password</a> -->
+							<!-- <a class = "button" id = "edt_email"href = "./changeEmail.php">Change Email</a> -->
 						</div>
 					</div>
 				</div>
