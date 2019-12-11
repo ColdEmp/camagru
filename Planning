@@ -1,9 +1,6 @@
 TIMOTHY
 {
-	Valid username{Alphanumeric only}
-	valid Password{alphanumeric, Must not only be lowercase}
-	Valid email{{*@*.*} no .'s before the @}
-	Send confirmation email
+	
 }
 
 CAMERON
@@ -16,5 +13,4 @@ HEINRICH:
 {
 	Setup editor page
 	integrate Valid login
-	Stop being a biiiiiiiitch
 }
