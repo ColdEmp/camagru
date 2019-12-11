@@ -57,7 +57,7 @@ $imgamm = 5;
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<div class="block">
-					<h1 class = "title is-3">What a wanker</h1>
+					<h1 class = "title is-3 has-text-light">What a wanker</h1>
 						<img src="./images/illidan1.jpeg" alt="test" class="image">
 						<article class="media">
 							<figure class="media-left">
@@ -91,7 +91,6 @@ $imgamm = 5;
 				</div>
 			</div>
 			<div class="column">
-
 			</div>
 		</div>
 	</section>
@@ -101,7 +100,7 @@ $imgamm = 5;
 				<ul class="pagination-list">
 					<li><a class="pagination-link" aria-label="Goto page 1" onclick="page_p()">Prev</a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
-					<li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page"><?PHP echo $_GET['page']?></a></li>
+					<li><a class="pagination-link has-text-white-ter has-background-black" aria-label="Page 46" aria-current="page"><?PHP echo $_GET['page']?></a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
 					<li><a class="pagination-link" aria-label="Goto page 86" onclick="page_n()">Next</a></li>
 				</ul>
