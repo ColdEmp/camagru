@@ -33,6 +33,7 @@ user_nlogged_redirect();
 									<ul class="menu-list">
 										<li><a href = "../index.php">Home</a></li>
 										<li><a href = "./viewProfile.php">Profile</a></li>
+										<li><a class = "inactivelink">Editor</a></li>
 										<li><a href = "../log/logout.php">Logout</a></li>
 									</ul>
 								</aside>
