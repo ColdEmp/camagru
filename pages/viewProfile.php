@@ -72,16 +72,22 @@ user_nlogged_redirect();
 					<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 						<h1 class="title is-3 has-text-light">PROFILE</h1>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>UserName:<span id = "user_name"><?php echo $_SESSION["username"];?></span></p></li>
+							<li><p style="text-align:center">UserName:</p></li>
+						</ul>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["username"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:</p></li>
+							<li><p style="text-align:center">Email Address:</p></li>
+						</ul>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p><?php echo $_SESSION["user_email"];?></p></li>
+							<li><p style="text-align:center">Notifcations:</p></li>
 						</ul>
-						<ul class="menu-list has-text-light b_1">
-							<li><p>Notifcations:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
 						<div class = "button_padding">
 							<!-- Take to relevant edit page -->
