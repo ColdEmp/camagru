@@ -13,7 +13,7 @@ function id_arr()
    }
    catch(PDOException $e)
    {
-    //    
+        die("Failed to id_array: " . $e->getMessage());
    }
 }
 

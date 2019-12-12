@@ -1,0 +1,30 @@
+TIMOTHY
+{
+	All the resources are there
+	I need to look at:
+						api/posts.php
+						line 253 java_comment in functions/image_functions.php
+						line 96 of index.php that calls pager_images()
+						pager_images() calls home_img()
+						home_img() is the actual code to display the gallery
+						home_img() calls get_posts()
+						home_img() calls retrieve_img()
+						retrieve_img() uses ver_img() and then calls get_img()
+						home_img() calls get_likes()
+						home_img() calls get_specific() a few times
+						home_img() echoes a bunch, inside if statements
+						home_img() calls home_get_comment()
+						
+}
+
+CAMERON
+{
+	add image
+	add comment ---> Please fix typo in function name
+}
+
+HEINRICH:
+{
+	Setup editor page
+	integrate Valid login
+}

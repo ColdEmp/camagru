@@ -61,11 +61,15 @@ else
 	<!-- Main Content -->
 	<section class="section">
 		<div class="columns">
-			<div class="column"></div>
+			<!-- Left column -->
+			<div class="column">
+			</div>
+			<!-- Left column end -->
+			<!-- Middle column -->
 			<div class="column">
 				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 					<div class="block">
-					<h1 class = "title is-3 has-text-light">What a wanker</h1>
+					<h1 class = "title is-3 has-text-white ">ALL OF THIS IS GOING TO CHANGE</h1>
 						<img src="./images/illidan1.jpeg" alt="test" class="image">
 						<article class="media">
 							<figure class="media-left">
@@ -98,8 +102,11 @@ else
 					</div>
 				</div>
 			</div>
+			<!-- Middle column end -->
+			<!-- Right column -->
 			<div class="column">
 			</div>
+			<!-- Right column end -->
 		</div>
 	</section>
 	<nav>
