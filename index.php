@@ -1,22 +1,29 @@
 <?php
- include_once "./pages/header.php";
+include_once "./pages/header.php";
 
- if(!isset($_GET['page']))
+if(!isset($_GET['page']))
 	header("Location: ./index.php?page=1");
 
 $imgamm = 5;
 ?>
+<!DOCTYPE html>
+<html lang="en">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="shortcut icon" href="#">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
-    <title>Camagru</title>
+	<title>Camagru</title>
 	<link rel="stylesheet" href="./style/index.css">
   </head>
   <body>
 	<!-- Hero Banner-->
 	<div class="Level has-background-grey-dark has-text-centered">
 		<div style = "display: inline;">
-		<?php
-		if (isset($_SESSION["username"])){
-			echo '
+<?php
+if (isset($_SESSION["username"])){
+	echo '
 			<div class="dropdown is-hoverable hbutton">
 				<div class="dropdown-trigger">
 					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -31,6 +38,7 @@ $imgamm = 5;
 						<div class="dropdown-item">
 							<aside class="menu">
 								<ul class="menu-list">
+									<li><a class = "inactivelink">Home</a></li>
 									<li><a href = "./pages/viewProfile.php">Profile</a></li>
 									<li><a href = "./pages/editor.php">Editor</a></li>
 									<li><a href = "./log/logout.php">Logout</a></li>
@@ -40,12 +48,12 @@ $imgamm = 5;
 					</div>
 				</div>
 			</div>';
-		}
-		else
-		{
-			echo '<a href = "./pages/login.php" class = "button is-outlined hbutton">Login</a>';
-		}
-		?>
+}
+else
+{
+	echo '<a href = "./pages/login.php" class = "button is-outlined hbutton">Login</a>';
+}
+?>
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
@@ -77,7 +85,7 @@ $imgamm = 5;
 									<a class="level-item">
 										<span class="icon is-small"><i class="fa fa-comment"></i></span>
 									</a>
-								 	<a class="level-item">
+									<a class="level-item">
 										<span class="icon is-small"><i class="fa fa-heart"></i></span>
 									</a>
 								</div>
@@ -108,26 +116,26 @@ $imgamm = 5;
 		</div>
 	</nav>
 	<!-- Credits -->
-	<footer class="credits has-background-grey">
+	<footer class="footer credits has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
 				 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
 				 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 	</footer>
-	<script>
+<script>
 
-		<?PHP java_comment($imgamm, $_GET['page']);?>
-		function page_p()
-		{
-			window.location.href = "<?PHP pager(-1, $imgamm);?>";
-		}
+<?PHP java_comment($imgamm, $_GET['page']);?>
+function page_p()
+{
+	window.location.href = "<?PHP pager(-1, $imgamm);?>";
+}
 
-		function page_n()
-		{
-			window.location.href = "<?PHP pager(1, $imgamm);?>";
-		}
+function page_n()
+{
+	window.location.href = "<?PHP pager(1, $imgamm);?>";
+}
 
-	</script>
+</script>
   </body>
 </html>

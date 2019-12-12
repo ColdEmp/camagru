@@ -1,10 +1,17 @@
 <?php
-	include_once "./header.php";
-	user_nlogged_redirect();
+include_once "./header.php";
+user_nlogged_redirect();
 ?>
-<link rel="stylesheet" href="../style/change.css">
+<!DOCTYPE html>
+<html lang="en">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="shortcut icon" href="#">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../style/change.css">
 	<head>
-    	<title>Camagru</title>
+		<title>Camagru</title>
 	</head>
 	<body>
 		<!-- Hero Banner-->
@@ -43,40 +50,40 @@
 								</div>
 							</form>
 						</div>
-						<?php
-					if (isset($_POST["change"]))
-					{
-						if(valid_login($_SESSION["username"], $_POST['old_pass']))
-						{
-							if(valid_password($_POST["new_pass"])){
-								if($_POST["new_pass"] == $_POST["confirm_pass"]){
-									change_password($_SESSION["username"],$_POST["new_pass"]);
-									header("Location: ./viewProfile.php");
-								}
-								else{
-									notify("New password and repeat password don't match");
-								}
-							}
-							else{
-								notify("New Password is invalid");
-							}
-						}
-						else{
-							notify('Invalid old password');
-						}
-					}
-				?>
 					</div>
 				</div>
 				<div class="column"></div>
 			</div>
 		</section>
-		<footer class="credits has-background-grey">
+		<footer class="footer has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
-			 	<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
+				<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
 				<a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 		</footer>
 	</body>
 </html>
+<?php
+if (isset($_POST["change"]))
+{
+	if(valid_login($_SESSION["username"], $_POST['old_pass']))
+	{
+		if(valid_password($_POST["new_pass"])){
+			if($_POST["new_pass"] == $_POST["confirm_pass"]){
+				change_password($_SESSION["username"],$_POST["new_pass"]);
+				header("Location: ./viewProfile.php");
+			}
+			else{
+				notify("New password and repeat password don't match");
+			}
+		}
+		else{
+			notify("New Password is invalid");
+		}
+	}
+	else{
+		notify('Invalid old password');
+	}
+}
+?>

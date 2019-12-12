@@ -1,10 +1,17 @@
 <?php
-	include_once "./header.php";
-	user_nlogged_redirect();
+include_once "./header.php";
+user_nlogged_redirect();
 ?>
-<link rel="stylesheet" href="../style/viewProfile.css">
+<!DOCTYPE html>
+<html lang="en">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="shortcut icon" href="#">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../style/viewProfile.css">
 	<head>
-    	<title>Camagru</title>
+		<title>Camagru</title>
 	</head>
 	<body>
 		<!-- Hero Banner-->
@@ -68,7 +75,10 @@
 							<li><p>UserName:<span id = "user_name"><?php echo $_SESSION["username"];?></span></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
+							<li><p>Email Address:</p></li>
+						</ul>
+						<ul class="menu-list has-text-light b_1">
+							<li><p><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
 							<li><p>Notifcations:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
@@ -88,7 +98,7 @@
 		<footer class="credits has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
-			 	<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
+				<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
 				<a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 		</footer>
