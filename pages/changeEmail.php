@@ -65,7 +65,6 @@ if (isset($_POST["change"]))
 	}
 	else
 	{
-		echo "";
 		notify('Invalid username password combination');
 	}
 }
