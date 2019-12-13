@@ -32,6 +32,7 @@ user_nlogged_redirect();
 								<aside class="menu">
 									<ul class="menu-list">
 										<li><a href = "../index.php">Home</a></li>
+										<li><a class = "inactivelink">Profile</a></li>
 										<li><a href = "./editor.php">Editor</a></li>
 										<li><a href = "../log/logout.php">Logout</a></li>
 									</ul>
@@ -48,46 +49,43 @@ user_nlogged_redirect();
 		<!-- Main Content -->
 		<section class="section">
 			<div class="columns">
-				<div class="column">
-					<div class="columns">
-						<div class="column">
-							<div class = "box has-text-centered has-background-grey-dark">
-								<aside class="menu">
-									<ul class="menu-list">
-										<p class="menu-label has-text-light">
-											Edit Details
-										</p>
-										<li><a class = "button"  href = "./changeName.php">Change Username</a></a></li>
-										<li><a class = "button"  href = "./changePass.php">Change Password</a></li>
-										<li><a class = "button"  href = "./changeEmail.php">Change Email</a></li>
-									</ul>
-								</aside>
-							</div>
-						</div>
-						<div class="column"></div>
-						<div class="column"></div>
-					</div>
-				</div>
+				<div class="column"></div>
 				<div class="column">
 					<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
 						<h1 class="title is-3 has-text-light">PROFILE</h1>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>UserName:<span id = "user_name"><?php echo $_SESSION["username"];?></span></p></li>
+							<li><p style="text-align:center">UserName:</p></li>
+						</ul>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["username"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p>Email Address:</p></li>
+							<li><p style="text-align:center">Email Address:</p></li>
+						</ul>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p><?php echo $_SESSION["user_email"];?></p></li>
+							<li><p style="text-align:center">Notifcations:</p></li>
 						</ul>
-						<ul class="menu-list has-text-light b_1">
-							<li><p>Notifcations:<span id = "user_email"><?php echo $_SESSION["user_email"];?></span></p></li>
+						<ul class="menu-list has-text-dark b_1" style=background:white>
+							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
-						<div class = "button_padding">
+						<!-- <div class = "button_padding"> -->
 							<!-- Take to relevant edit page -->
 							<!-- <a class = "button" id = "edt_name" href = "./changeName.php">Change Username</a> -->
 							<!-- <a class = "button" style = "margin:auto" href = "./changePass.php">Change Password</a> -->
 							<!-- <a class = "button" id = "edt_email"href = "./changeEmail.php">Change Email</a> -->
+						<!-- </div> -->
+						<div class = "box has-text-centered has-background-grey-dark">
+							<aside class="menu">
+								<ul class="menu-list">
+									<p class="menu-label has-text-light">Edit Details</p>
+									<li><a class = "button"  href = "./changeName.php">Change Username</a></a></li>
+									<li><a class = "button"  href = "./changePass.php">Change Password</a></li>
+									<li><a class = "button"  href = "./changeEmail.php">Change Email</a></li>
+								</ul>
+							</aside>
 						</div>
 					</div>
 				</div>

@@ -33,6 +33,7 @@ user_nlogged_redirect();
 									<ul class="menu-list">
 										<li><a href = "../index.php">Home</a></li>
 										<li><a href = "./viewProfile.php">Profile</a></li>
+										<li><a class = "inactivelink">Editor</a></li>
 										<li><a href = "../log/logout.php">Logout</a></li>
 									</ul>
 								</aside>
@@ -59,9 +60,17 @@ user_nlogged_redirect();
 					<button id="snap" class="btn">Capture</button>
 				</div>
 				<div class="column"></div>
+				<!-- The data encoding type, enctype, MUST be specified as below
+				<form enctype="multipart/form-data" action="__URL__" method="POST">
+					-- MAX_FILE_SIZE must precede the file input field
+					<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+					<Name of input element determines name in $_FILES array
+					-- Send this file: <input name="userfile" type="file" />
+					<input type="submit" value="Send File" />
+				</form> -->
 			</div>
 		</section>
-		<footer class="footer has-background-grey">
+		<footer class="credits footer has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
 				<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,

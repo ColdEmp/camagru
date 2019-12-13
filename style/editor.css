@@ -23,6 +23,7 @@ a.inactivelink{
 .hbutton{
 	position: fixed !important;
 	margin-left: -47.8%;
+	padding-top:20px;
 }
 
 #myCanvas{
