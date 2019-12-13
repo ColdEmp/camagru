@@ -17,7 +17,30 @@ include_once "./header.php";
 		<!-- Hero Banner-->
 		<div class="Level has-background-grey-dark has-text-centered">
 			<div style = "display: inline;">
-				<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
+				<div class="dropdown is-hoverable hbutton">
+					<div class="dropdown-trigger">
+						<button class="button" onclick = "myFunction()">
+							<span><?php echo $_SESSION["username"]?></span>
+							<span class="icon is-small">
+								<i class="fa fa-angle-down" ></i>
+							</span>
+						</button>
+					</div>
+					<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<aside class="menu">
+									<ul class="menu-list">
+										<li><a href = "../index.php">Home</a></li>
+										<li><a href = "./viewProfile.php">Profile</a></li>
+										<li><a href = "./editor.php">Editor</a></li>
+										<li><a href = "../log/logout.php">Logout</a></li>
+									</ul>
+								</aside>
+							</div>
+						</div>
+					</div>
+				</div>
 				<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 			</div>
 			<p class="subtitle has-text-light">A social media app!</p>
@@ -45,7 +68,7 @@ include_once "./header.php";
 				<div class="column"></div>
 			</div>
 		</section>
-		<footer class="footer has-background-grey">
+		<footer class="credits footer has-background-grey">
 			<div class="content has-text-centered has-text-light">
 				<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
 				<a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,

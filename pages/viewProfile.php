@@ -80,9 +80,7 @@ user_nlogged_redirect();
 						<div class = "box has-text-centered has-background-grey-dark">
 							<aside class="menu">
 								<ul class="menu-list">
-									<p class="menu-label has-text-light">
-										Edit Details
-									</p>
+									<p class="menu-label has-text-light">Edit Details</p>
 									<li><a class = "button"  href = "./changeName.php">Change Username</a></a></li>
 									<li><a class = "button"  href = "./changePass.php">Change Password</a></li>
 									<li><a class = "button"  href = "./changeEmail.php">Change Email</a></li>

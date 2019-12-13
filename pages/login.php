@@ -60,7 +60,7 @@ user_logged_redirect();
 			<h1 class="title is-3">Login</h1>
 		</div> -->
 	</section>
-	<footer class="footer has-background-grey">
+	<footer class="credits footer has-background-grey">
 		<div class="content has-text-centered has-text-light">
 			<p>Camagru by <a class ="has-text-light is-italic" href="https://github.com/cameronglanville">Cameron Glanville</a>,
 			 <a class ="has-text-light is-italic" href="https://github.com/hbarnardWTC">Heinrich Barnard</a>,
