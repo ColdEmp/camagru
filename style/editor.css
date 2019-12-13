@@ -1,14 +1,17 @@
-
 html{
 	background-color:hsl(0, 0%, 71%);
 }
 
+.page-container {
+	position: relative;
+	min-height: 100vh;
+  }
+
 .credits{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	position:fixed;
-	bottom:0;
-	width:100%;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;   
 }
 a.inactivelink{
 	color: currentColor;
@@ -30,12 +33,6 @@ a.inactivelink{
 	border:1px solid #000000;
 }
 
-#canvas{
-	/* transform: scaleX(-1); */
-	text-align: center !important;
-	display: block;
-}
-
 .canvas_photo{
 	text-align: center !important;
 	display: block;
@@ -45,4 +42,13 @@ a.inactivelink{
     transform: scaleX(-1);
     text-align: center !important;
     display: block;
+  }
+
+  #page-container {
+	position: relative;
+	min-height: 100vh;
+  }
+  
+  #content-wrap {
+	padding-bottom: 2.5rem;    /* Footer height */
   }
