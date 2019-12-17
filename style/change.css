@@ -19,8 +19,9 @@ a.inactivelink{
  }
    
 .hbutton{
-	position: fixed !important;
+	position: absolute !important;
 	margin-left: -47.8%;
+	padding-top:20px;
 }
 
  #details{

@@ -74,6 +74,29 @@ user_nlogged_redirect();
 							</form>
 						</div>
 					</div>
+					<?php
+					if (isset($_POST["change"]))
+					{
+						if(valid_login($_SESSION["username"], $_POST['old_pass']))
+						{
+							if(valid_password($_POST["new_pass"])){
+								if($_POST["new_pass"] == $_POST["confirm_pass"]){
+									change_password($_SESSION["username"],$_POST["new_pass"]);
+									header("Location: ./viewProfile.php");
+								}
+								else{
+									notify("New password and repeat password don't match");
+								}
+							}
+							else{
+								notify("New Password is invalid");
+							}
+						}
+						else{
+							notify('Invalid old password');
+						}
+					}
+					?>
 				</div>
 				<div class="column"></div>
 			</div>
@@ -87,26 +110,3 @@ user_nlogged_redirect();
 		</footer>
 	</body>
 </html>
-<?php
-if (isset($_POST["change"]))
-{
-	if(valid_login($_SESSION["username"], $_POST['old_pass']))
-	{
-		if(valid_password($_POST["new_pass"])){
-			if($_POST["new_pass"] == $_POST["confirm_pass"]){
-				change_password($_SESSION["username"],$_POST["new_pass"]);
-				header("Location: ./viewProfile.php");
-			}
-			else{
-				notify("New password and repeat password don't match");
-			}
-		}
-		else{
-			notify("New Password is invalid");
-		}
-	}
-	else{
-		notify('Invalid old password');
-	}
-}
-?>

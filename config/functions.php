@@ -69,7 +69,7 @@ function verfiy_email($username, $verification_token)
         $statement = $connection->prepare("UPDATE users SET verified=TRUE WHERE username=:username AND verification_token=:verification_token");
         if($statement->execute(array('username' => $username,'verification_token' => $verification_token)))
         {
-            echo "Successfully tried to verify email";
+            //echo "Successfully tried to verify email";
         }
     }
     catch(Exception $e)
@@ -85,10 +85,7 @@ function change_notification($username, $notification_setting)
     {
         $connection = open_connection();
         $statement = $connection->prepare("UPDATE users SET notifications='$notification_setting' WHERE username=:username");
-        if($statement->execute(array('username' => $username)))
-        {
-            echo "Successfully tried to change notification setting";
-        }
+        $statement->execute(array('username' => $username));
     }
     catch(Exception $e)
     {
@@ -150,15 +147,16 @@ function find_specified($specified, $table, $column, $item)
     }
 }
 
+//does not work
 function add_image($username, $image_src, $name)
 {
     try
     {
         $userid = find_specified("userid", "users", "username", $username);
-        $column = "(userid,iamge_src,name)";
+        $column = "(userid,image_src,name)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote(:image_src) . ', :'name')");
-        if($statement->execute(array('iamge_src' => $image_src, 'name' => $name)))
+        if($statement->execute(array('image_src' => $image_src, 'name' => $name)))
         {
             echo "Successfully tried to add an image";
         }
@@ -169,18 +167,17 @@ function add_image($username, $image_src, $name)
     }
 }
 
-function add_comment($name, $username, $comment_text)
+function add_comment($imageid, $username, $comment_text)
 {
     try
     {
-        $imageid = find_specified("imageid", "images", "name", $name);
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(imageid,userid,comment_text)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO comments $column VALUES ('$imageid','$userid',:comment_text)");
         if($statement->execute(array('comment_text' => $comment_text)))
         {
-            echo "Successfully tried to add a comment";
+            //echo "Successfully tried to add a comment";
         }
     }
     catch(PDOException $e)
@@ -189,18 +186,37 @@ function add_comment($name, $username, $comment_text)
     }
 }
 
-function add_like($username, $name)
+function count_comments($imageid)
 {
     try
     {
-        $imageid = find_specified("imageid", "images", "name", $name);
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT COUNT(*) FROM comments WHERE imageid='$imageid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to count comments";
+            $temp = $statement->fetchAll();
+            //echo "<br />".$temp[0][0];
+            return ($temp[0][0]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to count comments: " . $e->getMessage());
+    }
+}
+
+function add_like($imageid, $username)
+{
+    try
+    {
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(imageid,userid)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO likes $column VALUES ('$imageid','$userid')");
         if($statement->execute())
         {
-            echo "Successfully tried to add a like";
+            //echo "Successfully tried to add a like";
         }
     }
     catch(PDOException $e)
@@ -209,22 +225,41 @@ function add_like($username, $name)
     }
 }
 
-function remove_like($username, $name)
+function remove_like($imageid, $username)
 {
     try
     {
-        $imageid = find_specified("imageid", "images", "name", $name);
         $userid = find_specified("userid", "users", "username", $username);
         $connection = open_connection();
         $statement = $connection->prepare("DELETE FROM likes WHERE imageid='$imageid' AND userid='$userid'");
         if($statement->execute())
         {
-            echo "Successfully tried to remove a like";
+            //echo "Successfully tried to remove a like";
         }
     }
     catch(PDOException $e)
     {
         die("Failed to remove like: " . $e->getMessage());
+    }
+}
+
+function count_likes($imageid)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT COUNT(*) FROM likes WHERE imageid='$imageid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to count likes";
+            $temp = $statement->fetchAll();
+            //echo "<br />".$temp[0][0];
+            return ($temp[0][0]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to count likes: " . $e->getMessage());
     }
 }
 
@@ -237,7 +272,7 @@ function change_password($username,$raw_password)
         $statement = $connection->prepare("UPDATE users SET userpass='$userpass' WHERE username=:username");
         if($statement->execute(array('username' => $username)))
         {
-            echo "Successfully changed password";
+            //echo "Successfully changed password";
         }
     }
     catch(PDOException $e)
@@ -254,7 +289,7 @@ function change_username($username,$new_username)
         $statement = $connection->prepare("UPDATE users SET username=:new_username WHERE username=:username");
         if($statement->execute(array('new_username' => $new_username, 'username' => $username)))
         {
-            echo "Successfully changed username";
+            //echo "Successfully changed username";
         }
     }
     catch(PDOException $e)
@@ -271,7 +306,7 @@ function change_email($username,$new_email)
         $statement = $connection->prepare("UPDATE users SET email=:new_email WHERE username=:username");
         if($statement->execute(array('new_email' => $new_email, 'username' => $username)))
         {
-            echo "Successfully changed email";
+            //echo "Successfully changed email";
         }
     }
     catch(PDOException $e)

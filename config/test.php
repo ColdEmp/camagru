@@ -16,7 +16,12 @@ $item = "test";
 //$temp = find_specified("email" ,"users","username","test");
 //echo($temp);
 //verfiy_email("new_account","9854000");
-//change_notification("new_account", 1);
+//change_notification("test", 1);
 //verification_email("new_account","cdglanville@gmail.com","9854000");
 //change_email("test","test@email.com");
+//add_comment(1,"test","test message to infinite");
+//count_comments(1);
+//add_like(1,"test");
+//count_likes(1);
+//remove_like(1,"test");
 ?>

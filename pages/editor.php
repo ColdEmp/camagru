@@ -18,30 +18,30 @@ user_nlogged_redirect();
 		<div class="page-container">
 			<div class="Level has-background-grey-dark has-text-centered">
 				<div style = "display: inline;">
-					<div class="dropdown is-hoverable hbutton">
-						<div class="dropdown-trigger">
-							<button class="button" onclick = "myFunction()">
-								<span><?php echo $_SESSION["username"]?></span>
-								<span class="icon is-small">
-									<i class="fa fa-angle-down" ></i>
-								</span>
-							</button>
-						</div>
-						<div class="dropdown-menu" id="dropdown-menu4" role="menu">
-							<div class="dropdown-content">
-								<div class="dropdown-item">
-									<aside class="menu">
-										<ul class="menu-list">
-											<li><a href = "../index.php">Home</a></li>
-											<li><a href = "./viewProfile.php">Profile</a></li>
-											<li><a class = "inactivelink">Editor</a></li>
-											<li><a href = "../log/logout.php">Logout</a></li>
-										</ul>
-									</aside>
-								</div>
+				<div class="dropdown is-hoverable hbutton">
+					<div class="dropdown-trigger">
+						<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+							<span><?php echo $_SESSION["username"]?></span>
+							<span class="icon is-small">
+								<i class="fa fa-angle-down" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+					<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<aside class="menu">
+									<ul class="menu-list">
+										<li><a href = "../index.php">Home</a></li>
+										<li><a href = "./viewProfile.php">Profile</a></li>
+										<li><a class = "inactivelink">Editor</a></li>
+										<li><a href = "../log/logout.php">Logout</a></li>
+									</ul>
+								</aside>
 							</div>
 						</div>
 					</div>
+				</div>
 					<h1 class="title is-1 has-text-light">CAMAGRU</h1>
 				</div>
 				<p class="subtitle has-text-light">A social media app!</p>

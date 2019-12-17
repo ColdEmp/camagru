@@ -21,8 +21,9 @@ a.inactivelink{
  }
    
 .hbutton{
-	position: fixed !important;
+	position: absolute !important;
 	margin-left: -47.8%;
+	padding-top:20px;
 }
 
  #details{
@@ -34,7 +35,7 @@ a.inactivelink{
  .b_1 {
 	 border: 2px solid white !important;
 	 padding: 1rem !important;
-	 text-align: left;
+	 /* text-align: left; */
  }
 
 .button_padding{
