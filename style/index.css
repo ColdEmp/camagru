@@ -23,7 +23,7 @@ a.inactivelink{
 .hbutton{
 	position: absolute !important;
 	margin-left: -47.8%;
-	padding-top:20px;
+	margin-top:20px;
 }
 
 .logbutton{
@@ -33,4 +33,16 @@ a.inactivelink{
 #prof_box{
 	padding-bottom:3rem;
 	margin:auto;
+}
+
+
+/* New css, by YOUR LORD AND SAVIOUR CAPTAIN REDBEARD */
+
+.column.middle.image{
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	position: relative;
+	display: block;
+	margin-left: 15%;
+	margin-right: 15%;
+	width: 70%;
 }

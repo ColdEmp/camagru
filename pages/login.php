@@ -16,8 +16,10 @@ user_logged_redirect();
 	<body>
 	<!-- Hero Banner-->
 	<div class="hero has-background-grey-dark has-text-centered">
-		<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
-		<h1 class="title is-1 has-text-light">CAMAGRU</h1>
+		<div style = "display: inline;">
+			<a href = "../index.php" class = "button is-outlined hbutton">Home</a>
+			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
+		</div>
 		<p class="subtitle has-text-light">A social media app!</p>
 	</div>
 	<section class="section is-centered">
