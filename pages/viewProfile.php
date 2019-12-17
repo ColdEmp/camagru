@@ -2,7 +2,7 @@
 include_once "./header.php";
 user_nlogged_redirect();
 $notif = find_specified("notifications", "users", "username", $_SESSION['username']);
-$name = $_SERVER["username"];
+$name = $_SESSION["username"];
 if(isset($_POST['submit_notif'])) {
 	if($_POST['notif'] == 'yes') {
 		$notif = 1;
