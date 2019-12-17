@@ -1,5 +1,5 @@
 <?php
-include_once "./pages/header.php";
+require_once "./pages/header.php";
 
 if(!isset($_GET['page']))
 	header("Location: ./index.php?page=1");
@@ -67,40 +67,10 @@ else
 			<!-- Left column end -->
 			<!-- Middle column -->
 			<div class="column">
-				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
-					<div class="block">
-					<h1 class = "title is-3 has-text-white ">ALL OF THIS IS GOING TO CHANGE</h1>
-						<img src="./images/illidan1.jpeg" alt="test" class="image">
-						<article class="media">
-							<figure class="media-left">
-								<p class="image is-64x64">
-							</p>
-							</figure>
-							<div class = "media-content">
-								<div class="content has-text-light">
-									<p>
-										<strong class="has-text-light is-4">USERNAME</strong>
-										<br>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-									</p>
-								</div>
-								<nav class="level is-mobile">
-									<div class="level-left">
-										<a class="level-item">
-											<span class="icon is-small"><i class="fa fa-comment"></i></span>
-										</a>
-										<a class="level-item">
-											<span class="icon is-small"><i class="fa fa-heart"></i></span>
-										</a>
-									</div>
-								</nav>
-							</div>		
-							<div class="media-right">
-							  <button class="delete"></button>
-							</div>
-						</article>
-					</div>
-				</div>
+											<!-- Need to replace evrything -->
+							<!-- Need to actually make this function -->
+				<?PHP pager_images($imgamm, $_GET['page']);?>
+											<!-- Need to replce everything -->
 			</div>
 			<!-- Middle column end -->
 			<!-- Right column -->
@@ -113,11 +83,11 @@ else
 		<div class="container">
 			<div class="pagination is-centered" role="navigation" aria-label="pagination">
 				<ul class="pagination-list">
-					<li><a class="pagination-link" aria-label="Goto page 1" onclick="page_p()">Prev</a></li>
+					<li><a class="pagination-link" id="prevv">Prev</a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
-					<li><a class="pagination-link has-text-white-ter has-background-black" aria-label="Page 46" aria-current="page"><?PHP echo $_GET['page']?></a></li>
+					<li><a class="pagination-link has-text-white-ter has-background-black" aria-current="page"><?PHP echo $_GET['page']?></a></li>
 					<li><span class="pagination-ellipsis">…</span></li>
-					<li><a class="pagination-link" aria-label="Goto page 86" onclick="page_n()">Next</a></li>
+					<li><a class="pagination-link" id="nextt">Next</a></li>
 				</ul>
 			</div>
 		</div>
@@ -130,19 +100,17 @@ else
 				 <a class ="has-text-light is-italic" href="https://github.com/CaptainRedBear">Timothy Webb</a>.</p>
 			</div>
 	</footer>
-<script>
-
-<?PHP java_comment($imgamm, $_GET['page']);?>
-function page_p()
-{
-	window.location.href = "<?PHP pager(-1, $imgamm);?>";
-}
-
-function page_n()
-{
-	window.location.href = "<?PHP pager(1, $imgamm);?>";
-}
-
-</script>
-  </body>
+	<script>
+		document.getElementById ("prevv").addEventListener ("click", page_p, false);
+		document.getElementById ("nextt").addEventListener ("click", page_n, false);
+		function page_p()
+		{
+			window.location.href = "<?PHP pager(-1, $imgamm);?>";
+		}
+		function page_n()
+		{
+			window.location.href = "<?PHP pager(1, $imgamm);?>";
+		}
+	</script>
+  	</body>
 </html>
