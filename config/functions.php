@@ -85,10 +85,7 @@ function change_notification($username, $notification_setting)
     {
         $connection = open_connection();
         $statement = $connection->prepare("UPDATE users SET notifications='$notification_setting' WHERE username=:username");
-        if($statement->execute(array('username' => $username)))
-        {
-            echo "Successfully tried to change notification setting";
-        }
+        $statement->execute(array('username' => $username));
     }
     catch(Exception $e)
     {
@@ -155,10 +152,10 @@ function add_image($username, $image_src, $name)
     try
     {
         $userid = find_specified("userid", "users", "username", $username);
-        $column = "(userid,iamge_src,name)";
+        $column = "(userid,image_src,name)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',' . $connection->quote(:image_src) . ', :'name')");
-        if($statement->execute(array('iamge_src' => $image_src, 'name' => $name)))
+        if($statement->execute(array('image_src' => $image_src, 'name' => $name)))
         {
             echo "Successfully tried to add an image";
         }
@@ -187,6 +184,11 @@ function add_comment($name, $username, $comment_text)
     {
         die("Failed to add comment: " . $e->getMessage());
     }
+}
+
+function count_comments($imageid)
+{
+
 }
 
 function add_like($username, $name)
