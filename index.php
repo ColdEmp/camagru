@@ -24,31 +24,31 @@ $imgamm = 5;
 <?php
 if (isset($_SESSION["username"])){
 	echo '
-			<div class="dropdown is-hoverable hbutton">
-				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-						<span>' . $_SESSION["username"] . '</span>
-						<span class="icon is-small">
-							<i class="fa fa-angle-down" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-				<div class="dropdown-menu" id="dropdown-menu4" role="menu">
-					<div class="dropdown-content">
-						<div class="dropdown-item">
-							<aside class="menu">
-								<ul class="menu-list">
-									<li><a class = "inactivelink">Home</a></li>
-									<li><a href = "./pages/viewProfile.php">Profile</a></li>
-									<li><a href = "./pages/editor.php">Editor</a></li>
-									<li><a href = "./log/logout.php">Logout</a></li>
-								</ul>
-							</aside>
-						</div>
+		<div class="dropdown is-hoverable hbutton">
+			<div class="dropdown-trigger">
+				<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+					<span>' . $_SESSION["username"] . '</span>
+					<span class="icon is-small">
+						<i class="fa fa-angle-down" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+			<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+				<div class="dropdown-content">
+					<div class="dropdown-item">
+						<aside class="menu">
+							<ul class="menu-list">
+								<li><a class = "inactivelink">Home</a></li>
+								<li><a href = "./pages/viewProfile.php">Profile</a></li>
+								<li><a href = "./pages/editor.php">Editor</a></li>
+								<li><a href = "./log/logout.php">Logout</a></li>
+							</ul>
+						</aside>
 					</div>
 				</div>
-			</div>';
-}
+			</div>
+		</div>';
+	}
 else
 {
 	echo '<a href = "./pages/login.php" class = "button is-outlined hbutton">Login</a>';
@@ -77,28 +77,28 @@ else
 							</p>
 							</figure>
 							<div class = "media-content">
-							<div class="content has-text-light">
-								<p>
-									<strong class="has-text-light is-4">USERNAME</strong>
-									<br>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-								</p>
-							</div>
-							<nav class="level is-mobile">
-								<div class="level-left">
-									<a class="level-item">
-										<span class="icon is-small"><i class="fa fa-comment"></i></span>
-									</a>
-									<a class="level-item">
-										<span class="icon is-small"><i class="fa fa-heart"></i></span>
-									</a>
+								<div class="content has-text-light">
+									<p>
+										<strong class="has-text-light is-4">USERNAME</strong>
+										<br>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+									</p>
 								</div>
-							</nav>
-						</div>		
+								<nav class="level is-mobile">
+									<div class="level-left">
+										<a class="level-item">
+											<span class="icon is-small"><i class="fa fa-comment"></i></span>
+										</a>
+										<a class="level-item">
+											<span class="icon is-small"><i class="fa fa-heart"></i></span>
+										</a>
+									</div>
+								</nav>
+							</div>		
 							<div class="media-right">
 							  <button class="delete"></button>
 							</div>
-						  </article>
+						</article>
 					</div>
 				</div>
 			</div>
