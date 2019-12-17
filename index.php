@@ -111,7 +111,7 @@ else
 	</section>
 	<nav>
 		<div class="container">
-			<div class="pagination is-centered" role="navigation" aria-label="pagination"><a class="pagination-previous">Previous</a><a class="pagination-next">Next page</a>
+			<div class="pagination is-centered" role="navigation" aria-label="pagination">
 				<ul class="pagination-list">
 					<li><a class="pagination-link" aria-label="Goto page 1" onclick="page_p()">Prev</a></li>
 					<li><span class="pagination-ellipsis">…</span></li>

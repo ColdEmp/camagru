@@ -21,6 +21,8 @@ CAMERON
 {
 	add image
 	add comment ---> Please fix typo in function name
+
+	line 158 and 161 in functions.php looks like a spelling error
 }
 
 HEINRICH:
