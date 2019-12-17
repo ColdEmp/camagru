@@ -1,5 +1,53 @@
 <?PHP
 
+function pager_images()
+{
+    try
+    {
+
+    }
+    catch(PDOException $e)
+    {
+        
+    }
+}
+
+function home_img()
+{
+    
+}
+
+function get_posts()
+{
+    
+}
+
+function retrieve_img()
+{
+    
+}
+
+function ver_img()
+{
+    
+}
+
+function get_img()
+{
+    
+}
+
+function get_likes()
+{
+    
+}
+
+function home_get_comment()
+{
+    
+}
+
+
 function id_arr()
 {
    try
@@ -21,7 +69,8 @@ function pager($mode, $amm)
 {
     try
     {
-        $max = count(id_arr());
+        // $max = count(id_arr());
+        $max = 32;
         if ($page = $_GET['page'])
         {
             if ($page > 1 && mode == -1)

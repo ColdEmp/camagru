@@ -15,6 +15,65 @@ TIMOTHY
 						home_img() echoes a bunch, inside if statements
 						home_img() calls home_get_comment()
 						
+						<!-- <?PHP java_comment($imgamm, $_GET['page']);?> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="box has-text-centered has-background-grey-dark" id = "prof_box">
+					<div class="block">
+					<h1 class = "title is-3 has-text-white ">ALL OF THIS IS GOING TO CHANGE</h1>
+						<img src="./images/illidan1.jpeg" alt="test" class="image">
+						<article class="media">
+							<figure class="media-left">
+								<p class="image is-64x64">
+							</p>
+							</figure>
+							<div class = "media-content">
+								<div class="content has-text-light">
+									<p>
+										<strong class="has-text-light is-4">USERNAME</strong>
+										<br>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+									</p>
+								</div>
+								<nav class="level is-mobile">
+									<div class="level-left">
+										<a class="level-item">
+											<span class="icon is-small"><i class="fa fa-comment"></i></span>
+										</a>
+										<a class="level-item">
+											<span class="icon is-small"><i class="fa fa-heart"></i></span>
+										</a>
+									</div>
+								</nav>
+							</div>		
+							<div class="media-right">
+							  <button class="delete"></button>
+							</div>
+						</article>
+					</div>
+				</div>
+
+
 }
 
 CAMERON
