@@ -2,6 +2,16 @@
 include_once "./header.php";
 user_nlogged_redirect();
 $notif = find_specified("notifications", "users", "username", $_SESSION['username']);
+$name = $_SERVER["username"];
+if(isset($_POST['submit_notif'])) {
+	if($_POST['notif'] == 'yes') {
+		$notif = 1;
+		change_notification($name, $notif);
+    } elseif($_POST['notif'] == 'no') {
+		$notif = 0;
+		change_notification($name, $notif);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,20 +77,21 @@ $notif = find_specified("notifications", "users", "username", $_SESSION['usernam
 							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
 						</ul>
 						<ul class="menu-list has-text-light b_1">
-							<li><p style="text-align:center">Notifcations:</p></li>
+							<li><p style="text-align:center">Notifcations</p></li>
 						</ul>
 						<ul class="menu-list has-text-dark b_1" style=background:white>
-							<li>
-							<div class="control">
-								<label class="radio">
-									<input type="radio" name="notif" <?php echo ($notif)?'checked':'' ?>>
-									Yes
-								</label>
-								<label class="radio">
-									<input type="radio" name="notif" <?php echo (!$notif)?'checked':'' ?>>
-									No
-								</label>
-							</div>
+							<li >
+								<form action="" method="POST">
+									<label class="radio">
+										<input type="radio" name="notif"value="yes" <?php echo ($notif)?'checked':'' ?>>
+										Yes
+									</label>
+									<label class="radio">
+										<input type="radio" name="notif" value="no" <?php echo (!$notif)?'checked':'' ?>>
+										No
+									</label>
+									<input type="submit" name="submit_notif" value="Save">
+								</form>
 							</li>
 						</ul>
 						<!-- <div class = "button_padding"> -->
