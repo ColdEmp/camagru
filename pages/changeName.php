@@ -64,6 +64,22 @@ include_once "./header.php";
 							</form>
 						</div>
 					</div>
+					<?php
+					if (isset($_POST["change"]))
+					{
+						if(valid_username($_POST["change_name"]))
+						{
+							change_username($_SESSION["username"],$_POST["change_name"]);
+							$_SESSION["username"] = $_POST["change_name"];
+							header("Location: ./viewProfile.php");
+						}
+						else
+						{
+							echo "";
+							notify('Invalid username password combination');
+						}
+					}
+					?>
 				</div>
 				<div class="column"></div>
 			</div>
@@ -77,19 +93,3 @@ include_once "./header.php";
 		</footer>
 	</body>
 </html>
-<?php
-if (isset($_POST["change"]))
-{
-	if(valid_username($_POST["change_name"]))
-	{
-		change_username($_SESSION["username"],$_POST["change_name"]);
-		$_SESSION["username"] = $_POST["change_name"];
-		header("Location: ./viewProfile.php");
-	}
-	else
-	{
-		echo "";
-		notify('Invalid username password combination');
-	}
-}
-?>
