@@ -166,11 +166,10 @@ function add_image($username, $image_src, $name)
     }
 }
 
-function add_comment($name, $username, $comment_text)
+function add_comment($imageid, $username, $comment_text)
 {
     try
     {
-        $imageid = find_specified("imageid", "images", "name", $name);
         $userid = find_specified("userid", "users", "username", $username);
         $column = "(imageid,userid,comment_text)";
         $connection = open_connection();
@@ -188,7 +187,22 @@ function add_comment($name, $username, $comment_text)
 
 function count_comments($imageid)
 {
-
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT COUNT(*) FROM comments WHERE imageid='$imageid'");//("INSERT INTO comments $column VALUES ('$imageid','$userid',:comment_text)");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to count comments";
+            $temp = $statement->fetchAll();
+            //echo "<br />".$temp[0][0];
+            return ($temp[0][0]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to count comments: " . $e->getMessage());
+    }
 }
 
 function add_like($username, $name)
