@@ -46,7 +46,7 @@ function verification_email($username,$email,$verification_token)
 Hello $username
 
 Thank you for signing up!
-Your account has been created, you can login to Camaguru after you have activated your account by pressing the url below.
+Your account has been created, you can login to Camaguru after you have activated your account by following the link below.
 
 http://127.0.0.1:8080/camagru/log/email_verification.php?username=$username&verification_token=$verification_token
 
@@ -260,6 +260,23 @@ function change_username($username,$new_username)
     catch(PDOException $e)
     {
         die("Failed to change username: " . $e->getMessage());
+    }
+}
+
+function change_email($username,$new_email)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET email=:new_email WHERE username=:username");
+        if($statement->execute(array('new_email' => $new_email, 'username' => $username)))
+        {
+            echo "Successfully changed email";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to change email: " . $e->getMessage());
     }
 }
 

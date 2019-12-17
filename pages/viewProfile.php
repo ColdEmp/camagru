@@ -1,6 +1,7 @@
 <?php
 include_once "./header.php";
 user_nlogged_redirect();
+$notif = find_specified("notifications", "users", "username", $_SESSION['username']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +70,18 @@ user_nlogged_redirect();
 							<li><p style="text-align:center">Notifcations:</p></li>
 						</ul>
 						<ul class="menu-list has-text-dark b_1" style=background:white>
-							<li><p style="text-align:center"><?php echo $_SESSION["user_email"];?></p></li>
+							<li>
+							<div class="control">
+								<label class="radio">
+									<input type="radio" name="notif" <?php echo ($notif)?'checked':'' ?>>
+									Yes
+								</label>
+								<label class="radio">
+									<input type="radio" name="notif" <?php echo (!$notif)?'checked':'' ?>>
+									No
+								</label>
+							</div>
+							</li>
 						</ul>
 						<!-- <div class = "button_padding"> -->
 							<!-- Take to relevant edit page -->

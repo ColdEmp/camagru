@@ -1,5 +1,6 @@
 <?php
-include_once "functions.php";
+
+require_once "functions.php";
 $host = 'localhost';
 $user = 'server01';
 $password = 'Password@php1';
