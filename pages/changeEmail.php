@@ -56,7 +56,7 @@ include_once "./header.php";
 								<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 									<div class="field">
 										<div class="control">
-												<input class="input is-large" type="text" name = "change_email" placeholder="New Email">
+												<input class="input is-large" type="email" name = "change_email" placeholder="New Email">
 										</div>
 									</div>
 									<div>
@@ -65,6 +65,21 @@ include_once "./header.php";
 								</form>
 							</div>
 						</div>
+						<?php
+						if (isset($_POST["change"]))
+						{
+							if(valid_email($_POST["change_email"]))
+							{
+								change_email($_SESSION["username"],$_POST["change_email"]);
+								$_SESSION["user_email"] = $_POST["change_email"];
+								header("Location: ./viewProfile.php");
+							}
+							else
+							{
+								notify('Invalid email');
+							}
+						}
+						?>
 					</div>
 					<div class="column"></div>
 				</div>
@@ -79,18 +94,3 @@ include_once "./header.php";
 		</div>
 	</body>
 </html>
-<?php
-if (isset($_POST["change"]))
-{
-	if(valid_username($_POST["change_name"]))
-	{
-		change_username($_SESSION["username"],$_POST["change_name"]);
-		$_SESSION["username"] = $_POST["change_name"];
-		header("Location: ./viewProfile.php");
-	}
-	else
-	{
-		notify('Invalid username password combination');
-	}
-}
-?>
