@@ -24,4 +24,5 @@ $item = "test";
 //add_like(1,"test");
 //count_likes(1);
 //remove_like(1,"test");
+//remove_item("comments", "commentid", $x);
 ?>
