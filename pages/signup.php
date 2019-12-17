@@ -50,6 +50,28 @@ user_logged_redirect();
 							<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
 					</form>
 				</div>
+				<?php
+					if (isset($_POST["submit"]))
+					{
+						$username = htmlspecialchars($_POST["username_signup"]);
+						$rawpass = htmlspecialchars($_POST["password_signup"]);
+						$email = htmlspecialchars($_POST["email_signup"]);
+						if (allowed_name($username))
+						{
+							if(allowed_email($email))
+							{
+								if (valid_password($rawpass))
+								{
+									add_user($username, $email, $rawpass);
+									notify("Succesful signup! Check your email for confirmation.");
+								}
+								else{
+									notify("Please ensure your password is not only lowercase letters");
+								}	
+							}
+						}
+					}
+				?>
 			</div>
 			<div class="column"></div>
 		</div>
@@ -63,44 +85,3 @@ user_logged_redirect();
 		</footer>
 	</body>
 </html>
-<?php
-	if (isset($_POST["submit"]))
-	{
-		$username = htmlspecialchars($_POST["username_signup"]);
-		$rawpass = htmlspecialchars($_POST["password_signup"]);
-		$email = htmlspecialchars($_POST["email_signup"]);
-		if (valid_username($username))
-		{
-			if(find_specified("username", "users", "username", $username) == NULL)
-			{
-				if (valid_password($rawpass))
-				{
-					if(find_specified("email", "users", "email", $email) == NULL)
-					{	
-						if (valid_email($email) == 1)
-						{
-							add_user($username, $email, $rawpass);
-							notify("Succesful signup! Check your email for confirmation.");
-						}
-						else{
-							notify("Invalid email");
-						}
-					}
-					else{
-						notify("That email is already in use");
-					}
-				}
-				else{
-					notify("Please ensure your password is not only lowercase letters");
-				}
-			}
-			else{
-				notify("Username is already in use");
-			}
-		}
-		else
-		{
-			notify("Only alphanumeric characters may be used for the username.");	
-			}
-	}
-?>
