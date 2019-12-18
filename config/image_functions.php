@@ -1,5 +1,4 @@
 <?PHP
-include_once '../style/index.css';
 include_once 'functions.php';
 
 function pager_images($no, $page)
