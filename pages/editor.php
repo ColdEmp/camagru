@@ -84,9 +84,9 @@ user_nlogged_redirect();
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const snap = document.getElementById('snap');
-const btnDisplay = document.getElementById('btnDisplay');
-const btnDownload = document.getElementById('btnDownload');
-const errorMsgElement = document.getElementById('span#ErrorMsg');
+// const btnDisplay = document.getElementById('btnDisplay');
+// const btnDownload = document.getElementById('btnDownload');
+// const errorMsgElement = document.getElementById('span#ErrorMsg');
 var capture = 0;
 const constraints = {
 video: {
