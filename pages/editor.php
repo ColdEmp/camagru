@@ -49,7 +49,7 @@ user_nlogged_redirect();
 			<section class="section is-centered">
 				<div class="columns">
 					<div class="column"></div>
-					<div class="column">
+					<div class="column is-half">
 						<div class="webcam">
 							<video id = "video" playsinline autoplay>Video unsupported</video>
 						</div>
@@ -60,7 +60,15 @@ user_nlogged_redirect();
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
 					</div>
-					<div class="column"></div>
+					<!-- Rightside Column -->
+					<div class="column is-one-quarter">
+						<figure class="image sticker">
+							<img src="../images/stickers/Dragon Circle.png" alt="Circular Dragon" onclick = "circular_dragon()">
+						</figure>
+						<figure class="image sticker">
+							<img src="../images/stickers/Dragon Gold.png" alt="Gold Dragon" onclick = "gold_dragon()">
+						</figure>
+					</div>
 					<!-- The data encoding type, enctype, MUST be specified as below
 					<form enctype="multipart/form-data" action="__URL__" method="POST">
 						-- MAX_FILE_SIZE must precede the file input field
@@ -118,5 +126,20 @@ btnDisplay.addEventListener("click", function () {
 	const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 	console.log(dataURI);
 });
+
+function circular_dragon() {
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/Dragon Circle.png";
+				context.drawImage(drawing,320,200, 320, 280);
+			}
+		}
+function gold_dragon() {
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/Dragon Gold.png";
+				context.drawImage(drawing,320,200, 320, 280);
+			}
+		}
 </script>
 </html>

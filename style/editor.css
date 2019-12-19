@@ -5,7 +5,7 @@ html{
 .page-container {
 	position: relative;
 	min-height: 100vh;
-  }
+}
 
 .credits{
 	position: absolute;
@@ -18,10 +18,10 @@ a.inactivelink{
 	cursor: not-allowed;
 	opacity: 0.5;
 	text-decoration: none;
- }
- a.inactivelink:hover{
+}
+a.inactivelink:hover{
 	background-color: unset;
- }
+}
    
 .hbutton{
 	position: absolute !important;
@@ -40,15 +40,21 @@ a.inactivelink{
 
 .webcam {
     transform: scaleX(-1);
-    text-align: center !important;
-    display: block;
-  }
+	text-align: center !important;
+	display: block;
+}
 
-  #page-container {
+#page-container {
 	position: relative;
 	min-height: 100vh;
-  }
+}
   
-  #content-wrap {
+#content-wrap {
 	padding-bottom: 2.5rem;    /* Footer height */
-  }
+}
+
+.sticker{
+	display:block;
+	width: 50%;
+	margin:auto;
+}
