@@ -181,9 +181,9 @@ function pager($mode, $amm)
         $max = count(id_arr());
         if ($page = $_GET['page'])
         {
-            if ($page > 1 && mode == -1)
+            if ($page > 1 && $mode == -1)
                 $page--;
-            else if (($page * $amm) < $max && mode == 1)
+            else if (($page * $amm) < $max && $mode == 1)
                 $page++;
         }
         else
