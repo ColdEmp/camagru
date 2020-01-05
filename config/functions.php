@@ -136,7 +136,14 @@ function find_specified($specified, $table, $column, $item)
             //echo "Successfully looked for $specified <br />";
             $temp = $statement->fetchAll();
             //print_r($temp);
-            return ($temp[0][0]);
+            if(!isset($temp[0][0]))
+            {
+                return(-1);
+            }
+            else
+            {
+              return ($temp[0][0]);
+            }
         }
     }
     catch(PDOException $e)

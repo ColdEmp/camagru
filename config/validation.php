@@ -66,7 +66,7 @@ function allowed_name($username)
 {
 	if (valid_username($username))
 		{
-			if(find_specified("username", "users", "username", $username) == NULL)
+			if(find_specified("username", "users", "username", $username) == -1)
 			{
                 if(strlen($username) < 50){
                     return(true);
@@ -91,7 +91,7 @@ function allowed_name($username)
 
 function allowed_email($email)
 {
-    if(find_specified("email", "users", "email", $email) == NULL)
+    if(find_specified("email", "users", "email", $email) == -1)
 	{	
     	if (valid_email($email) == 1)
 		{
