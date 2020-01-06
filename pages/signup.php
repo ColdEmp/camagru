@@ -50,6 +50,7 @@ user_logged_redirect();
 							<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
 					</form>
 				</div>
+				<div class = "box-padding">
 				<?php
 					if (isset($_POST["submit"]))
 					{
@@ -72,6 +73,7 @@ user_logged_redirect();
 						}
 					}
 				?>
+				</div>
 			</div>
 			<div class="column"></div>
 		</div>

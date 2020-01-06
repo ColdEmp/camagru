@@ -30,9 +30,15 @@ a.inactivelink{
   padding-bottom:3rem;
   margin:auto;
 }
+
 #loginbutton{
   float:left;
 }
+
 #signupbutton{
   float:right;
+}
+
+.box-padding{
+	padding-top: 20px;
 }
