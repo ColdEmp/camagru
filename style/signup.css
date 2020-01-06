@@ -23,9 +23,13 @@ a.inactivelink{
 .hbutton{
 	position: absolute !important;
 	margin-left: -47.8%;
-	padding-top:20px;
+	margin-top:20px;
 }
 #signup_box{
 	padding-bottom:3rem;
 	margin:auto;
+}
+
+.box-padding{
+	padding-top: 20px;
 }

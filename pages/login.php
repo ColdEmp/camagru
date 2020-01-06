@@ -53,21 +53,23 @@ user_logged_redirect();
 						</div>
 					</form>
 				</div>
-				<?php 
-				if (isset($_POST["login"]))
-				{
-					if(valid_login($_POST['log_name'], $_POST['log_pass'])){
-						$_SESSION["username"] = $_POST["log_name"];
-						$_SESSION["user_email"] = find_specified("email", "users", "username", $_SESSION["username"]);
-						$_SESSION["notifications"] = find_specified("notifications", "users", "username", $_SESSION["username"]);
-						header("Location: ../index.php");
-					}
-					else
+				<div class = "box-padding">
+					<?php 
+					if (isset($_POST["login"]))
 					{
-						notify('Invalid username password combination');
+						if(valid_login($_POST['log_name'], $_POST['log_pass'])){
+							$_SESSION["username"] = $_POST["log_name"];
+							$_SESSION["user_email"] = find_specified("email", "users", "username", $_SESSION["username"]);
+							$_SESSION["notifications"] = find_specified("notifications", "users", "username", $_SESSION["username"]);
+							header("Location: ../index.php");
+						}
+						else
+						{
+							notify('Invalid username password combination');
+						}
 					}
-				}
-				?>
+					?>
+				</div>
 			</div>
 			</div>
 			<!-- END OF LOGIN -->
