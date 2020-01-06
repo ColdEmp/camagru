@@ -89,7 +89,7 @@ user_nlogged_redirect();
 								}
 							}
 							else{
-								notify("New Password is invalid");
+								notify("New password cannot be only lowercase letters");
 							}
 						}
 						else{

@@ -59,7 +59,7 @@ user_nlogged_redirect();
 						</div>
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button id="postbtn" class="btn">Capture</button>
+						<button onclick = "postimg()0"id="postbtn" class="btn">Post</button>
 					</div>
 					<!-- Rightside Column -->
 					<div class="column is-one-quarter">
@@ -123,13 +123,17 @@ user_nlogged_redirect();
 			context.drawImage(video, 0, 0, 640, 480);
 		});
 
-		btnDisplay.addEventListener("click", function () {
+		postbtn.addEventListener("click", function () {
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 			console.log(dataURI);
 		});
-
-		function posthaste{
-			
+		
+		function postimg(){
+			if(capture == 1)
+			{
+				dataURI = canvas.toDataURL('image/jpeg', 1.0);
+				var xhr = new XMLHttpRequest;
+			}
 		}
 
 		function circular_dragon() {
