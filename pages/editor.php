@@ -59,6 +59,7 @@ user_nlogged_redirect();
 						</div>
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
+						<button id="postbtn" class="btn">Capture</button>
 					</div>
 					<!-- Rightside Column -->
 					<div class="column is-one-quarter">
@@ -88,58 +89,62 @@ user_nlogged_redirect();
 			</footer>
 		</div>
 	</body>
-<script>
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const snap = document.getElementById('snap');
-// const btnDisplay = document.getElementById('btnDisplay');
-// const btnDownload = document.getElementById('btnDownload');
-// const errorMsgElement = document.getElementById('span#ErrorMsg');
-var capture = 0;
-const constraints = {
-video: {
-width: 640, height: 480
-}
-};
+	<script>
+		const video = document.getElementById('video');
+		const canvas = document.getElementById('canvas');
+		const snap = document.getElementById('snap');
+		const post = document.getElementById('postbtn');
+		// const btnDownload = document.getElementById('btnDownload');
+		// const errorMsgElement = document.getElementById('span#ErrorMsg');
+		var capture = 0;
+		const constraints = {
+		video: {
+		width: 640, height: 480
+		}
+		};
 
-async function setup() {
-	try {
-		const stream = await navigator.mediaDevices.getUserMedia(constraints);
-		window.stream = stream;
-		video.srcObject = stream;
-	}
-	catch(e){
-		errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
-		alert('Something is wrong');
-	}
-}
-setup();
-var context = canvas.getContext('2d');
-var img = new Image;
-var	s_canvas;
-snap.addEventListener("click",function(){
-	capture = 1;
-	context.drawImage(video, 0, 0, 640, 480);
-});
-
-btnDisplay.addEventListener("click", function () {
-	const dataURI = canvas.toDataURL('image/jpeg', 1.0);
-	console.log(dataURI);
-});
-
-function circular_dragon() {
-			if (capture == 1){
-				drawing = new Image();
-				drawing.src = "../images/stickers/Dragon Circle.png";
-				context.drawImage(drawing,320,200, 320, 280);
+		async function setup() {
+			try {
+				const stream = await navigator.mediaDevices.getUserMedia(constraints);
+				window.stream = stream;
+				video.srcObject = stream;
+			}
+			catch(e){
+				errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+				alert('Something is wrong');
 			}
 		}
-function gold_dragon() {
-			if (capture == 1){
-				drawing = new Image();
-				drawing.src = "../images/stickers/Dragon Gold.png";
-				context.drawImage(drawing,320,200, 320, 280);
-			}
+		setup();
+		var context = canvas.getContext('2d');
+		var img = new Image;
+		var	s_canvas;
+		snap.addEventListener("click",function(){
+			capture = 1;
+			context.drawImage(video, 0, 0, 640, 480);
+		});
+
+		btnDisplay.addEventListener("click", function () {
+			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
+			console.log(dataURI);
+		});
+
+		function posthaste{
+			
 		}
-</script>
+
+		function circular_dragon() {
+					if (capture == 1){
+						drawing = new Image();
+						drawing.src = "../images/stickers/Dragon Circle.png";
+						context.drawImage(drawing,320,200, 320, 280);
+					}
+				}
+		function gold_dragon() {
+					if (capture == 1){
+						drawing = new Image();
+						drawing.src = "../images/stickers/Dragon Gold.png";
+						context.drawImage(drawing,320,200, 320, 280);
+					}
+				}
+	</script>
 </html>

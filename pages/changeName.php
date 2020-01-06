@@ -67,16 +67,11 @@ include_once "./header.php";
 					<?php
 					if (isset($_POST["change"]))
 					{
-						if(valid_username($_POST["change_name"]))
+						if(allowed_name($_POST["change_name"]))
 						{
 							change_username($_SESSION["username"],$_POST["change_name"]);
 							$_SESSION["username"] = $_POST["change_name"];
 							header("Location: ./viewProfile.php");
-						}
-						else
-						{
-							echo "";
-							notify('Invalid username password combination');
 						}
 					}
 					?>
