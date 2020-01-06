@@ -47,7 +47,8 @@ if($statement->execute())
 $imageid = "imageid INT NOT NULL AUTO_INCREMENT PRIMARY KEY";
 $userid = "userid INT";
 $name = "name TEXT(50)";
-$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Images ($imageid,$userid,$name)");
+$image_src = "image_src TEXT(5000)";
+$statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Images ($imageid,$userid,$name,$image_src)");
 if($statement->execute())
 {
     echo "Success Images<br />";
