@@ -133,6 +133,9 @@ user_nlogged_redirect();
 			{
 				dataURI = canvas.toDataURL('image/jpeg', 1.0);
 				var xhr = new XMLHttpRequest;
+				xhr.open("POST","./log/post.php");
+				xhr.setRequestHeader("Content-type","x-www-form-urlencoded");
+				xhr.send("action=post&img=" + dataURI + "&name=" + $_SESSION["username"]);
 			}
 		}
 
