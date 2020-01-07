@@ -163,7 +163,8 @@ function add_image($username,$image_src)
         $column = "(userid,image_src)";
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO images $column VALUES ('$userid',:image_src)");
-        if($statement->execute(array('image_src' => $image_src)))
+        $statement->bindParam(':image_src',$image_src,PDO::PARAM_LOB);
+        if($statement->execute())//array('image_src' => $image_src)))
         {
             echo "Successfully tried to add an image";
         }
