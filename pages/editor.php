@@ -59,7 +59,7 @@ user_nlogged_redirect();
 						</div>
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button onclick = "postimg()0"id="postbtn" class="btn">Post</button>
+						<button onclick = "postimg()" id="postbtn" class="btn">Post</button>
 					</div>
 					<!-- Rightside Column -->
 					<div class="column is-one-quarter">
@@ -116,7 +116,7 @@ user_nlogged_redirect();
 		}
 		setup();
 		var context = canvas.getContext('2d');
-		var img = new Image;
+		var image1 = new Image();
 		var	s_canvas;
 		snap.addEventListener("click",function(){
 			capture = 1;
@@ -125,17 +125,18 @@ user_nlogged_redirect();
 
 		postbtn.addEventListener("click", function () {
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
-			console.log(dataURI);
 		});
 		
 		function postimg(){
 			if(capture == 1)
 			{
-				dataURI = canvas.toDataURL('image/jpeg', 1.0);
-				var xhr = new XMLHttpRequest;
-				xhr.open("POST","./log/post.php");
+				image1 = canvas.toDataURL('image/jpeg', 1.0);
+				console.log(image1);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST","../log/post.php");
 				xhr.setRequestHeader("Content-type","x-www-form-urlencoded");
-				xhr.send("action=post&img=" + dataURI + "&name=" + $_SESSION["username"]);
+				var str = "action=post&img=" + image1;
+				xhr.send(str);
 			}
 		}
 
