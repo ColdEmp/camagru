@@ -42,7 +42,7 @@ function home_img($amm, $page_no, $class)
                 // $likes = get_likes(NULL, $i);
                 $name = find_specified("username", "users", "userid", find_specified("userid", "images", "imageid", $i));
                 echo ""; // for the actual display, very important, no touchie
-                // You can insert something here to add a delete thingy for users that are logged in
+                // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo ""; // for the comment box
                 
             }
