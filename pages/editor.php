@@ -59,7 +59,8 @@ user_nlogged_redirect();
 						</div>
 						<p>Webcam use</p>
 						<button id="snap" class="btn">Capture</button>
-						<button onclick = "postimg()0"id="postbtn" class="btn">Post</button>
+						<!-- <button onclick = "postimg()" id="postbtn" class="btn">Post</button> -->
+						<button onclick="XHR()" id="btnDisplay" class="btn" >Post</button>
 					</div>
 					<!-- Rightside Column -->
 					<div class="column is-one-quarter">
@@ -93,7 +94,7 @@ user_nlogged_redirect();
 		const video = document.getElementById('video');
 		const canvas = document.getElementById('canvas');
 		const snap = document.getElementById('snap');
-		const post = document.getElementById('postbtn');
+		const post = document.getElementById('btnDisplay');
 		// const btnDownload = document.getElementById('btnDownload');
 		// const errorMsgElement = document.getElementById('span#ErrorMsg');
 		var capture = 0;
@@ -123,19 +124,20 @@ user_nlogged_redirect();
 			context.drawImage(video, 0, 0, 640, 480);
 		});
 
-		postbtn.addEventListener("click", function () {
+		btnDisplay.addEventListener("click", function () {
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
-			console.log(dataURI);
 		});
 		
-		function postimg(){
-			if(capture == 1)
-			{
-				dataURI = canvas.toDataURL('image/jpeg', 1.0);
-				var xhr = new XMLHttpRequest;
-				xhr.open("POST","./log/post.php");
-				xhr.setRequestHeader("Content-type","x-www-form-urlencoded");
-				xhr.send("action=post&img=" + dataURI + "&name=" + $_SESSION["username"]);
+		function XHR()
+		{
+			if (capture == 1){
+				img = canvas.toDataURL('image/jpeg', 1.0);
+				// console.log(img);
+				var xhre = new XMLHttpRequest();
+				xhre.open("POST", "../log/post.php");
+				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var str = "action=upload&sub_action=canvas&img=" + img;
+				xhre.send(str);
 			}
 		}
 
