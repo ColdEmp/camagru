@@ -128,26 +128,19 @@ user_nlogged_redirect();
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 		});
 
+
 		function XHR()
 		{
-			if (capture == 1)
-			{
-				<?php ?>
+			if (capture == 1){
+				img = canvas.toDataURL('image/jpeg', 1.0);
+				// console.log(img);
+				var xhre = new XMLHttpRequest();
+				xhre.open("POST", "api/post.php");
+				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var str = "action=upload&sub_action=canvas&img=" + img;
+				xhre.send(str);
 			}
 		}
-
-		// function XHR()
-		// {
-		// 	if (capture == 1){
-		// 		img = canvas.toDataURL('image/jpeg', 1.0);
-		// 		// console.log(img);
-		// 		var xhre = new XMLHttpRequest();
-		// 		xhre.open("POST", "../log/post.php");
-		// 		xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		// 		var str = "action=upload&sub_action=canvas&img=" + img;
-		// 		xhre.send(str);
-		// 	}
-		// }
 
 		function circular_dragon() {
 					if (capture == 1){
