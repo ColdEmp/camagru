@@ -8,7 +8,7 @@ $table = "users";
 $column = "username";
 $item = "test";
 
-//add_user("new_account","new@email.com","new");
+//add_user("test","test@email.com","test");
 //change_password("test","unique");
 //remove_item($table,$column,$item);
 //valid_login("test","testpass");
@@ -17,7 +17,7 @@ $item = "test";
 //echo($temp);
 //verfiy_email("new_account","9854000");
 //change_notification("test", 1);
-//verification_email("new_account","cdglanville@gmail.com","9854000");
+//verification_email("test","cdglanville@gmail.com","5482136");
 //change_email("test","test@email.com");
 //add_comment(1,"test","test message to infinite");
 //count_comments(1);
