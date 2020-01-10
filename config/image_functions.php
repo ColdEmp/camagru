@@ -6,7 +6,7 @@ function pager_images($no, $page)
     try
     {
         echo "<div class=\"column middle c\" onload=\"scrolltest();\">";
-        home_img($no, $page, "column middle image");
+        home_img($no, $page, 0); //"column middle image" instead of 0
         echo "</div>";
     }
     catch(PDOException $e)
@@ -17,14 +17,23 @@ function pager_images($no, $page)
 
 function home_img($amm, $page_no, $class)
 {
+    // $img = retrieve_img(1, $class);
+    // echo "$img";
+    // $img = retrieve_img(2, $class);
+    // echo "$img";
+    // $img = retrieve_img(3, $class);
+    // echo "$img";
+
+    echo "Testing if echoes work\n";
     try
     {
+        echo "Something tasty coming soon\n";
         $index = $page_no;
         $arr = id_arr();
         $counter = 0;
         $max = count($arr);
         $max -= $amm * ($page_no - 1);
-        $image = 0;
+        $image = 1;
                 // Line below needs it's function to be made
         // $posts = get_posts($page_no);
         while ($image < $amm)
@@ -37,13 +46,13 @@ function home_img($amm, $page_no, $class)
             }
             else
             {
-                $img = retrieve_img($i, $class);
+                //$img = retrieve_img($i, $class);
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
-                $name = find_specified("username", "users", "userid", find_specified("userid", "images", "imageid", $i));
-                echo ""; // for the actual display, very important, no touchie
+                $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
+                echo "image coming soon\n"; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
-                echo ""; // for the comment box
+                echo "comment box coming soon\n"; // for the comment box
                
                 if (!isset($_SESSION["username"]))
                 {
@@ -57,6 +66,10 @@ function home_img($amm, $page_no, $class)
                 // pc and them echoed ---> "<br/><a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a><br/>"
             }
             // check planning for how to do comments only if logged in
+            if (isset($_SESSION['username']))
+            {
+                echo "Users only commenting coming soon\n";
+            }
         }
         echo "</div>";
         $image++;
@@ -111,8 +124,6 @@ function ver_img($imagesid)
         {
             return (0);
         }
-        // The line below is uncertain, re-check later
-        $statement->closeCursor();
         return ($result['userid']);
     }
     catch (PDOException $e)
@@ -125,7 +136,7 @@ function get_img($imagesid, $class)
 {
     try
     {
-        $req = find_specified("image_src", "images", "imageid", $imagesid);
+        $req = get_specific("image_src", "images", "imageid", $imagesid);
         if ($req == false)
         {
             return (0);
@@ -169,7 +180,6 @@ function home_get_comment()
         
     }
 }
-
 
 function id_arr()
 {
