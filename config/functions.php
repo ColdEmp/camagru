@@ -61,6 +61,31 @@ Camaguru team
     }
 }
 
+function forgot_password($username, $email)
+{
+    try
+    {
+        $verification_token = random_int(1000000,9999999);
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET verification_token=:verification_token WHERE username=:username");
+        $statement->execute(array('verification_token' => $verification_token, 'username' => $username));
+        $message = "
+Hello $username
+
+If you requested this forgot password email please follow the link below to set a new password.
+
+http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
+
+Camaguru team
+";
+        mail($email, "camagru user: $username", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send forgot password email: " . $e->getMessage());
+    }
+}
+
 function verfiy_email($username, $verification_token)
 {
     try
@@ -121,6 +146,31 @@ function valid_login($login_u, $login_p)
     }
 }
 
+function valid_token($username, $verification_token)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = :username AND verification_token = :verification_token");
+        if($statement->execute(array('username' => $username, 'verification_token' => $verification_token)))
+        {
+            $temp = $statement->fetchAll();
+            if ($temp != NULL)
+            {
+                return (TRUE);
+            }
+            else
+            {
+                return (FALSE);
+            }
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to validate request: " . $e->getMessage());
+    }
+}
+
 //$specified is the name of column you want info from
 //table is the table you want to look in
 //column is the column where item is
@@ -154,7 +204,7 @@ function find_specified($specified, $table, $column, $item)
     }
 }
 
-//does not work
+//does work
 function add_image($username,$image_src)
 {
     try

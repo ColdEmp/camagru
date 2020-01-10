@@ -1,6 +1,6 @@
 <?php
 include_once "./header.php";
-//user_nlogged_redirect();
+user_nlogged_redirect();
 ?>
 <!DOCTYPE html>
 <html lang="en">

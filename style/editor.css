@@ -1,4 +1,4 @@
-html{
+ html{
 	background-color:hsl(0, 0%, 71%);
 }
 
@@ -39,9 +39,12 @@ a.inactivelink:hover{
 } 
 
 .webcam {
-    transform: scaleX(-1);
+	transform: scaleX(-1);
+	width: 640px;
+	height:	480px;
 	text-align: center !important;
 	display: block;
+	margin: auto;
 }
 
 #page-container {
