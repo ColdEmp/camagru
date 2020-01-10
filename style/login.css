@@ -38,6 +38,9 @@ a.inactivelink{
 #signupbutton{
   float:right;
 }
+#forgotbutton{
+	margin:right;
+  }
 
 .box-padding{
 	padding-top: 20px;
