@@ -1,15 +1,6 @@
 <?php
 	include_once "../pages/header.php";
-	$username = $_GET['username'];
-	$verification_token = $_GET['verification_token'];
-	if(!valid_token($username, $verification_token))
-	{
-		console.log($verification_token);
-   		header("Location: ../index.php");
-	}
-//capture a password and pass that password to:
-//change_password($username,$new_password);
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
@@ -40,26 +31,27 @@
 							<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 								<div class="field">
 									<div class="control">
-											<input class="input is-large" type="password" name = "change_password" placeholder="New Password">
+											<input class="input is-large" type="email" name = "change_password" placeholder="Email">
 									</div>
 								</div>
 								<div>
-								<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>
+									<button class="button" name = "change" value = "change">Send Email</button>
 								</div>
 							</form>
 						</div>
 					</div>
 					<?php
-					if (isset($_POST["submit"]))
+					if (isset($_POST["change"]))
 					{
-						if(valid_password($_POST["change_password"])){
-							change_password($username,$_POST["change_password"]);
-							notify($username);
-						//	header("Location: ./login.php");
+						$username = find_specified("username", "users", "email", $_POST["change_password"]);
+						if (isset($username))
+						{
+							forgot_password($username, $_POST["change_password"]);
+							notify("Email succesfully sent!");
 						}
 						else
 						{
-							notify("New password cannot be only lowercase letters");
+							notify("Invalid email");
 						}
 					}
 					?>

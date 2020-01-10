@@ -40,12 +40,22 @@ a.inactivelink:hover{
 
 .webcam {
 	transform: scaleX(-1);
-	width: 640px;
-	height:	480px;
 	text-align: center !important;
 	display: block;
-	margin: auto;
 }
+
+#leftCol{
+	overflow: scroll !important;
+	scrollbar-width: none !important;
+	overflow-y:scroll !important;
+	overflow-x:hidden !important;
+	-ms-overflow-style: none !important;
+	overflow: -moz-scrollbars-none !important;
+	height:1200px !important;
+}
+#leftCol::-webkit-scrollbar {
+    display: none;
+  }
 
 #page-container {
 	position: relative;

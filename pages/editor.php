@@ -78,7 +78,7 @@ user_nlogged_redirect();
 						</form>
 					</div>
 					<!-- Rightside Column -->
-					<div class="column is-one-quarter">
+					<div class="column" id = "leftCol">
 						<figure class="image sticker">
 							<img src="../images/stickers/Dragon Circle.png" alt="Circular Dragon" onclick = "circular_dragon()">
 						</figure>

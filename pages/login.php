@@ -35,7 +35,7 @@ user_logged_redirect();
 				<div class="box has-text-centered has-background-grey-dark" id = "loginbox">
 					<h1 class="title is-3 has-text-light">LOGIN</h1>
 					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						<div class="field">‰
+						<div class="field">
 							<div class="control">
 									<input class="input is-large" type="text" name = "log_name" placeholder="Username">
 							</div>
@@ -50,11 +50,14 @@ user_logged_redirect();
 							<a href="./signup.php" class="button" id = "signupbutton">Sign up</a>
 						</div>
 						<div>
+							<a href="./recoverPass.php" class="button" id = "forgotbutton">Forgot Password</a>
+						</div>
+						<div>
 						</div>
 					</form>
 				</div>
 				<div class = "box-padding">
-					<?php 
+					<?php
 					if (isset($_POST["login"]))
 					{
 						if(valid_login($_POST['log_name'], $_POST['log_pass'])){
