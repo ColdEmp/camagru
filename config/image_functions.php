@@ -17,6 +17,14 @@ function pager_images($no, $page)
 
 function home_img($amm, $page_no, $class)
 {
+    $img = retrieve_img(1, $class);
+    echo "$img";
+    $img = retrieve_img(2, $class);
+    echo "$img";
+    $img = retrieve_img(3, $class);
+    echo "$img";
+
+
     try
     {
         $index = $page_no;
@@ -37,11 +45,11 @@ function home_img($amm, $page_no, $class)
             }
             else
             {
-                $img = retrieve_img($i, $class);
+                //$img = retrieve_img($i, $class);
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = find_specified("username", "users", "userid", find_specified("userid", "images", "imageid", $i));
-                echo ""; // for the actual display, very important, no touchie
+                // echo "$img"; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo ""; // for the comment box
                
@@ -57,6 +65,10 @@ function home_img($amm, $page_no, $class)
                 // pc and them echoed ---> "<br/><a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a><br/>"
             }
             // check planning for how to do comments only if logged in
+            if (isset($_SESSION['username']))
+            {
+                echo "";
+            }
         }
         echo "</div>";
         $image++;
@@ -111,8 +123,6 @@ function ver_img($imagesid)
         {
             return (0);
         }
-        // The line below is uncertain, re-check later
-        $statement->closeCursor();
         return ($result['userid']);
     }
     catch (PDOException $e)
