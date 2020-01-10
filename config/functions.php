@@ -146,6 +146,31 @@ function valid_login($login_u, $login_p)
     }
 }
 
+function valid_token($username, $verification_token)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT userid FROM users WHERE username = :username AND verification_token = :verification_token");
+        if($statement->execute(array('username' => $username, 'verification_token' => $verification_token)))
+        {
+            $temp = $statement->fetchAll();
+            if ($temp != NULL)
+            {
+                return (TRUE);
+            }
+            else
+            {
+                return (FALSE);
+            }
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to validate request: " . $e->getMessage());
+    }
+}
+
 //$specified is the name of column you want info from
 //table is the table you want to look in
 //column is the column where item is
