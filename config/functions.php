@@ -61,6 +61,31 @@ Camaguru team
     }
 }
 
+function forgot_password($username, $email)
+{
+    try
+    {
+        $verification_token = random_int(1000000,9999999);
+        $connection = open_connection();
+        $statement = $connection->prepare("UPDATE users SET verification_token=:verification_token WHERE username=:username");
+        $statement->execute(array('verification_token' => $verification_token, 'username' => $username));
+        $message = "
+Hello $username
+
+If you requested this forgot password email please follow the link below to set a new password.
+
+http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
+
+Camaguru team
+";
+        mail($email, "camagru user: $username", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send forgot password email: " . $e->getMessage());
+    }
+}
+
 function verfiy_email($username, $verification_token)
 {
     try
@@ -154,7 +179,7 @@ function find_specified($specified, $table, $column, $item)
     }
 }
 
-//does not work
+//does work
 function add_image($username,$image_src)
 {
     try
