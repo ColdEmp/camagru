@@ -1,6 +1,17 @@
 <?php
 	include_once "../pages/header.php";
 ?>
+<?php
+require_once "../config/functions.php";
+$username = $_GET['username'];
+$verification_token = $_GET['verification_token'];
+if(!valid_token($username, $verification_token))
+{
+    header("Location: ../index.php");
+}
+//capture a password and pass that password to:
+//change_password($username,$new_password);
+?> 
 <!DOCTYPE html>
 <html lang="en">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
