@@ -171,6 +171,21 @@ function valid_token($username, $verification_token)
     }
 }
 
+// New function, testing it out, Heinrich sucks, Epstein didn't kill himself
+function get_specific($target, $table, $column, $value){
+	try {
+		$connection = open_connection();
+		$ret = $connection->prepare("SELECT * FROM `$table` WHERE `$column`=:value");
+		$ret->execute(array('value' => $value));
+		$result = $ret->fetch(PDO::FETCH_ASSOC);
+		if (!$result[$target])
+			return (0);
+		return ($result[$target]);
+	} catch (PDOException $e) {
+		echo "failed to get_specific".$e->getMessage()."\n";
+	}
+}
+
 //$specified is the name of column you want info from
 //table is the table you want to look in
 //column is the column where item is
