@@ -20,24 +20,6 @@ function open_connection()
     return $connection;
 }
 
-function add_user($username, $email, $raw_password)
-{
-    try
-    {
-        $column = "(username,email,userpass,verification_token)";
-        $verification_token = random_int(1000000,9999999);
-        $userpass = hash("whirlpool", $raw_password);
-        $connection = open_connection();
-        $statement = $connection->prepare("INSERT INTO users $column VALUES (:user,:email,'$userpass','$verification_token')");
-        $statement->execute(array('user' => $username, 'email' => $email));
-        verfication_email($username,$email,$verification_token);
-    }
-    catch(PDOException $e)
-    {
-        die("Failed to add user: " . $e->getMessage());
-    }
-}
-
 function verification_email($username,$email,$verification_token)
 {
     try
@@ -58,6 +40,24 @@ Camaguru team
     catch(Exception $e)
     {
         die("Failed to send verification email: " . $e->getMessage());
+    }
+}
+
+function add_user($username, $email, $raw_password)
+{
+    try
+    {
+        $column = "(username,email,userpass,verification_token)";
+        $verification_token = random_int(1000000,9999999);
+        $userpass = hash("whirlpool", $raw_password);
+        $connection = open_connection();
+        $statement = $connection->prepare("INSERT INTO users $column VALUES (:user,:email,'$userpass','$verification_token')");
+        $statement->execute(array('user' => $username, 'email' => $email));
+        verfication_email($username,$email,$verification_token);
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to add user: " . $e->getMessage());
     }
 }
 
