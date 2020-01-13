@@ -74,7 +74,7 @@ else
 			<div class="column">
 											<!-- Need to replace evrything -->
 							<!-- Need to actually make this function -->
-				<!-- ?PHP pager_images($imgamm, $_GET['page']);?> -->
+				<?PHP pager_images($imgamm, $_GET['page']);?>
 											<!-- Need to replce everything -->
 			</div>
 			<!-- Middle column end -->
