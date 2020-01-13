@@ -30,11 +30,11 @@ function valid_password($rawpass)
     {
         if(ctype_lower($rawpass))
         {
-            return (0);
+            return (false);
         }
         else
         {
-            return (1);
+            return (true);
         }
     }
     catch(PDOException $e)
