@@ -64,8 +64,8 @@ function get_img($imagesid, $class)
         }
         if ($class)
         {
-            $req = str_replace(' ', '+', $req);
-            $return = '<img src="data:image/jpg;base64,' . base64_encode(stream_get_contents($req)) . '" />';
+            $req = str_replace('+', ' ', $req);
+            $return = '<img src="data:image/jpeg;base64,' . base64_encode($req) . '" />';
         }
         else
         {
