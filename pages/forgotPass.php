@@ -4,8 +4,7 @@
 	$verification_token = $_GET['verification_token'];
 	if(!valid_token($username, $verification_token))
 	{
-		console.log($verification_token);
-   		header("Location: ../index.php");
+   		//header("Location: ../index.php");
 	}
 //capture a password and pass that password to:
 //change_password($username,$new_password);
