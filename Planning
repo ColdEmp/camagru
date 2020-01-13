@@ -39,7 +39,8 @@ if (isset($_SESSION['user_id'])){
 }
 
 
-
+						This is to decode blobs and help display them
+						echo '<img src="data:image/jpg;base64,' . base64_encode( $row['image'] ) . '" />';
 
 
 
