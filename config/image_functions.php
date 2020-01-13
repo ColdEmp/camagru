@@ -64,7 +64,8 @@ function get_img($imagesid, $class)
         }
         if ($class)
         {
-            $return = '<img src="data:image/jpg;base64,' . base64_encode($req) . '" />';
+            $req = str_replace(' ', '+', $req);
+            $return = '<img src="data:image/jpg;base64,' . base64_encode(stream_get_contents($req)) . '" />';
         }
         else
         {
@@ -121,17 +122,6 @@ function id_arr()
 
 function home_img($amm, $page_no, $class)
 {
-    //echo '<img src="data:image/jpg;base64,' . base64_encode( $row['image'] ) . '" />';
-    //$tesuto = get_specific("image_src", "images", "imageid", $imagesid);
-    
-    // echo '<img src="data:image/jpg;base64,' . base64_encode( $tesuto[0]) . '" />';
-
-    // $img = retrieve_img(1, $class);
-    // echo "$img";
-    // $img = retrieve_img(2, $class);
-    // echo "$img";
-    // $img = retrieve_img(3, $class);
-    // echo "$img";
     echo "Testing if echoes work\n";
     try
     {
@@ -178,7 +168,7 @@ function home_img($amm, $page_no, $class)
             {
                 echo "444\n";
             }
-            echo "</div>";
+            //echo "</div>";
             $image++;
             $max--;
         }

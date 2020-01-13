@@ -2,13 +2,13 @@
 
 require_once "./functions.php";
 $username = "test";
-$email = "john.smith@email.com";
+$email = "cdglanville@gmail.com";
 $password = "testpass";
 $table = "users";
 $column = "username";
 $item = "test";
 
-//add_user("test","test@email.com","test");
+//add_user($username,$email,"test");
 //change_password("test","unique");
 //remove_item($table,$column,$item);
 //valid_login("test","testpass");
@@ -25,4 +25,5 @@ $item = "test";
 //count_likes(1);
 //remove_like(1,"test");
 //remove_item("comments", "commentid", $x);
+//verification_email($username,$email,"");
 ?>
