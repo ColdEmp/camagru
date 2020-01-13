@@ -53,7 +53,7 @@ function add_user($username, $email, $raw_password)
         $connection = open_connection();
         $statement = $connection->prepare("INSERT INTO users $column VALUES (:user,:email,'$userpass','$verification_token')");
         $statement->execute(array('user' => $username, 'email' => $email));
-        verfication_email($username,$email,$verification_token);
+        verification_email($username,$email,$verification_token);
     }
     catch(PDOException $e)
     {
@@ -80,7 +80,7 @@ Camaguru team
 ";
         mail($email, "camagru user: $username", $message);
     }
-    catch(Exception $e)
+    catch(PDOException $e)
     {
         die("Failed to send forgot password email: " . $e->getMessage());
     }
