@@ -51,7 +51,7 @@ user_logged_redirect();
 							</form>
 						</div>
 						<div class = "box-padding">
-						<?php notify("Hmm");
+						<?php
 								if (isset($_POST["submit"]))
 								{
 									$username = htmlspecialchars($_POST["username_signup"]);
@@ -64,7 +64,7 @@ user_logged_redirect();
 											if (valid_password($rawpass))
 											{
 												add_user($username, $email, $rawpass);
-											//	notify("Succesful signup! Check your email for confirmation.");
+												notify("Succesful signup! Check your email for confirmation.");
 											}
 											else{
 												notify("Please ensure your password is not only lowercase letters");
@@ -72,7 +72,7 @@ user_logged_redirect();
 										}
 									}
 								}
-								?>
+							?>
 						</div>
 					</div>
 					<div class="column"></div>

@@ -1,7 +1,18 @@
 <?php
 	include_once "../pages/header.php";
-	$username = $_GET['username'];
-	$verification_token = $_GET['verification_token'];
+	$_POST["username"] = $_GET['username'];
+	$_POST["verification_token"] = $_GET['verification_token'];
+	if (isset($_POST["submit"]))
+	{
+		if(valid_password($_POST["change_password"])){
+			change_password($_POST["username"],$_POST["change_password"]);
+		//	header("Location: ./login.php");
+		}
+		else
+		{
+			//notify("New password cannot be only lowercase letters");
+		}
+	}
 	if(!valid_token($username, $verification_token))
 	{
    		//header("Location: ../index.php");
@@ -48,20 +59,6 @@
 							</form>
 						</div>
 					</div>
-					<?php
-					if (isset($_POST["submit"]))
-					{
-						if(valid_password($_POST["change_password"])){
-							change_password($username,$_POST["change_password"]);
-							notify($username);
-						//	header("Location: ./login.php");
-						}
-						else
-						{
-							notify("New password cannot be only lowercase letters");
-						}
-					}
-					?>
 				</div>
 				<div class="column"></div>
 			</div>
