@@ -43,15 +43,30 @@
 					<?php
 					if (isset($_POST["change"]))
 					{
-						$username = find_specified("username", "users", "email", $_POST["change_password"]);
-						if (isset($username))
+						if (valid_email($_POST["change_password"]))
 						{
-							forgot_password($username, $_POST["change_password"]);
-							notify("Email sent!");
+							$username = find_specified("username", "users", "email", $_POST["change_password"]);
+							if ($username != -1)
+							{
+								$verified = find_specified("verified", "users", "email", $_POST["change_password"]);
+								if ($verified == 1)
+								{
+								forgot_password($username, $_POST["change_password"]);
+								}
+								else
+								{
+									forgot_password_not_verified($username, $_POST["change_password"]);
+								}
+							}
+							else
+							{
+								forgot_password_not_exist($_POST["change_password"]);
+							}
+							notify("Email sent to " . $_POST["change_password"]);
 						}
 						else
 						{
-							notify("Invalid email");
+							notify("Invalid Email. Make sure your email is in the standard format");
 						}
 					}
 					?>

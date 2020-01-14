@@ -153,7 +153,7 @@ user_nlogged_redirect();
 				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				var str = "action=upload&sub_action=canvas&img=" + img;
 				xhre.send(str);
-			//	location.reload();
+				location.reload();
 			}
 		}
 

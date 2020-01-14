@@ -78,7 +78,7 @@ http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verificati
 
 Camaguru team
 ";
-        mail($email, "Camaguru password reset: $username", $message);
+        mail($email, "Camagru password reset: $username", $message);
     }
     catch(PDOException $e)
     {
@@ -98,7 +98,7 @@ Please check your email for a verification email and verify your account before 
 
 Camaguru team
 ";
-        mail($email, "Camaguru forgot password: $username", $message);
+        mail($email, "Camagru forgot password: $username", $message);
     }
     catch(Exception $e)
     {
@@ -117,7 +117,7 @@ A password reset was requested for an account linked to this email, but there is
 
 Camaguru team
 ";
-        mail($email, "Camaguru account does not exist", $message);
+        mail($email, "Camagru account does not exist", $message);
     }
     catch(Exception $e)
     {
