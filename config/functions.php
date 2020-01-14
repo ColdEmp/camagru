@@ -35,7 +35,7 @@ http://127.0.0.1:8080/camagru/log/email_verification.php?username=$username&veri
 Camaguru team
 ";
         //"http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
-        mail($email, "camagru user: $username", $message);
+        mail($email, "Camaguru user: $username", $message);
     }
     catch(Exception $e)
     {
@@ -72,17 +72,56 @@ function forgot_password($username, $email)
         $message = "
 Hello $username
 
-If you requested this forgot password email please follow the link below to set a new password.
+If you requested this password reset email please follow the link below to set a new password.
 
 http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
 
 Camaguru team
 ";
-        mail($email, "camagru user: $username", $message);
+        mail($email, "Camaguru password reset: $username", $message);
     }
     catch(PDOException $e)
     {
-        die("Failed to send forgot password email: " . $e->getMessage());
+        die("Failed to send password reset email: " . $e->getMessage());
+    }
+}
+
+function forgot_password_not_verified($username, $email)
+{
+    try
+    {
+        $message = "
+Hello $username
+
+A password reset was requested for this account, but this account has not been verified yet.
+Please check your email for a verification email and verify your account before requesting a password reset.
+
+Camaguru team
+";
+        mail($email, "Camaguru forgot password: $username", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send not verified forgot password email: " . $e->getMessage());
+    }
+}
+
+function forgot_password_not_exist($email)
+{
+    try
+    {
+        $message = "
+Hello
+
+A password reset was requested for an account linked to this email, but there is no Camaguru account linked to this email.
+
+Camaguru team
+";
+        mail($email, "Camaguru account does not exist", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send no account email: " . $e->getMessage());
     }
 }
 
