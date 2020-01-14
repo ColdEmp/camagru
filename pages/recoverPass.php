@@ -47,7 +47,7 @@
 						if (isset($username))
 						{
 							forgot_password($username, $_POST["change_password"]);
-							notify("Email succesfully sent!");
+							notify("Email sent!");
 						}
 						else
 						{

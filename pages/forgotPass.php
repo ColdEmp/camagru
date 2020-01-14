@@ -1,21 +1,10 @@
 <?php
 	include_once "../pages/header.php";
-	$_POST["username"] = $_GET['username'];
-	$_POST["verification_token"] = $_GET['verification_token'];
-	if (isset($_POST["submit"]))
-	{
-		if(valid_password($_POST["change_password"])){
-			change_password($_POST["username"],$_POST["change_password"]);
-		//	header("Location: ./login.php");
-		}
-		else
-		{
-			//notify("New password cannot be only lowercase letters");
-		}
-	}
+	$username = $_GET['username'];
+	$verification_token = $_GET['verification_token'];
 	if(!valid_token($username, $verification_token))
 	{
-   		//header("Location: ../index.php");
+   		header("Location: ../index.php");
 	}
 //capture a password and pass that password to:
 //change_password($username,$new_password);
@@ -47,7 +36,7 @@
 					<div style = "padding : 0px 0px 20px 0px">
 						<div class="box has-text-centered has-background-grey-dark">
 							<h1 class="title is-3 has-text-light">New Password</h1>
-							<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+							<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . '?username=' . $username . '&verification_token=' . $verification_token;?>">
 								<div class="field">
 									<div class="control">
 											<input class="input is-large" type="password" name = "change_password" placeholder="New Password">
@@ -59,6 +48,19 @@
 							</form>
 						</div>
 					</div>
+					<?php
+					if (isset($_POST["submit"]))
+					{
+						if(valid_password($_POST["change_password"])){
+							change_password($username,$_POST["change_password"]);
+						header("Location: ./login.php");
+						}
+						else
+						{
+							notify("New password cannot be only lowercase letters");
+						}
+					}
+					?>
 				</div>
 				<div class="column"></div>
 			</div>
