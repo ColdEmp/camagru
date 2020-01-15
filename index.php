@@ -85,7 +85,7 @@ else
 		</div>
 	</section>
 	<nav>
-		<div class="container">
+		<div class="container" style="padding-bottom:100px !important">
 			<div class="pagination is-centered" role="navigation" aria-label="pagination">
 				<ul class="pagination-list">
 					<li><a class="pagination-link" id="prevv">Prev</a></li>

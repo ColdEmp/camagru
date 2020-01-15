@@ -121,10 +121,8 @@ function id_arr()
 
 function home_img($amm, $page_no, $class)
 {
-    echo "Testing if echoes work\n";
     try
     {
-        echo "111\n";
         $index = $page_no;
         $arr = id_arr();
         $counter = 0;
@@ -147,9 +145,9 @@ function home_img($amm, $page_no, $class)
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
-                echo "222\n$img"; // for the actual display, very important, no touchie
+                echo "$img"; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
-                echo "333\n"; // for the comment box
+                echo "\n"; // for the comment box
                
                 if (!isset($_SESSION["username"]))
                 {
@@ -165,7 +163,7 @@ function home_img($amm, $page_no, $class)
             // check planning for how to do comments only if logged in
             if (isset($_SESSION['username']))
             {
-                echo "444\n";
+                echo "\n";
             }
             //echo "</div>";
             $image++;
@@ -207,7 +205,7 @@ function pager_images($no, $page)
     try
     {
         echo "<div class=\"column middle c\" onload=\"scrolltest();\">";
-        home_img($no, $page, "column middle image"); //"column middle image" instead of 0
+        home_img($no, $page, "column middle image");
         echo "</div>";
     }
     catch(PDOException $e)
