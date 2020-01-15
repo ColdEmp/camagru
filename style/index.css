@@ -35,6 +35,19 @@ a.inactivelink{
 	margin:auto;
 }
 
+.imgpadding{
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+.post
+{
+	display: block;
+	/* padding:px; */
+	background-color: rgb(75, 75, 75);
+	border-color: Black;
+	border-style: solid;
+	border-width: 4px;
+}
 .column.middle.image{
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 	position: relative;
