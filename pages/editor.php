@@ -64,7 +64,7 @@ user_nlogged_redirect();
 						<form method="post" enctype="multipart/form-data">
 						<div class="file">
 							<label class="file-label">
-								<input class="file-input" type="file" name="resume">
+								<input class="file-input" type="file" id="imageLoader" name="resume">
 								<span class="file-cta">
 								<span class="file-icon">
 									<i class="fa fa-upload"></i>
@@ -155,6 +155,27 @@ user_nlogged_redirect();
 				xhre.send(str);
 				location.reload();
 			}
+		}
+
+		var imageLoader = document.getElementById('imageLoader');
+    	if (imageLoader) {
+			imageLoader.addEventListener('change', handleImage, false);
+		}
+		// var canvas = document.getElementById('imageCanvas');
+		// var ctx = canvas.getContext('2d');
+		function handleImage(e){
+	    var reader = new FileReader();
+    	reader.onload = function(event){
+        	var img = new Image();
+        	img.onload = function(){
+    	        // canvas.width = img.width;
+        	    // canvas.height = img.height;
+				capture = 1;
+        	    context.drawImage(img, 0, 0, 640, 480);
+        		}
+        	img.src = event.target.result;
+    		}
+    	reader.readAsDataURL(e.target.files[0]);     
 		}
 
 		function circular_dragon() {
