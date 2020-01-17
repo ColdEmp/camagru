@@ -37,7 +37,7 @@
 								<!-- if liked -->
 								<!-- <i class="fa fa-heart-broken"></i> -->
 								<!-- if not liked -->
-									<i class="fa fa-heart"></i>
+									<i class="fa fa-heart" id = "like" onclick="color_change(1)"></i>
 								</span>
 							</div>
 						</div>
@@ -54,4 +54,19 @@
 			</div>
 		</footer>
 	</body>
+	<script>
+		function color_change()
+		{
+			var colour = getComputedStyle(document.getElementById('like')).color;
+			console.log(colour);
+			if(colour === 'rgb(0, 0, 0)')
+			{
+				colour = document.getElementById('like').style.color = 'rgb(255, 255, 255)';
+			}
+			else if(colour === 'rgb(255, 255, 255)')
+			{
+				colour = document.getElementById('like').style.color = 'rgb(0, 0, 0)';
+			}
+		}
+	</script>
 </html>
