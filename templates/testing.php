@@ -31,14 +31,31 @@
 							<figure class ="image is-1by1 imgpadding">
 								<img src="../images/0001.png" alt="Image">
 							</figure>
-							<div style = "display:inline">
-								<span><p class="title has-text-light username">Username</p></span>
-								<span class="icon is-small">
-								<!-- if liked -->
-								<!-- <i class="fa fa-heart-broken"></i> -->
-								<!-- if not liked -->
-									<i class="fa fa-heart" id = "like" onclick="color_change(1)"></i>
-								</span>
+							<div class="info">
+								<span><p class="has-text-light username left">
+									Username<i class="fa fa-heart right whitecolour" id = "like" onclick="color_change()"></i>
+									<i class="fa fa-comment right whitecolour"></i>
+								</p></span>
+							</div>
+							<div class = "comments">
+								<form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+									<div class="commentbox">
+										<div class="field">
+											<div class="control">
+												<input class="input is-large" type="textarea" name="newcomment" placeholder="Large input">
+											</div>
+											<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	
+										</div>
+									</div>
+								</form>
+								<div class="commentbox">
+									<p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
+									<div class = "commenttextbox">
+										<p class = "is-medium scroll">
+											dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -58,14 +75,13 @@
 		function color_change()
 		{
 			var colour = getComputedStyle(document.getElementById('like')).color;
-			console.log(colour);
-			if(colour === 'rgb(0, 0, 0)')
+			if(colour === 'rgb(255, 255, 255)')
+			{
+				colour = document.getElementById('like').style.color = 'rgb(180, 0, 0)';
+			}
+			else if(colour === 'rgb(180, 0, 0)')
 			{
 				colour = document.getElementById('like').style.color = 'rgb(255, 255, 255)';
-			}
-			else if(colour === 'rgb(255, 255, 255)')
-			{
-				colour = document.getElementById('like').style.color = 'rgb(0, 0, 0)';
 			}
 		}
 	</script>
