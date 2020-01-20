@@ -85,6 +85,15 @@ user_nlogged_redirect();
 						<figure class="image sticker">
 							<img src="../images/stickers/Dragon Gold.png" alt="Gold Dragon" onclick = "gold_dragon()">
 						</figure>
+						<figure class="image sticker">
+							<img src="../images/stickers/Poo Emoji.png" alt="Poo Emoji" onclick = "poo_emoji()">
+						</figure>
+						<figure class="image sticker">
+							<img src="../images/stickers/kawaii blush.png" alt="Kawaii Blush" onclick = "kawaii_blush()">
+						</figure>
+						<figure class="image sticker">
+							<img src="../images/stickers/cat thumbs.png" alt="Cat Thumbs" onclick = "cat_thumbs()">
+						</figure>
 					</div>
 					<!-- The data encoding type, enctype, MUST be specified as below
 					<form enctype="multipart/form-data" action="__URL__" method="POST">
@@ -179,18 +188,39 @@ user_nlogged_redirect();
 		}
 
 		function circular_dragon() {
-					if (capture == 1){
-						drawing = new Image();
-						drawing.src = "../images/stickers/Dragon Circle.png";
-						context.drawImage(drawing,320,200, 320, 280);
-					}
-				}
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/Dragon Circle.png";
+				context.drawImage(drawing,220,140,200,200);
+			}
+		}
 		function gold_dragon() {
-					if (capture == 1){
-						drawing = new Image();
-						drawing.src = "../images/stickers/Dragon Gold.png";
-						context.drawImage(drawing,320,200, 320, 280);
-					}
-				}
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/Dragon Gold.png";
+				context.drawImage(drawing,400,50,225,400);
+			}
+		}
+		function poo_emoji() {
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/Poo Emoji.png";
+				context.drawImage(drawing,400,300,150,150);
+			}
+		}
+		function kawaii_blush() {
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/kawaii blush.png";
+				context.drawImage(drawing,200,160,220,220);
+			}
+		}
+		function cat_thumbs() {
+			if (capture == 1){
+				drawing = new Image();
+				drawing.src = "../images/stickers/cat thumbs.png";
+				context.drawImage(drawing,400,250,220,220);
+			}
+		}
 	</script>
 </html>
