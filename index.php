@@ -71,7 +71,7 @@ else
 			</div>
 			<!-- Left column end -->
 			<!-- Middle column -->
-			<div class="column">
+			<div class="column is-half">
 											<!-- Need to replace evrything -->
 							<!-- Need to actually make this function -->
 				<?PHP pager_images($imgamm, $_GET['page']);?>
@@ -115,6 +115,20 @@ else
 		function page_n()
 		{
 			window.location.href = "<?PHP pager(1, $imgamm);?>";
+		}
+		
+		function color_change(like)
+		{
+			console.log("like");
+			var colour = getComputedStyle(document.getElementById(like)).color;
+			if(colour === 'rgb(255, 255, 255)')
+			{
+				colour = document.getElementById(like).style.color = 'rgb(180, 0, 0)';
+			}
+			else if(colour === 'rgb(180, 0, 0)')
+			{
+				colour = document.getElementById(like).style.color = 'rgb(255, 255, 255)';
+			}
 		}
 	</script>
   	</body>
