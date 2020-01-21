@@ -145,8 +145,8 @@ function home_img($amm, $page_no, $class)
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
-                echo "<div class = "comments">
-                <form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                echo '<div class = "comments">
+                <form method="GET" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">
                     <div class="commentbox">
                         <div class="field">
                             <div class="control">
@@ -164,7 +164,7 @@ function home_img($amm, $page_no, $class)
                         </p>
                     </div>
                 </div>
-            </div>"; // for the actual display, very important, no touchie
+            </div>'; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo "\n"; // for the comment box
                
