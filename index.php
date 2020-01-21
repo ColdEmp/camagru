@@ -9,7 +9,7 @@ include_once './config/image_functions.php';
 if(!isset($_GET['page']))
 	header("Location: ./index.php?page=1");
 
-$imgamm = 5;
+$imgamm = 6;
 ?>
 <!DOCTYPE html>
 <html lang="en">

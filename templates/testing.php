@@ -38,7 +38,7 @@
 								</p></span>
 							</div>
 							<div class = "comments">
-								<form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+								<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 									<div class="commentbox">
 										<div class="field">
 											<div class="control">
