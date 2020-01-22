@@ -60,6 +60,15 @@ a.inactivelink{
 .whitecolour{
 	color:white;
 }
+
+.redcolour{
+	color :rgb(180, 0, 0);
+}
+
+.nlogged{
+	display: none;
+}
+
 .deletecolour
 {
 	display: none;
