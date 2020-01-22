@@ -148,9 +148,6 @@ function home_img($amm, $page_no, $class)
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
-<<<<<<< HEAD
-                echo "$img\n"; // for the actual display, very important, no touchie
-=======
                 echo '
                 <div class="post">
                 <figure class ="image is-1by1 imgpadding">
@@ -191,7 +188,6 @@ function home_img($amm, $page_no, $class)
                 }
          echo'</div>
             </div>'; // for the actual display, very important, no touchie
->>>>>>> 06065b88c7885492ea520c634b1ee9451f36e614
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo "\n"; // for the comment box
                
