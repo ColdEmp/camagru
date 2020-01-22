@@ -145,26 +145,7 @@ function home_img($amm, $page_no, $class)
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
-                echo '<div class = "comments">
-                <form method="GET" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">
-                    <div class="commentbox">
-                        <div class="field">
-                            <div class="control">
-                                <input class="input is-large" type="textarea" name="newcomment" placeholder="Large input">
-                            </div>
-                            <button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	
-                        </div>
-                    </div>
-                </form>
-                <div class="commentbox">
-                    <p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
-                    <div class = "commenttextbox">
-                        <p class = "is-medium scroll">
-                            dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
-                        </p>
-                    </div>
-                </div>
-            </div>'; // for the actual display, very important, no touchie
+                echo "$img\n"; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo "\n"; // for the comment box
                
