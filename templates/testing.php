@@ -33,7 +33,7 @@
 							</figure>
 							<div class="info">
 								<span><p class="has-text-light username left">
-									Username<i class="fa fa-heart right whitecolour" id = "like" onclick="color_change()"></i>
+									Username<i class="fa fa-heart right whitecolour" id = "like" onclick="color_change('like')"></i>
 									<i class="fa fa-comment right whitecolour"></i>
 								</p></span>
 							</div>
@@ -72,16 +72,16 @@
 		</footer>
 	</body>
 	<script>
-		function color_change()
+		function color_change(like)
 		{
-			var colour = getComputedStyle(document.getElementById('like')).color;
+			var colour = getComputedStyle(document.getElementById(like)).color;
 			if(colour === 'rgb(255, 255, 255)')
 			{
-				colour = document.getElementById('like').style.color = 'rgb(180, 0, 0)';
+				colour = document.getElementById(like).style.color = 'rgb(180, 0, 0)';
 			}
 			else if(colour === 'rgb(180, 0, 0)')
 			{
-				colour = document.getElementById('like').style.color = 'rgb(255, 255, 255)';
+				colour = document.getElementById(like).style.color = 'rgb(255, 255, 255)';
 			}
 		}
 	</script>
