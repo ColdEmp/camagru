@@ -117,23 +117,32 @@ else
 			window.location.href = "<?PHP pager(1, $imgamm);?>";
 		}
 		
-		function color_change(like)
+		function color_change(like,imgid)
 		{
 			var elem = document.getElementById(like);
 			var colour = getComputedStyle(elem).color;
+			var xhre = new XMLHttpRequest();
+			xhre.open("POST","pages/like.php");
+			xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			console.log(imgid);
 			if(colour === 'rgb(255, 255, 255)')
 			{
 				elem.style.color = 'rgb(180, 0, 0)';
+				var str = "user=" + <?php echo '"' . $_SESSION["username"] . '"';?> + "&img=" + imgid + "&action=like";
+				console.log(str);
+				xhre.send(str);
 			}
 			else if(colour === 'rgb(180, 0, 0)')
 			{
 				elem.style.color = 'rgb(255, 255, 255)';
+				var str = "user=" + <?php echo '"' . $_SESSION["username"] .'"';?> + "&img=" + imgid + "&action=dislike";
+				console.log(str);
+				xhre.send(str);
 			}
 		}
 		function displayComments(box){
 			var elem = document.getElementById(box);
 			var displayed = getComputedStyle(elem).display;
-			console.log("Wankler");
 			if(displayed == "none")
 			{
 				elem.style.display = "inline";
