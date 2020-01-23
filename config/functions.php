@@ -318,6 +318,24 @@ function count_comments($imageid)
     }
 }
 
+function return_comments($imageid)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT comment_text FROM comments WHERE imageid='$imageid'");
+        if($statement->execute())
+        {
+            $temp = $statement->fetchAll();
+            return ($temp);
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to return comments: " . $e->getMessage());
+    }
+}
+
 function add_like($imageid, $username)
 {
     try
