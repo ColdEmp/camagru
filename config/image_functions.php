@@ -1,18 +1,6 @@
 <?PHP
 include_once 'index.php';
 
-function get_posts()
-{
-    try
-    {
-
-    }
-    catch (PDOException $e)
-    {
-        
-    }
-}
-
 function retrieve_img($i, $class)
 {
     try
@@ -78,28 +66,23 @@ function get_img($imagesid, $class)
     }
 }
 
-function get_likes()
+function id_arr_editor($userid) //What a paaaaaaiiiin
 {
-    try
-    {
-
-    }
-    catch (PDOException $e)
-    {
-        
-    }
-}
-
-function home_get_comment()
-{
-    try
-    {
-
-    }
-    catch (PDOException $e)
-    {
-        
-    }
+   try
+   {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT imageid FROM images WHERE userid = '$userid'");
+        if($statement->execute())
+        {
+            $result = $statement->fetch();
+            return ($result);
+        }
+        $statement->closeCursor();
+   }
+   catch(PDOException $e)
+   {
+        die("Failed to id_array: " . $e->getMessage());
+   }
 }
 
 function id_arr()
@@ -227,6 +210,64 @@ function home_img($amm, $page_no, $class)
     }
 }
 
+function edit_img($amm, $page_no, $class, $userid)
+{
+    echo "1\n";
+    try
+    {
+        echo "2\n";
+        $index = $page_no;
+        $arr = id_arr_editor($userid); //The problem is here, does not count properly
+        $max = count($arr);
+        $counter = 0;
+        echo "count check for max == $max >>  \n";
+        $max -= $amm * ($page_no - 1);
+        $image = 0;
+        echo "99999\n";
+                $img = retrieve_img(27, $class);
+                echo '
+                <div class="post">
+                <figure class ="image is-1by1 imgpadding">
+                    ' . $img . '
+                </figure>
+                </div>';
+        echo "3\n";
+        while ($image < $amm)
+        {
+            echo "6\n";
+            $i = $arr[$max - 1];
+            echo "7 and i == $i >>\n";
+            $page = $_GET['page'];
+            echo "5\n";
+            if (ver_img($i) == 0)
+            {
+                echo "8\n";
+                return (0);
+            }
+            else
+            {
+                echo "99999\n";
+                $img = retrieve_img($i, $class);
+                echo '
+                <div class="post">
+                <figure class ="image is-1by1 imgpadding">
+                    ' . $img . '
+                </figure>
+                </div>';
+            }
+            // echo "</div>";
+            $image++;
+            $max--;
+        }
+        echo "4\n";
+    }
+    catch (PDOException $e)
+    {
+        echo "Failed to print home page image list\n";
+    }
+}
+
+
 function pager($mode, $amm)
 {
     try
@@ -251,6 +292,30 @@ function pager($mode, $amm)
     }
 }
 
+function paging($mode, $amm)
+{
+    try
+    {
+        $max = count(id_arr_editor($_SESSION['userid']));
+        if ($page = $_GET['page'])
+        {
+            if ($page > 1 && $mode == -1)
+                $page--;
+            else if (($page * $amm) < $max && $mode == 1)
+                $page++;
+        }
+        else
+        {
+            $page = 1;
+        }
+        echo "./editor.php?page=$page";
+    }
+    catch(PDOException $e)
+    {
+        echo "Failed to get page linking thingy...\n";
+    }
+}
+
 function pager_images($no, $page)
 {
     try
@@ -265,6 +330,18 @@ function pager_images($no, $page)
     }
 }
 
-
+function editor_images($no, $page)
+{
+    try
+    {
+        echo "<div class=\"column middle c\" onload=\"scrolltest();\">";
+        edit_img($no, $page, "column middle image", $_SESSION['userid']);
+        echo "</div>";
+    }
+    catch(PDOException $e)
+    {
+        echo "Failed to print home images\n";
+    }
+}
 
 ?>

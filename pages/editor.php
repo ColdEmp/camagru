@@ -1,6 +1,12 @@
 <?php
 include_once "./header.php";
 user_nlogged_redirect();
+
+if(!isset($_GET['page']))
+	header("Location: ./editor.php?page=1");
+
+$imgamm = 5;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +54,28 @@ user_nlogged_redirect();
 			</div>
 			<section class="section is-centered">
 				<div class="columns">
-					<div class="column"></div>
+					<!-- Left Side Column -->
+					<div class="column">
+					
+					<?PHP editor_images($imgamm, $_GET['page']);?>
+
+					<br/>
+
+					<nav>
+						<div class="container" style="padding-bottom:100px !important">
+							<div class="pagination is-centered" role="navigation" aria-label="pagination">
+								<ul class="pagination-list">
+									<li><a class="pagination-link" id="prevv">Prev</a></li>
+									<li><span class="pagination-ellipsis">…</span></li>
+									<li><a class="pagination-link has-text-white-ter has-background-black" aria-current="page"><?PHP echo $_GET['page']?></a></li>
+									<li><span class="pagination-ellipsis">…</span></li>
+									<li><a class="pagination-link" id="nextt">Next</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+
+					</div>
 					<div class="column is-half">
 						<div class="webcam">
 							<video id = "video" playsinline autoplay>Video unsupported</video>
@@ -221,5 +248,17 @@ user_nlogged_redirect();
 				context.drawImage(drawing,400,250,220,220);
 			}
 		}
+
+		document.getElementById ("prevv").addEventListener ("click", page_p, false);
+		document.getElementById ("nextt").addEventListener ("click", page_n, false);
+		function page_p()
+		{
+			window.location.href = "<?PHP paging(-1, $imgamm);?>";
+		}
+		function page_n()
+		{
+			window.location.href = "<?PHP paging(1, $imgamm);?>";
+		}
+
 	</script>
 </html>
