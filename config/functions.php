@@ -210,7 +210,6 @@ function valid_token($username, $verification_token)
     }
 }
 
-// New function, testing it out, Heinrich sucks, Epstein didn't kill himself
 function get_specific($target, $table, $column, $value){
 	try {
 		$connection = open_connection();
@@ -323,7 +322,7 @@ function return_comments($imageid)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT comment_text FROM comments WHERE imageid='$imageid'");
+        $statement = $connection->prepare("SELECT comment_text,userid FROM comments WHERE imageid='$imageid'");
         if($statement->execute())
         {
             $temp = $statement->fetchAll();

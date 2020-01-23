@@ -143,10 +143,11 @@ function home_img($amm, $page_no, $class)
             }
             else
             {
+                $comments = return_comments($i);
                 $img = retrieve_img($i, $class);
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
-                $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
+                $name = find_specified("username", "users", "userid", find_specified("userid","images","imageid",$i));
                 echo '
                 <div class="post">
                 <figure class ="image is-1by1 imgpadding">
@@ -154,7 +155,7 @@ function home_img($amm, $page_no, $class)
                 </figure>
                 <div class="info">
                     <span><p class="has-text-light username left">
-                        Username<i class="fa fa-heart right whitecolour" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\')"></i>
+                        '. $name .'<i class="fa fa-heart right whitecolour" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\')"></i>
                         <i class="fa fa-comment right whitecolour" onclick = "displayComments(\'commentsection' . $i . '\')"></i>
                     </p></span>
                 </div>
@@ -177,10 +178,10 @@ function home_img($amm, $page_no, $class)
                 while($j < $comcount)
                 {
                 echo    '<div class="commentbox">
-                            <p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
+                            <p class="commentusername">' . find_specified("username", "users", "userid", $comments[$j][1]) . ' <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
                             <div class = "commenttextbox">
                                 <p class = "is-medium scroll">
-                                    dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
+                                   '. $comments[$j][0] .'
                                 </p>
                             </div>
                         </div>';
