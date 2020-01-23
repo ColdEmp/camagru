@@ -43,7 +43,27 @@ if (isset($_SESSION['user_id'])){
 						echo '<img src="data:image/jpg;base64,' . base64_encode( $row['image'] ) . '" />';
 
 
-
+														below is the comment box
+							<div class = "comments">
+								<form method="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+									<div class="commentbox">
+										<div class="field">
+											<div class="control">
+												<input class="input is-large" type="textarea" name="newcomment" placeholder="Large input">
+											</div>
+											<button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	
+										</div>
+									</div>
+								</form>
+								<div class="commentbox">
+									<p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
+									<div class = "commenttextbox">
+										<p class = "is-medium scroll">
+											dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
+										</p>
+									</div>
+								</div>
+							</div>
 
 
 

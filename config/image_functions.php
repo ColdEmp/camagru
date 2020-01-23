@@ -1,5 +1,5 @@
 <?PHP
-include_once 'functions.php';
+include_once 'index.php';
 
 function get_posts()
 {
@@ -128,13 +128,16 @@ function home_img($amm, $page_no, $class)
         $counter = 0;
         $max = count($arr);
         $max -= $amm * ($page_no - 1);
-        $image = 1;
+        $image = 0;
                 // Line below needs it's function to be made
         // $posts = get_posts($page_no);
         while ($image < $amm)
         {
             $i = $arr[$max - 1];
             $page = $_GET['page'];
+            $j = 0;
+            $comcount = count_comments($i);
+            notify($comcount);
             if (ver_img($i) == 0)
             {
                 return (0);
@@ -145,7 +148,46 @@ function home_img($amm, $page_no, $class)
                         // Line below needs to be helped
                 // $likes = get_likes(NULL, $i);
                 $name = get_specific("username", "users", "userid", get_specific("userid", "images", "imageid", $i));
-                echo "$img"; // for the actual display, very important, no touchie
+                echo '
+                <div class="post">
+                <figure class ="image is-1by1 imgpadding">
+                    ' . $img . '
+                </figure>
+                <div class="info">
+                    <span><p class="has-text-light username left">
+                        Username<i class="fa fa-heart right whitecolour" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\')"></i>
+                        <i class="fa fa-comment right whitecolour"></i>
+                    </p></span>
+                </div>
+                <div class = "comments">';
+                if(isset($_SESSION["username"]))
+                {
+                echo '<form method="POST" action="pages/comment.php">
+                        <div class="commentbox">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="textarea" name="newcomment" placeholder="Enter your comment">
+                                    <input type = "text" name="imageid" value="' . $i . '">
+                                </div>
+                                <button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	
+                            </div>
+                        </div>
+                    </form>';
+                }
+                while($j < $comcount)
+                {
+                echo  '<div class="commentbox">
+                        <p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
+                        <div class = "commenttextbox">
+                            <p class = "is-medium scroll">
+                                dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
+                            </p>
+                        </div>
+                    </div>';
+                    $j++;
+                }
+         echo'</div>
+            </div>'; // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
                 echo "\n"; // for the comment box
                

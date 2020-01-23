@@ -35,22 +35,94 @@ a.inactivelink{
 	margin:auto;
 }
 
+.button
+{
+	margin-top: 5px;;
+}
+
 .imgpadding{
 	margin-left: 20px !important;
 	margin-right: 20px !important;
 }
 .username{
-	padding-left: 10px;
+	padding-left: 13px;
 	padding-top: 10px;
+	color :White;
+	font-weight : 900;
+	font-size : large;
+}
+.commentusername{
+	padding-left: 1px;
+	color:white;
+	font-weight: 900;
+	
+}
+.whitecolour{
+	color:white;
 }
 
-#like{
-	color:white;
+.redcolour{
+	color :rgb(180, 0, 0);
+}
+
+.nlogged{
+	display: none;
+}
+
+.deletecolour
+{
+	display: none;
+	color:red;
+}
+
+.fa{
+padding-left: 5px;
+}
+ 
+.info {
+	display: inherit;
+}
+
+.right {
+	margin-top: 4px;
+	/* position: fixed; */
+	float: right;
+	/* left: 100%; */
+	/* padding: 10px; */
+  }
+
+.left {
+	position: relative;
+	/* float: left; */
+	/* right: 0px; */
+	padding: 10px;
+  }
+.commentbox{
+	margin:auto;
+	width: 90%;
+	padding-bottom: 20px;
+	/* height :200px; */
+}
+
+.scroll{
+	overflow-y: scroll;
+	height: 90px;
+	/* overflow-wrap: break-word; */
+	word-break: break-all;
+}
+
+.commenttextbox{
+	background-color: rgb(255, 255, 255);
+	border-color: Black;
+	border-style: solid;
+	border-width: 4px;
+	height: 100px;
 }
 
 .post
 {
 	margin:auto;
+	margin-top: 20px;
 	display: block;
 	/* padding:px; */
 	/* background-color: rgb(75, 75, 75); */
