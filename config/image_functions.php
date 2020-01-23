@@ -137,7 +137,6 @@ function home_img($amm, $page_no, $class)
             $page = $_GET['page'];
             $j = 0;
             $comcount = count_comments($i);
-            notify($comcount);
             if (ver_img($i) == 0)
             {
                 return (0);
@@ -156,7 +155,7 @@ function home_img($amm, $page_no, $class)
                 <div class="info">
                     <span><p class="has-text-light username left">
                         Username<i class="fa fa-heart right whitecolour" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\')"></i>
-                        <i class="fa fa-comment right whitecolour"></i>
+                        <i class="fa fa-comment right whitecolour" onclick = "displayComments(\'commentsection' . $i . '\')"></i>
                     </p></span>
                 </div>
                 <div class = "comments">';
@@ -167,29 +166,31 @@ function home_img($amm, $page_no, $class)
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-large" type="textarea" name="newcomment" placeholder="Enter your comment">
-                                    <input type = "text" name="imageid" value="' . $i . '">
+                                    <input type = "text" name="imageid" value="' . $i . '" style = "display:none">
                                 </div>
                                 <button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	
                             </div>
                         </div>
                     </form>';
                 }
+                echo    '<div id="commentsection'. $i .'" class="commentStart">';
                 while($j < $comcount)
                 {
-                echo  '<div class="commentbox">
-                        <p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
-                        <div class = "commenttextbox">
-                            <p class = "is-medium scroll">
-                                dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
-                            </p>
-                        </div>
-                    </div>';
+                echo    '<div class="commentbox">
+                            <p class="commentusername">CommentUsername <i class="fa fa-times-circle right deletecolour" id = "delete"></i></p>
+                            <div class = "commenttextbox">
+                                <p class = "is-medium scroll">
+                                    dfgsijndfgsjindfgijndfgshnuidfgiungdfsinudfgjnuidfgijnfgijnd
+                                </p>
+                            </div>
+                        </div>';
                     $j++;
                 }
-         echo'</div>
-            </div>'; // for the actual display, very important, no touchie
+         echo'      </div>
+                </div>'; 
+                // for the actual display, very important, no touchie
                 // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
-                echo "\n"; // for the comment box
+                // for the comment box
                
                 if (!isset($_SESSION["username"]))
                 {
@@ -207,7 +208,7 @@ function home_img($amm, $page_no, $class)
             {
                 echo "\n";
             }
-            //echo "</div>";
+            echo "</div>";
             $image++;
             $max--;
         }

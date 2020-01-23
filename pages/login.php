@@ -64,6 +64,7 @@ user_logged_redirect();
 							$_SESSION["username"] = $_POST["log_name"];
 							$_SESSION["user_email"] = find_specified("email", "users", "username", $_SESSION["username"]);
 							$_SESSION["notifications"] = find_specified("notifications", "users", "username", $_SESSION["username"]);
+							$_SESSION["id"] = find_specified("userid", "users", "username", $_SESSION["username"]);
 							header("Location: ../index.php");
 						}
 						else

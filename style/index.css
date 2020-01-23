@@ -69,6 +69,10 @@ a.inactivelink{
 	display: none;
 }
 
+.commentStart{
+	display: none;
+}
+
 .deletecolour
 {
 	display: none;
@@ -76,7 +80,7 @@ a.inactivelink{
 }
 
 .fa{
-padding-left: 5px;
+	padding-left: 5px;
 }
  
 .info {

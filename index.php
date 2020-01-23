@@ -119,15 +119,28 @@ else
 		
 		function color_change(like)
 		{
-			console.log("like");
-			var colour = getComputedStyle(document.getElementById(like)).color;
+			var elem = document.getElementById(like);
+			var colour = getComputedStyle(elem).color;
 			if(colour === 'rgb(255, 255, 255)')
 			{
-				colour = document.getElementById(like).style.color = 'rgb(180, 0, 0)';
+				elem.style.color = 'rgb(180, 0, 0)';
 			}
 			else if(colour === 'rgb(180, 0, 0)')
 			{
-				colour = document.getElementById(like).style.color = 'rgb(255, 255, 255)';
+				elem.style.color = 'rgb(255, 255, 255)';
+			}
+		}
+		function displayComments(box){
+			var elem = document.getElementById(box);
+			var displayed = getComputedStyle(elem).display;
+			console.log("Wankler");
+			if(displayed == "none")
+			{
+				elem.style.display = "inline";
+			}
+			else
+			{
+				elem.style.display = "none";
 			}
 		}
 	</script>
