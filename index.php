@@ -25,7 +25,6 @@ $imgamm = 5;
   <body>
 	<!-- Hero Banner-->
 	<div class="Level has-background-grey-dark has-text-centered">
-		<div style = "display: inline;">
 <?php
 if (isset($_SESSION["username"])){
 	echo '
@@ -60,7 +59,6 @@ else
 }
 ?>
 			<h1 class="title is-1 has-text-light">CAMAGRU</h1>
-		</div>
 			 <p class="subtitle has-text-light">A social media app!</p>
 	</div>
 	<!-- Main Content -->

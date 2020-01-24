@@ -179,8 +179,16 @@ $imgamm = 5;
 			const dataURI = canvas.toDataURL('image/jpeg', 1.0);
 		});
 
+		function delimg(imgid){
+			var xhre = new XMLHttpRequest();
+			xhre.open("POST", "imgdel.php");
+			xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			var str = "imgid=" + imgid;
+			xhre.send(str);
+		}
+
 		function XHR()
-		{
+		{ 
 			if (capture == 1){
 				img = canvas.toDataURL('image/jpeg', 1.0);
 				var xhre = new XMLHttpRequest();

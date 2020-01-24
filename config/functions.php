@@ -210,6 +210,31 @@ function valid_token($username, $verification_token)
     }
 }
 
+function is_liked($userid, $imgid)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("SELECT likeid FROM likes WHERE userid = :userid AND imageid = :imageid");
+        if($statement->execute(array('userid' => $userid, 'imageid' => $imgid)))
+        {
+            $temp = $statement->fetchAll();
+            if ($temp != NULL)
+            {
+                return (TRUE);
+            }
+            else
+            {
+                return (FALSE);
+            }
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to validate request: " . $e->getMessage());
+    }
+}
+
 function get_specific($target, $table, $column, $value){
 	try {
 		$connection = open_connection();
@@ -361,6 +386,23 @@ function remove_like($imageid, $username)
         $userid = find_specified("userid", "users", "username", $username);
         $connection = open_connection();
         $statement = $connection->prepare("DELETE FROM likes WHERE imageid='$imageid' AND userid='$userid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to remove a like";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to remove like: " . $e->getMessage());
+    }
+}
+
+function remove_img($imgid)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("DELETE FROM images WHERE imageid='$imgid'");
         if($statement->execute())
         {
             //echo "Successfully tried to remove a like";

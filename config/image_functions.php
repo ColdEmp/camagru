@@ -237,6 +237,7 @@ function edit_img($amm, $page_no, $class, $userid)
                     <figure class ="image is-1by1 imgpadding">
                         ' . $img . '
                     </figure>
+                    <p><i class = "fa fa-times-circle redcolour" onclick = "delimg(\'' . $i . '\')"></i></p>
                 </div>';
             }
             // echo "</div>";

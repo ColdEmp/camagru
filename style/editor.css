@@ -44,6 +44,12 @@ a.inactivelink:hover{
 	display: block;
 }
 
+.redcolour{
+	color :rgb(180, 0, 0);
+	margin-left: 5px;
+	/*0 padding: 10px; */
+}
+
 #leftCol{
 	overflow: scroll !important;
 	scrollbar-width: none !important;
