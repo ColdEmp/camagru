@@ -185,6 +185,7 @@ $imgamm = 5;
 			xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			var str = "imgid=" + imgid;
 			xhre.send(str);
+			setTimeout(location.reload.bind(location), 0.5);
 		}
 
 		function XHR()
@@ -196,7 +197,7 @@ $imgamm = 5;
 				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				var str = "action=upload&sub_action=canvas&img=" + img;
 				xhre.send(str);
-				setTimeout(location.reload.bind(location), 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005);
+				setTimeout(location.reload.bind(location), 0.5);
 			}
 		}
 

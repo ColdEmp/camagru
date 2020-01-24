@@ -407,6 +407,16 @@ function remove_img($imgid)
         {
             //echo "Successfully tried to remove a like";
         }
+        $statement = $connection->prepare("DELETE FROM likes WHERE imageid='$imgid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to remove a like";
+        }
+        $statement = $connection->prepare("DELETE FROM comments WHERE imageid='$imgid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to remove a like";
+        }
     }
     catch(PDOException $e)
     {

@@ -138,8 +138,7 @@ function home_img($amm, $page_no, $class)
                     <span><p class="has-text-light username left"> ' . $name;
                     if (isset($_SESSION["username"])){
                         echo  '<i class="fa fa-heart right ';
-                        $exists = find_specified("userid","likes","imageid",$i);
-                        if($_SESSION["id"] == $exists ){echo "redcolour";}else{echo "whitecolour";}
+                        if(is_liked($_SESSION["id"],$i)){echo "redcolour";}else{echo "whitecolour";}
                         echo '" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\',\''. $i .'\')"></i>';
                     }
                        echo ' <i class="fa fa-comment right whitecolour" onclick = "displayComments(\'commentsection' . $i . '\')"></i>
