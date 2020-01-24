@@ -43,6 +43,29 @@ Camaguru team
     }
 }
 
+function notification_email($username_comment, $username_image, $email_image)//$imageid)
+{
+    try
+    {
+        // $userid_image = find_specified(userid, images, imageid, $imageid);
+        // $username_image = find_specified(username, users, userid, $userid_image);
+        // $email = find_specified(email, users, userid, $userid_image);
+        $message = "
+Hello $username_image
+
+User $username_comment has commented on one of your images!
+
+Camaguru team
+";
+        //"http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
+        mail($email_image, "Camaguru user: $username_image", $message);
+    }
+    catch(Exception $e)
+    {
+        die("Failed to send notification email: " . $e->getMessage());
+    }
+}
+
 function add_user($username, $email, $raw_password)
 {
     try
