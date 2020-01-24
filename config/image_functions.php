@@ -276,7 +276,7 @@ function paging($mode, $amm)
 {
     try
     {
-        $max = count(id_arr_editor($_SESSION['userid']));
+        $max = count(id_arr_editor($_SESSION['id']));
         if ($page = $_GET['page'])
         {
             if ($page > 1 && $mode == -1)
