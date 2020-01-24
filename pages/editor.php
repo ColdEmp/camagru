@@ -183,7 +183,6 @@ $imgamm = 5;
 		{
 			if (capture == 1){
 				img = canvas.toDataURL('image/jpeg', 1.0);
-				console.log(img);
 				var xhre = new XMLHttpRequest();
 				xhre.open("POST", "post.php");
 				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
