@@ -322,7 +322,7 @@ function return_comments($imageid)
     try
     {
         $connection = open_connection();
-        $statement = $connection->prepare("SELECT comment_text,userid FROM comments WHERE imageid='$imageid'");
+        $statement = $connection->prepare("SELECT comment_text,userid,commentid FROM comments WHERE imageid='$imageid'");
         if($statement->execute())
         {
             $temp = $statement->fetchAll();
@@ -361,6 +361,23 @@ function remove_like($imageid, $username)
         $userid = find_specified("userid", "users", "username", $username);
         $connection = open_connection();
         $statement = $connection->prepare("DELETE FROM likes WHERE imageid='$imageid' AND userid='$userid'");
+        if($statement->execute())
+        {
+            //echo "Successfully tried to remove a like";
+        }
+    }
+    catch(PDOException $e)
+    {
+        die("Failed to remove like: " . $e->getMessage());
+    }
+}
+
+function remove_comment($commentid)
+{
+    try
+    {
+        $connection = open_connection();
+        $statement = $connection->prepare("DELETE FROM comments WHERE commentid='$commentid'");
         if($statement->execute())
         {
             //echo "Successfully tried to remove a like";
