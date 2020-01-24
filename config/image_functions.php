@@ -110,8 +110,6 @@ function home_img($amm, $page_no, $class)
         $max = count($arr);
         $max -= $amm * ($page_no - 1);
         $image = 0;
-                // Line below needs it's function to be made
-        // $posts = get_posts($page_no);
         while ($image < $amm)
         {
             $i = $arr[$max - 1];
@@ -126,8 +124,6 @@ function home_img($amm, $page_no, $class)
             {
                 $comments = return_comments($i);
                 $img = retrieve_img($i, $class);
-                        // Line below needs to be helped
-                // $likes = get_likes(NULL, $i);
                 $name = find_specified("username", "users", "userid", find_specified("userid","images","imageid",$i));
                 echo '
                 <div class="post">
@@ -178,26 +174,7 @@ function home_img($amm, $page_no, $class)
                     $j++;
                 }
          echo'      </div>
-                </div>'; 
-                // for the actual display, very important, no touchie
-                // You can insert something here (inside an if statement, with it's own echo) to add a delete thingy for users that are logged in
-                // for the comment box
-               
-                if (!isset($_SESSION["username"]))
-                {
-                    // pc and them put a home_get_comment function here and used a parameter for when no one was logged in
-                }
-                else
-                {
-                    // pc and them declared a user variable and used that as a parameter for a home_get_comment function
-                }
-
-                // pc and them echoed ---> "<br/><a class=\"c-btn-close\" onclick=\"openCloseComment_$i()\">&times;</a><br/>"
-            }
-            // check planning for how to do comments only if logged in
-            if (isset($_SESSION['username']))
-            {
-                echo "\n";
+                </div>';
             }
             echo "</div>";
             $image++;
@@ -239,7 +216,6 @@ function edit_img($amm, $page_no, $class, $userid)
                     <p><i class = "fa fa-times-circle redcolour" onclick = "delimg(\'' . $i . '\')"></i></p>
                 </div>';
             }
-            // echo "</div>";
             $image++;
             $max--;
         }
