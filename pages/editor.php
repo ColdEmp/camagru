@@ -188,7 +188,7 @@ $imgamm = 5;
 				xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				var str = "action=upload&sub_action=canvas&img=" + img;
 				xhre.send(str);
-				location.reload();
+				setTimeout(location.reload.bind(location), 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005);
 			}
 		}
 
