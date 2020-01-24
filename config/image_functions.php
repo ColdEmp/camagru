@@ -135,12 +135,14 @@ function home_img($amm, $page_no, $class)
                     ' . $img . '
                 </figure>
                 <div class="info">
-                    <span><p class="has-text-light username left">
-                        '. $name .'<i class="fa fa-heart right ';
+                    <span><p class="has-text-light username left"> ' . $name;
+                    if (isset($_SESSION["username"])){
+                        echo  '<i class="fa fa-heart right ';
                         $exists = find_specified("userid","likes","likeid",find_specified("likeid","likes","imageid",$i));
                         if($_SESSION["id"] == $exists ){echo "redcolour";}else{echo "whitecolour";}
-                        echo '" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\',\''. $i .'\')"></i>
-                        <i class="fa fa-comment right whitecolour" onclick = "displayComments(\'commentsection' . $i . '\')"></i>
+                        echo '" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\',\''. $i .'\')"></i>';
+                    }
+                       echo ' <i class="fa fa-comment right whitecolour" onclick = "displayComments(\'commentsection' . $i . '\')"></i>
                     </p></span>
                 </div>
                 <div class = "comments">';
@@ -162,11 +164,12 @@ function home_img($amm, $page_no, $class)
                 while($j < $comcount)
                 {
                 $commentusername = find_specified("username", "users", "userid", $comments[$j][1]);
+                $commentid = $comments[$j][2];
                 echo    '<div class="commentbox">
                             <p class="commentusername">' . $commentusername . ' 
                             <i class="fa fa-times-circle right redcolour ';
                             if($commentusername != $_SESSION["username"]){echo 'commentStart';}else{}
-                            echo'" id = "delete' . $i . "c" . $j . '" onclick = deleteComment(\'delete'.$i. "c" . $j .'\');></i></p>
+                            echo'" id = "delete' . $commentid . '" onclick = "deleteComment(\'delete' . $commentid . '\',\''.$commentid.'\')"></i></p>
                             <div class = "commenttextbox">
                                 <p class = "is-medium scroll">
                                    '. $comments[$j][0] .'

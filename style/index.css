@@ -23,12 +23,13 @@ a.inactivelink{
 .hbutton{
 	position: absolute !important;
 	margin-left: -47.8%;
-	margin-top:20px;
+	margin-top: 20px;
 }
 
 .logbutton{
 	position: fixed !important;
 	margin-left: 42%;
+	margin-top: 20px;
 }
 #prof_box{
 	padding-bottom:3rem;

@@ -124,19 +124,16 @@ else
 			var xhre = new XMLHttpRequest();
 			xhre.open("POST","pages/like.php");
 			xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			console.log(imgid);
 			if(colour === 'rgb(255, 255, 255)')
 			{
 				elem.style.color = 'rgb(180, 0, 0)';
 				var str = "user=" + <?php echo '"' . $_SESSION["username"] . '"';?> + "&img=" + imgid + "&action=like";
-				console.log(str);
 				xhre.send(str);
 			}
 			else if(colour === 'rgb(180, 0, 0)')
 			{
 				elem.style.color = 'rgb(255, 255, 255)';
 				var str = "user=" + <?php echo '"' . $_SESSION["username"] .'"';?> + "&img=" + imgid + "&action=dislike";
-				console.log(str);
 				xhre.send(str);
 			}
 		}
@@ -151,6 +148,16 @@ else
 			{
 				elem.style.display = "none";
 			}
+		}
+		function deleteComment(comment,id){
+			var elem = document.getElementById(comment);
+			var xhre = new XMLHttpRequest();
+			console.log(id);
+			xhre.open("POST","pages/deleteComment.php");
+			xhre.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			var str = "commentid=" + id;
+			xhre.send(str);
+			location.reload();
 		}
 	</script>
   	</body>
