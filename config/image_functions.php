@@ -56,7 +56,7 @@ function get_img($imagesid, $class)
         }
         else
         {
-            $return = "<img src='$req'/>"; //temp holder, fix later
+            $return = "<img src='$req'/>";
         }
         return $return;
     }
@@ -66,7 +66,7 @@ function get_img($imagesid, $class)
     }
 }
 
-function id_arr_editor($userid) //What a paaaaaaiiiin
+function id_arr_editor($userid)
 {
    try
    {
@@ -300,7 +300,7 @@ function pager_images($no, $page)
 {
     try
     {
-        echo "<div class=\"column middle c\" onload=\"scrolltest();\">";
+        echo "<div class=\"column middle c\">";
         home_img($no, $page, "column middle image");
         echo "</div>";
     }
@@ -314,7 +314,7 @@ function editor_images($no, $page)
 {
     try
     {
-        echo "<div class=\"column middle c\" onload=\"scrolltest();\">";
+        echo "<div class=\"column middle c\">";
         edit_img($no, $page, "column middle image", $_SESSION['id']);
         echo "</div>";
     }
