@@ -138,7 +138,7 @@ function home_img($amm, $page_no, $class)
                     <span><p class="has-text-light username left"> ' . $name;
                     if (isset($_SESSION["username"])){
                         echo  '<i class="fa fa-heart right ';
-                        $exists = find_specified("userid","likes","likeid",find_specified("likeid","likes","imageid",$i));
+                        $exists = find_specified("userid","likes","imageid",$i);
                         if($_SESSION["id"] == $exists ){echo "redcolour";}else{echo "whitecolour";}
                         echo '" id = "like' . $i . '" onclick="color_change(\'like' . $i . '\',\''. $i .'\')"></i>';
                     }
@@ -234,9 +234,9 @@ function edit_img($amm, $page_no, $class, $userid)
                 $img = retrieve_img($i, $class);
                 echo '
                 <div class="post">
-                <figure class ="image is-1by1 imgpadding">
-                    ' . $img . '
-                </figure>
+                    <figure class ="image is-1by1 imgpadding">
+                        ' . $img . '
+                    </figure>
                 </div>';
             }
             // echo "</div>";
