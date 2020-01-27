@@ -1,6 +1,6 @@
 <?php
 	include_once "./header.php";
-	$newcomment = $_POST["newcomment"];
+	$newcomment = htmlspecialchars($_POST["newcomment"]);
 	$username = $_SESSION["username"];
 	$imgid = $_POST["imageid"];
 	if($_POST["submit"] == "submit")

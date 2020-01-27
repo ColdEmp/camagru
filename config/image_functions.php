@@ -147,7 +147,7 @@ function home_img($amm, $page_no, $class)
                         <div class="commentbox">
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="textarea" name="newcomment" placeholder="Enter your comment">
+                                    <input class="input is-large" type="textarea" name="newcomment" placeholder="Enter your comment" required>
                                     <input type = "text" name="imageid" value="' . $i . '" style = "display:none">
                                 </div>
                                 <button type="submit" class="button is-light" name = "submit" value = "submit">Submit</button>	

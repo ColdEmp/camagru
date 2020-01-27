@@ -28,14 +28,14 @@ function verification_email($username,$email,$verification_token)
 Hello $username
 
 Thank you for signing up!
-Your account has been created, you can login to Camaguru after you have activated your account by following the link below.
+Your account has been created, you can login to Camagru after you have activated your account by following the link below.
 
 http://127.0.0.1:8080/camagru/log/email_verification.php?username=$username&verification_token=$verification_token
 
-Camaguru team
+Camagru team
 ";
         //"http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
-        mail($email, "Camaguru user: $username", $message);
+        mail($email, "Camagru user: $username", $message);
     }
     catch(Exception $e)
     {
@@ -55,10 +55,10 @@ Hello $username_image
 
 User $username_comment has commented on one of your images!
 
-Camaguru team
+Camagru team
 ";
         //"http://127.0.0.1:8080/camagru/log/email_verification.php?username=" . $username . "&verification_token=" . $verification_token;
-        mail($email_image, "Camaguru user: $username_image", $message);
+        mail($email_image, "Camagru user: $username_image", $message);
     }
     catch(Exception $e)
     {
@@ -99,7 +99,7 @@ If you requested this password reset email please follow the link below to set a
 
 http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
 
-Camaguru team
+Camagru team
 ";
         mail($email, "Camagru password reset: $username", $message);
     }
@@ -119,7 +119,7 @@ Hello $username
 A password reset was requested for this account, but this account has not been verified yet.
 Please check your email for a verification email and verify your account before requesting a password reset.
 
-Camaguru team
+ team
 ";
         mail($email, "Camagru forgot password: $username", $message);
     }
@@ -136,9 +136,9 @@ function forgot_password_not_exist($email)
         $message = "
 Hello
 
-A password reset was requested for an account linked to this email, but there is no Camaguru account linked to this email.
+A password reset was requested for an account linked to this email, but there is no  account linked to this email.
 
-Camaguru team
+ team
 ";
         mail($email, "Camagru account does not exist", $message);
     }
