@@ -26,6 +26,5 @@ $item = "test";
 //remove_like(1,"test");
 //remove_item("comments", "commentid", $x);
 //verification_email($username,$email,"");
-remove_comment(5);
-print_r("Runs");
+header("Location: ../index.php");
 ?>
