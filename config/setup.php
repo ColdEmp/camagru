@@ -20,7 +20,7 @@ catch(PDOException $e)
 $statement = $connection->prepare("CREATE DATABASE IF NOT EXISTS $dbname");
 if($statement->execute())
 {
-    echo "Success Database<br />";
+  //  echo "Success Database<br />";
 }
 //mysqli_query($connection,"CREATE DATABASE IF NOT EXISTS camagru_db");
 //$db = mysqli_connect($host,"server01","Password@php1","camagru_db");
@@ -39,7 +39,7 @@ $notifications = "notifications BOOLEAN DEFAULT TRUE";
 $statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Users ($userid,$username,$email,$userpass,$verification_token,$verified,$notifications)");
 if($statement->execute())
 {
-    echo "Success Users<br />";
+    //echo "Success Users<br />";
 }
 // mysqli_query($connection,"CREATE TABLE IF NOT EXISTS Users ($username,$firstname,$surname,$password,$email,$notification_pref)");
 
@@ -51,7 +51,7 @@ $image_src = "image_src LONGBLOB";
 $statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Images ($imageid,$userid,$image_src)");
 if($statement->execute())
 {
-    echo "Success Images<br />";
+  //  echo "Success Images<br />";
 }
 // mysqli_query($connection,"CREATE TABLE IF NOT EXISTS Images ($image,$imagename,$uploader,$date_created,$edited)");
 
@@ -63,7 +63,7 @@ $comment_text = "comment_text TEXT(5000)";
 $statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Comments ($commentid,$imageid,$userid,$comment_text)");
 if($statement->execute())
 {
-    echo "Success Comments<br />";
+   // echo "Success Comments<br />";
 }
 
 //like table
@@ -73,8 +73,8 @@ $userid = "userid INT";
 $statement = $connection->prepare("CREATE TABLE IF NOT EXISTS Likes ($likeid,$imageid,$userid)");
 if($statement->execute())
 {
-    echo "Success Likes<br />";
+  //  echo "Success Likes<br />";
 }
-header("Location: ../index.php");
+//header("Location: ../index.php");
 
 ?>
