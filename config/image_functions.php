@@ -1,5 +1,5 @@
 <?PHP
-include_once 'index.php';
+//include_once 'index.php';
 
 function retrieve_img($i, $class)
 {
@@ -112,6 +112,10 @@ function home_img($amm, $page_no, $class)
         $image = 0;
         while ($image < $amm)
         {
+            if ($max == 0)
+            {
+                break;
+            }
             $i = $arr[$max - 1];
             $page = $_GET['page'];
             $j = 0;
@@ -199,6 +203,10 @@ function edit_img($amm, $page_no, $class, $userid)
         $image = 0;
         while ($image < $amm)
         {
+            if ($max == 0)
+            {
+                break;
+            }
             $i = $arr[$max - 1];
             $page = $_GET['page'];
             if (ver_img($i) == 0)
