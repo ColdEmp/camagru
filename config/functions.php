@@ -30,7 +30,7 @@ Hello $username
 Thank you for signing up!
 Your account has been created, you can login to Camagru after you have activated your account by following the link below.
 
-http://127.0.0.1:8080/camagru/log/email_verification.php?username=$username&verification_token=$verification_token
+http://localhost/camagru/log/email_verification.php?username=$username&verification_token=$verification_token
 
 Camagru team
 ";
@@ -97,7 +97,7 @@ Hello $username
 
 If you requested this password reset email please follow the link below to set a new password.
 
-http://127.0.0.1:8080/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
+http://localhost/camagru/pages/forgotPass.php?username=$username&verification_token=$verification_token
 
 Camagru team
 ";
